@@ -26,7 +26,7 @@ Create directories, and copy raw sequencing files
 
 ```shell
 conda activate sunbeam
-mkdir 00_rawdata 01_cutadapt 02_trimmomatic 03_komplexity 04_decontam 05_taxonomy 06_assembly 07_annotation 08_abundcalc 09_binning 10_dimred 11_diffabund
+mkdir 00_rawdata 01_cutadapt 02_trimmomatic 03_komplexity 04_decontam 05_taxonomy 06_assembly 07_annotation 08_abundcalc 09_binning
 mv *.fastq 00_rawdata
 cd 00_rawdata/
 ls *_1.fastq.gz > ../filelist
@@ -364,8 +364,8 @@ for i in `cat filelist`
 	/software/sample-master/sample -k 3000000 -o -p 08_abundcalc/${k}_nohead.sam >> 08_abundcalc/${k}_3M.sam
 	samtools view -bS 08_abundcalc/${k}_3M.sam -o 08_abundcalc/${k}_3M.bam
 	rm 08_abundcalc/*sam
-    samtools sort 08_abundcalc/${k}_3M.bam -o 08_abundcalc/${k}.sorted.bam -@ 10
-    /software/jgi_summarize_bam_contig_depths --outputDepth 08_abundcalc/${k}.depth.txt 08_abundcalc/${k}.sorted.bam
+	samtools sort 08_abundcalc/${k}_3M.bam -o 08_abundcalc/${k}.sorted.bam -@ 10
+	/software/jgi_summarize_bam_contig_depths --outputDepth 08_abundcalc/${k}.depth.txt 08_abundcalc/${k}.sorted.bam
 	done
 ```
 
@@ -437,14 +437,12 @@ mkdir 04_decontam/remain
 mv 04_decontam/remain*.fastq 04_decontam/remain/ ## move the redundant remain_1.fastq remain_2.fastq to a separate folder
 cat 06_assembly/*/final_contigs.fa > 06_assembly/all_contigs.fa
 metawrap binning -o 09_binning/binning -t 10 -a 06_assembly/all_contigs.fa --metabat2 --maxbin2 --concoct 04_decontam/*.fastq
-metawrap bin_refinement -o 09_binning/bin_refine -t 10 -A 09_binning/binning/metabat2_bins/ -B 09_binning/binning/maxbin2_bins/ -C 09_binning/binning/concoct_bins/ -c 0 -x 100 ## remove all contamination/completeness cutoff to retain as many refined bins as possible
+metawrap bin_refinement -o 09_binning/bin_refine -t 10 -A 09_binning/binning/metabat2_bins/ -B 09_binning/binning/maxbin2_bins/ -C 09_binning/binning/concoct_bins/ -c 0 -x 100 ## remove contamination/completeness cutoff to retain as many refined bins as possible
 mkdir 09_binning/bin_refine/metawrap_50_10_bins/
-cat 09_binning/bin_refine/metawrap_0_100_bins.stats |gawk '$2>=50 && $3<=10 {print "cp 09_binning/bin_refine/metawrap_0_100_bins/"$1".fa 09_binning/bin_refine/metawrap_50_10_bins/."}' ##store completeness>=50% & contamination<=10% bins to a separate folder for further refinement
-metawrap blobology -a 06_assembly/all_contigs.fa -t 96 -o 09_binning/blobology --bins 09_binning/bin_refine/metawrap_50_10_bins 04_decontam/*fastq
+cat 09_binning/bin_refine/metawrap_0_100_bins.stats |gawk '$2>=50 && $3<=10 {print "cp 09_binning/bin_refine/metawrap_0_100_bins/"$1".fa 09_binning/bin_refine/metawrap_50_10_bins/."}' ## store completeness >= 50% & contamination <= 10% bins to a separate folder for further analyses
+metawrap blobology -a 06_assembly/all_contigs.fa -t 30 -o 09_binning/blobology --bins 09_binning/bin_refine/metawrap_50_10_bins 04_decontam/*fastq
 metawrap quant_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/quant_bins -a 06_assembly/all_contigs.fa 04_decontam/*fastq
-metawrap reassemble_bins -o 09_binning/reassembly -1 04_decontam/*1.fastq -2 04_decontam/*2.fastq -t 96 -m 800 -c 50 -x 10 -b 09_binning/bin_refine/metawrap_50_10_bins ##check to see whether bin stats improve after re-assembly
-metawrap classify_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/orig_taxa -t 48 ## original bins
-metawrap classify_bins -b 09_binning/reassembly/reassembled_bins -o 09_binning/reassemble_taxa -t 48 ## reassembled bins
+metawrap reassemble_bins -o 09_binning/reassembly -1 04_decontam/*1.fastq -2 04_decontam/*2.fastq -t 30 -m 800 -c 50 -x 10 -b 09_binning/bin_refine/metawrap_50_10_bins ##check to see whether bin stats improve after re-assembly
+metawrap classify_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/orig_taxa -t 30 ## original bins
+metawrap classify_bins -b 09_binning/reassembly/reassembled_bins -o 09_binning/reassemble_taxa -t 30 ## reassembled bins
 ```
-
-## 12. Dimensionality reduction
