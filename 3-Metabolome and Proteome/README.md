@@ -1,4 +1,3 @@
-
 ## 1. Metabolome
 
 The raw data from mass spectrometer was imported into commercial software Progenesis QI (version 2.2, hereinafter referred to as QI) for peak picking (https://www.nonlinear.com/progenesis/qi/), to obtain information of metabolites such as mass over charge, retention time and ion area. The QI workflow consists of the following steps: peak alignment, peak picking, and peak identification. 
@@ -11,7 +10,7 @@ Pre-processing of raw peak data was performed using metaX (https://www.bioconduc
 - Using QC-RSC (Quality control-based robust LOESS signal correction) method to alleviate the effects of peak area attenuation
 - Filtering out ions in all QC samples which are RSD > 30% (the ions with RSD > 30% are fluctuate greatly in the experiment and will not be included in downstream statistical analysis)
 
-The metabolite identification was performed using the function metaboliteAnnotation() by searching HMDB (v5.0), METLIN (v3.7.1) and KEGG (v96.0) databases. The data from positive ion mode and negative ion mode were processed separately.
+Taken the analysis of positive ion mode for example:
 
 ```R
 library(metaX)
@@ -36,4 +35,6 @@ save(p, file="pos.rda")
 sessionInfo()
 ```
 
-The resultant metabolome data matrix are uploaded as metabolome.txt
+The metabolite identification was performed using the function metaboliteAnnotation() by searching HMDB (v5.0), METLIN (v3.7.1) and KEGG (v96.0) databases. 
+
+The resultant metabolome data are uploaded as metabolome.txt
