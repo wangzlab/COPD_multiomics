@@ -122,6 +122,49 @@ for i in `cat filelist`
 	done
 ```
 
+Use below perl script to merge Kraken 2 output to a matrix file
+
+```perl
+#!bin/perl
+
+use strict;
+open (IN, "filelist");
+while (<IN>) {
+	chop;
+	my $id = ($_ =~ /(\S+)_1.fastq/);
+	open (IN1, "05_taxonomy/$id-taxa.tsv");
+	my $dump=<IN1>;
+	while (<IN1>) {
+		chop;
+		next if (/d__Eukaryota/);
+		next unless (/s__/);
+		@a=split("\t",$_);
+		$taxa{$id}{$a[0]}=$a[1];
+		$trans_taxa{$a[0]}{$id}=$a[1];
+	}
+}
+open (OUT, ">05_taxonomy/taxonomy.txt");
+print OUT "#SampleID";
+for my $key (sort keys %taxa) {
+	print OUT "\t$key";
+}
+print OUT "\n";
+for my $key (sort keys %trans_taxa) {
+	print OUT $key;
+	for my $key2 (sort keys %taxa) {
+		if (exists $trans_taxa{$key}{$key2}) {
+			print OUT "\t$trans_taxa{$key}{$key2}";
+		}
+		else {
+			print OUT "\t0.0";
+		}
+	}
+	print OUT "\n";
+}
+```
+
+The file generated in this step was uploaded as taxonomy.txt in this github folder
+
 ## 8. Megahit assembly
 
 Uni-assembly for samples whose are data >= 500M, co-assembly for samples whose data are < 500M
@@ -328,7 +371,80 @@ for i in `cat filelist`
 
 Aggregate gene depth file to KEGG orthologues using below perl script
 
+```perl
+#!bin/perl
+use strict;
+my %ko=();
+my %depth=();
+my %sampleid=();
+
+open (IN, "07_annotation/all.orf.300bp.fa.95.90.kegg.annotation.out");
+while (<IN>) {
+	chop;
+	my @a=split("\t",$_);
+	if ($a[2] =~ /(K\d+)/) {
+		($ko{$a[0]}) = ($a[2] =~ /(K\d+)/);
+		$ko{$ko{$a[0]}}=1;
+	}
+}
+close IN;
+
+open (IN, "filelist");
+while (<IN>) {
+	chop;
+	my $id=$_;
+	$sampleid{$id}=1;
+	open (IN1, "08_abundcalc/$id.depth.txt");
+	my $dump=<IN1>;
+	while (<IN1>) {
+		chop;
+		s/^(\S+)[^\t]{0,}\t/$1\t/g;
+		my @a=split("\t",$_);
+		if (exists $ko{$a[0]}) {
+			$depth{$ko{$a[0]}}{$id}+=$a[2];
+		}
+	}
+}
+
+open (OUT, ">metagenome.txt");
+print OUT "#SampleID";
+for my $key (sort keys %sampleid) {
+	print OUT "\t$key";
+}
+print OUT "\n";
+for my $key (sort keys %ko) {
+	print OUT $key;
+	for my $key2 (sort keys %sampleid) {
+		if (exists $depth{$key}{$key2}) {
+			print OUT "\t$depth{$key}{$key2}";
+		}
+		else {
+			print OUT "\t0.0";
+		}
+	}
+	print OUT "\n";
+}
+```
+
+The file generated in this step was uploaded as metagenome.txt in this github folder.
+
 ## 11. Binning
 
 Binning using metawrap pipeline
 
+```shell
+mkdir 04_decontam/remain 
+mv 04_decontam/remain*.fastq 04_decontam/remain/ ## move the redundant remain_1.fastq remain_2.fastq to a separate folder
+cat 06_assembly/*/final_contigs.fa > 06_assembly/all_contigs.fa
+metawrap binning -o 09_binning/binning -t 10 -a 06_assembly/all_contigs.fa --metabat2 --maxbin2 --concoct 04_decontam/*.fastq
+metawrap bin_refinement -o 09_binning/bin_refine -t 10 -A 09_binning/binning/metabat2_bins/ -B 09_binning/binning/maxbin2_bins/ -C 09_binning/binning/concoct_bins/ -c 0 -x 100 ## remove all contamination/completeness cutoff to retain as many refined bins as possible
+mkdir 09_binning/bin_refine/metawrap_50_10_bins/
+cat 09_binning/bin_refine/metawrap_0_100_bins.stats |gawk '$2>=50 && $3<=10 {print "cp 09_binning/bin_refine/metawrap_0_100_bins/"$1".fa 09_binning/bin_refine/metawrap_50_10_bins/."}' ##store completeness>=50% & contamination<=10% bins to a separate folder for further refinement
+metawrap blobology -a 06_assembly/all_contigs.fa -t 96 -o 09_binning/blobology --bins 09_binning/bin_refine/metawrap_50_10_bins 04_decontam/*fastq
+metawrap quant_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/quant_bins -a 06_assembly/all_contigs.fa 04_decontam/*fastq
+metawrap reassemble_bins -o 09_binning/reassembly -1 04_decontam/*1.fastq -2 04_decontam/*2.fastq -t 96 -m 800 -c 50 -x 10 -b 09_binning/bin_refine/metawrap_50_10_bins ##check to see whether bin stats improve after re-assembly
+metawrap classify_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/orig_taxa -t 48 ## original bins
+metawrap classify_bins -b 09_binning/reassembly/reassembled_bins -o 09_binning/reassemble_taxa -t 48 ## reassembled bins
+```
+
+## 12. Dimensionality reduction
