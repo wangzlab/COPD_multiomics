@@ -435,15 +435,26 @@ Binning using metawrap pipeline
 
 ```shell
 mkdir 04_decontam/remain 
+
 mv 04_decontam/remain*.fastq 04_decontam/remain/ ## move the redundant remain_1.fastq remain_2.fastq to a separate folder
+
 cat 06_assembly/*/final_contigs.fa > 06_assembly/all_contigs.fa
+
 metawrap binning -o 09_binning/binning -t 10 -a 06_assembly/all_contigs.fa --metabat2 --maxbin2 --concoct 04_decontam/*.fastq
+
 metawrap bin_refinement -o 09_binning/bin_refine -t 10 -A 09_binning/binning/metabat2_bins/ -B 09_binning/binning/maxbin2_bins/ -C 09_binning/binning/concoct_bins/ -c 0 -x 100 ## remove contamination/completeness cutoff to retain as many refined bins as possible
+
 mkdir 09_binning/bin_refine/metawrap_50_10_bins/
+
 cat 09_binning/bin_refine/metawrap_0_100_bins.stats |gawk '$2>=50 && $3<=10 {print "cp 09_binning/bin_refine/metawrap_0_100_bins/"$1".fa 09_binning/bin_refine/metawrap_50_10_bins/."}' ## store completeness >= 50% & contamination <= 10% bins to a separate folder for further analyses
+
 metawrap blobology -a 06_assembly/all_contigs.fa -t 30 -o 09_binning/blobology --bins 09_binning/bin_refine/metawrap_50_10_bins 04_decontam/*fastq
+
 metawrap quant_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/quant_bins -a 06_assembly/all_contigs.fa 04_decontam/*fastq
+
 metawrap reassemble_bins -o 09_binning/reassembly -1 04_decontam/*1.fastq -2 04_decontam/*2.fastq -t 30 -m 800 -c 50 -x 10 -b 09_binning/bin_refine/metawrap_50_10_bins ##check to see whether bin stats improve after re-assembly
+
 metawrap classify_bins -b 09_binning/bin_refine/metawrap_50_10_bins -o 09_binning/orig_taxa -t 30 ## original bins
+
 metawrap classify_bins -b 09_binning/reassembly/reassembled_bins -o 09_binning/reassemble_taxa -t 30 ## reassembled bins
 ```
