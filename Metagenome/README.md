@@ -9,6 +9,7 @@ Software:
 - NCBI-Blast (v2.9.0): https://ftp.ncbi.nlm.nih.gov/blast/executables/
 - CD-HIT (v4.8.1): http://weizhong-lab.ucsd.edu/cd-hit/
 - BBMap (v38.44): https://sourceforge.net/projects/bbmap/
+- MetaWRAP (v1.2.1): https://github.com/bxlab/metaWRAP
 - Bioperl module (v5.26.2): https://bioperl.org/
 
 
