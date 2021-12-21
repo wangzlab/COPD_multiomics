@@ -119,7 +119,6 @@ for i in `cat filelist |sed -e 's/.gz//'`
     	fi
     done
 echo "remain_1.fastq" >> assemblelist
-cd ..
 
 for i in `cat assemblelist`
 	do 
@@ -129,7 +128,20 @@ for i in `cat assemblelist`
 	done
 ```
 
-Use a customized script to rename, combine and select contigs greater than 300bp
+## 8. Functional annotation
+
+prodigal for ORF identification
+
+```shell
+for i in `cat assemblelist`
+	do 
+	j = ${i/_1./_2.}
+	k = ${i%%_*}
+	prodigal -i ${k}/final.contigs.fa -a ${k}/proteins.faa -d ${k}/nucleotides.fna -o ${k}/coord.gff -f gff -p meta -m
+	done
+```
+
+Use a customized script to rename, combine and select ORF nucleotide sequences greater than 300bp
 
 For example, save below perl script as rename_contigs.pl, which use bioperl to filter sequences below 300bp
 
@@ -143,11 +155,11 @@ use Bio::SeqIO;
 open (IN, "assemblelist");
 while (<IN>) {
 	my $input = ($_ =~ /(\S+)_1.fastq/);
-	my $seq_in = Bio::SeqIO -> new( -format => 'fasta', -file => "06_assembly/$input/final.contigs.fa"); 
-	my $seq_out = Bio::SeqIO -> new (-format => 'fasta', -file => ">06_assembly/$input/final.contigs.rename.300bp.fa");
+	my $seq_in = Bio::SeqIO -> new( -format => 'fasta', -file => "06_assembly/$input/nucleotides.fna"); 
+	my $seq_out = Bio::SeqIO -> new (-format => 'fasta', -file => ">06_assembly/$input/nucleotides.rename.300bp.fa");
 	my %length = (); 
 	my %sequence = ();
-	while (my $seq = $seq_in -> next_seq()) { #read each sequence into $seq and push them into array
+	while (my $seq = $seq_in -> next_seq()) {
 		my $seqid = $seq -> id;
 		$seqid = $input."-".$seqid;
 		my $seqlength = $seq -> length;
@@ -165,10 +177,17 @@ while (<IN>) {
 
 ```shell
 perl rename_contigs.pl 
-cat 06_assembly/*/final.contigs.rename.300bp.fa > 06_assembly/all_contigs.300bp.fa
+cat 06_assembly/*/nucleotides.rename.300bp.fa > 07_annotation/all.orf.300bp.fa
 ```
 
-## 8. Functional annotation
+CD-HIT for de-redundancy
 
-CD-HIT for de-redundancy, prodigal for ORF identification, diamond for alignment to KEGG database
+```shell
+cd-hit-est -i 07_annotation/all.orf.300bp.fa -o 07_annotation/all.orf.300bp.fa.95.90 -c 0.95 -n 8 -M 10200 -aS 0.9 -T 20 -d 0 -G 0 -g 1
+```
 
+diamond for alignment to KEGG database
+
+```shell
+diamond blastx -p 10 -d /software/databases/KEGG_database/KEGG_database_all_protein.dmnd -q all.orf.300bp.fa.95.90 -e 1e-4 -k 5 --sensitive -o all.orf.300bp.fa.95.90.kegg.annotation.out -f 6 qseqid sseqid stitle pident length qlen slen mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp
+```
