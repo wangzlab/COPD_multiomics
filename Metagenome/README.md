@@ -52,7 +52,7 @@ mkdir 02_trimmomatic/unpaired
 for i in `cat filelist`
 	do 
 	j = ${i/_1./_2.}
-	trimmomatic PE -threads 5 -phred33 01_cutadapt/$i 01_cutadapt/$j 02_trimmomatic/$i 02_trimmomatic/unpaired/$i 02_trimmomatic/$j 02_trimmomatic/unpaired/$j ILLUMINACLIP:/bigdata/yangjh/miniconda3/envs/sunbeam/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:8:true LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
+	trimmomatic PE -threads 5 -phred33 01_cutadapt/$i 01_cutadapt/$j 02_trimmomatic/$i 02_trimmomatic/unpaired/$i 02_trimmomatic/$j 02_trimmomatic/unpaired/$j ILLUMINACLIP:/bigdata/miniconda3/envs/sunbeam/share/trimmomatic-0.36-6/adapters/NexteraPE-PE.fa:2:30:10:8:true LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:36
 	done
 ```
 
