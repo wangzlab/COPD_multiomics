@@ -1,17 +1,39 @@
-## 1. Data preparation
+## 1. Software and database required
 
-Install sunbeam (https://sunbeam.readthedocs.io/en/latest/), create directories, and copy raw sequencing files
+Software:
+
+- Sunbeam (v2.1): https://sunbeam.readthedocs.io/en/latest/
+- Kraken 2 (v2.0.8): https://ccb.jhu.edu/software/kraken2/
+- Megahit (v1.1.3): https://github.com/voutcn/megahit
+- Prodigal (v2.6.3): https://github.com/hyattpd/Prodigal
+- NCBI-Blast (v2.9.0): https://ftp.ncbi.nlm.nih.gov/blast/executables/
+- CD-HIT (v4.8.1): http://weizhong-lab.ucsd.edu/cd-hit/
+- BBMap (v38.44): https://sourceforge.net/projects/bbmap/
+- Bioperl module (v5.26.2): https://bioperl.org/
+
+
+
+Database: 
+
+- Human genome database (hg38): https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/
+- Kraken 2 standard database: https://benlangmead.github.io/aws-indexes/k2
+- KEGG protein sequence database: https://www.genome.jp/dbget/
+- 6,530 representative bacterial genome database (manually curated, available upon request)
+
+## 2. Data preparation
+
+Create directories, and copy raw sequencing files
 
 ```shell
 conda activate sunbeam
-mkdir 00_rawdata 01_cutadapt 02_trimmomatic 03_komplexity 04_decontam 05_taxonomy 06_assembly 07_annotation 08_binning 09_dimred 10_diffabund
+mkdir 00_rawdata 01_cutadapt 02_trimmomatic 03_komplexity 04_decontam 05_taxonomy 06_assembly 07_annotation 08_abundcalc 09_binning 10_dimred 11_diffabund
 mv *.fastq 00_rawdata
 cd 00_rawdata/
 ls *_1.fastq.gz > ../filelist
 cd ..
 ```
 
-## 2. Adaptor trimming
+## 3. Adaptor trimming
 
 ```shell
 for i in `cat filelist`
@@ -21,7 +43,7 @@ for i in `cat filelist`
 	done
 ```
 
-## 3. Quality trimming
+## 4. Quality trimming
 
 ```shell
 mkdir 02_trimmomatic/unpaired
@@ -33,7 +55,7 @@ for i in `cat filelist`
 	done
 ```
 
-## 4. Low complexity reads removal
+## 5. Low complexity reads removal
 
 ```shell
 for i in `cat filelist`
@@ -52,9 +74,9 @@ for i in `cat filelist`
 	done
 ```
 
-## 5. Decontamination
+## 6. Decontamination
 
-Download human reference genome hg38 (https://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/)
+Download human reference genome hg38
 
 Download the script decontam.py from this github folder to your current working directory
 
@@ -85,9 +107,11 @@ for i in `cat filelist`
 	done
 ```
 
-## 6. Kraken2 taxonomic annotation
+## 7. Kraken2 taxonomic annotation
 
-Download and build standard kraken2 database (https://github.com/DerrickWood/kraken2/wiki/Manual)
+Download and build standard kraken2 database
+
+Kraken2 taxonomic annotation (read-based)
 
 ```shell
 for i in `cat filelist`
@@ -98,9 +122,9 @@ for i in `cat filelist`
 	done
 ```
 
-## 7. Megahit assembly
+## 8. Megahit assembly
 
-Co-assembly for samples whose clean sequencing data are < 500M
+Uni-assembly for samples whose are data >= 500M, co-assembly for samples whose data are < 500M
 
 ```shell
 gzip 04_decontam/*.fastq.gz
@@ -128,7 +152,7 @@ for i in `cat assemblelist`
 	done
 ```
 
-## 8. Functional annotation
+## 9. Functional annotation
 
 prodigal for ORF identification
 
@@ -180,14 +204,131 @@ perl rename_contigs.pl
 cat 06_assembly/*/nucleotides.rename.300bp.fa > 07_annotation/all.orf.300bp.fa
 ```
 
-CD-HIT for de-redundancy
+CD-HIT to generate non-redundant gene catalogue
 
 ```shell
 cd-hit-est -i 07_annotation/all.orf.300bp.fa -o 07_annotation/all.orf.300bp.fa.95.90 -c 0.95 -n 8 -M 10200 -aS 0.9 -T 20 -d 0 -G 0 -g 1
 ```
 
-diamond for alignment to KEGG database
+functional annotation by alignment to KEGG database
 
 ```shell
-diamond blastx -p 10 -d /software/databases/KEGG_database/KEGG_database_all_protein.dmnd -q all.orf.300bp.fa.95.90 -e 1e-4 -k 5 --sensitive -o all.orf.300bp.fa.95.90.kegg.annotation.out -f 6 qseqid sseqid stitle pident length qlen slen mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp
+diamond blastx -p 10 -d /software/databases/KEGG_database/KEGG_database_all_protein.dmnd -q 07_annotation/all.orf.300bp.fa.95.90 -e 1e-4 -k 1 --sensitive -o 07_annotation/all.orf.300bp.fa.95.90.kegg.annotation.out -f 6 qseqid sseqid stitle pident length qlen slen mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp
 ```
+
+The functional annotation file is saved as: all.orf.300bp.fa.95.90.kegg.annotation.out
+
+taxonomic annotation (gene-based) by BLASTn to a manually curated bacterial genome database (6,530 representative genomes, available upon request)
+
+```shell
+blastn -query 07_annotation/all.orf.300bp.fa.95.90 -db /software/databases/bacterial_genomes/6530set.all.fa -outfmt 6 -out 07_annotation/all.orf.300bp.6530set_cov0.8_id0.65.btab -max_target_seqs 99999 -perc_identity 0.65 -qcov_hsp_perc 0.8 -evalue 0.01
+```
+
+Download 6530set_taxonomy.txt and save it and below perl script as gene_level_taxa_assign.pl in 07_annotation folder
+
+```perl
+#!bin/perl
+use strict;
+
+my %count=();
+my %species=();
+my %phylum=();
+my %count=();
+my %subcount=();
+my %hit=();
+
+open (IN, "6530set_taxonomy.txt");
+while (<IN>) {
+	chop;
+	my @a=split("\t",$_);
+	$species{$a[0]}=$a[2];
+	$genus{$a[0]}=$a[3];
+	$phylum{$a[0]}=$a[4];
+}
+
+open (IN, "all.orf.300bp.6530set_cov0.8_id0.65.btab");
+while (<IN>) {
+	chop;
+	my @a=split("\t",$_);
+	$count{$a[0]} ++;
+	($genome)=($a[1] =~ /(GCA_\d+\.\d)/);
+	if (! exists $hit{$a[0]}{$genome} or $a[11]>$hit{$a[0]}{$genome}) {
+		$hit{$a[0]}{$genome}=$a[11];
+	}
+}
+for my $key (keys %count) {
+	my $consensus=sprintf('%.0f',$count{$key}*0.5);
+	if ($consensus < 1) {
+		$subcount{$a[0]}=1;
+	}
+	else {
+		$subcount{$a[0]}=$consensus;
+	}
+
+}
+open (OUT, ">all.orf.300bp.taxa.annotation.out");
+for my $key (keys %hit) {
+	my $line=1;
+	my %allspecies=();
+	my %allgenus=();
+	my %allphylum=();
+	for my $key2 (sort {$hit{$key}{$b}<=>$hit{$key}{$a}} keys %{$hit{$key}}) {
+		last if ($line>$subcount{$key});
+		$allspecies{$species{$key2}}++;
+		$allgenus{$genus{$key2}}++;
+		$allphylum{$phylum{$key2}}++;
+		$line++;
+	}
+	@species=sort {$allspecies{$b}<=>$allspecies{$a}} keys %allspecies;
+	@genus=sort {$allgenus{$b}<=>$allgenus{$a}} keys %allgenus;
+	@phylum=sort {$allphylum{$b}<=>$allphylum{$a}} keys %allphylum;
+	if ($allspecies{$species[0]}/$subcount{$key}>=0.95) {
+		print OUT $key."\t"."Species"."\t".$species[0]."\n";
+	}
+	elsif ($allgenus{$genus[0]}/$subcount{$key}>=0.85) {
+		print OUT $key."\t"."Genus"."\t".$genus[0]."\n";
+	}
+	elsif ($allphylum{$phylum[0]}/$subcount{$key}>=0.65) {
+		print OUT $key."\t"."Phylum"."\t".$phylum[0]."\n";
+	}
+	else {
+		print OUT $key."\tUnclassified\n";
+	}
+}
+```
+
+```shell
+perl gene_level_taxa_assign.pl
+```
+
+The gene-level taxonomic annotation was saved as all.orf.300bp.taxa.annotation.out
+
+## 10. Gene abundance calculation
+
+Mapping clean reads of each sample to the non-redundant gene catalogue
+
+Downsize all bam to at most 3M reads to adjust for sequencing depth
+
+```shell
+for i in `cat filelist`
+	do 
+	j = ${i/_1./_2.}
+	k = ${i%%_*}
+	/software/bbmap/bbmap.sh ref=07_annotation/all.orf.300bp.fa.95.90 in=04_decontam/$i in2=04_decontam/$j out=08_abundcalc/${k}.bam k=13 minid=0.90 thread=20 nodisk=true rpkm=08_abundcalc/${k}.rpkm
+	samtools view -F 4 08_abundcalc/${k}.bam -o 08_abundcalc/${k}.sam
+	grep '^\@' 08_abundcalc/${k}.sam 08_abundcalc/${k}_3M.sam
+	grep -v '^\@' 08_abundcalc/${k}.sam 08_abundcalc/${k}_noheader.sam
+	/software/sample-master/sample -k 3000000 -o -p 08_abundcalc/${k}_nohead.sam >> 08_abundcalc/${k}_3M.sam
+	samtools view -bS 08_abundcalc/${k}_3M.sam -o 08_abundcalc/${k}_3M.bam
+	rm 08_abundcalc/*sam
+    samtools sort 08_abundcalc/${k}_3M.bam -o 08_abundcalc/${k}.sorted.bam -@ 10
+    /software/jgi_summarize_bam_contig_depths --outputDepth 08_abundcalc/${k}.depth.txt 08_abundcalc/${k}.sorted.bam
+	done
+```
+
+Aggregate gene depth file to KEGG orthologues using below perl script
+
+## 11. Binning
+
+Binning using metawrap pipeline
+
