@@ -143,7 +143,7 @@ MediationAnalysis_parallel(Treat.omic = "MetaG", Mediator.omic = "MetaB",
                            Treat.omic.sigModules = MetaG.sigMods,
                            Mediator.omic.sigModules = MetaB.sigMods,
                            log.file = "mediation.parallel.log",
-			  			   outputDir = "2_Mediation",
+                           outputDir = "2_Mediation",
                            threads = 25)
 MetaG.MetaB.NEU_medres <- fread("2_Mediation/MetaG_affects_NEU_through_MetaB_parallel.txt")
 
@@ -157,7 +157,7 @@ MediationAnalysis_parallel(Treat.omic = "MetaB", Mediator.omic = "HostT",
                            Treat.omic.sigModules = MetaB.sigMods,
                            Mediator.omic.sigModules = HostT.sigMods,
                            log.file = "mediation.parallel.log",
-			               outputDir = "2_Mediation",
+                           outputDir = "2_Mediation",
                            threads = 25)
 MetaB.HostT.NEU_medres <- fread("2_Mediation/MetaB_affects_NEU_through_HostT_parallel.txt")
 
@@ -170,8 +170,64 @@ MediationAnalysis_parallel(Treat.omic = "HostT", Mediator.omic = "HostP",
                            meta.mediate = "source.data/meta.mediation.NEU.txt", Y = "NEU",
                            Treat.omic.sigModules = HostT.sigMods,
                            Mediator.omic.sigModules = HostP.sigFeatures,
-			               outputDir = "2_Mediation",
+                           outputDir = "2_Mediation",
                            threads = 25)
 HostT.HostP.NEU_medres <- fread("2_Mediation/HostT_affects_NEU_through_HostP_parallel.txt")
 ```
 
+## 5. Biological links identification
+
+```R
+ko2cmpd(dbDir = "database")
+
+#' The ko2cmpd function generates information on substrates, products and substrate&products (in the format of metacyc compound names) for each KO number. 
+#' Users should provide the path to a database directory, which must contain the belowing files:
+#' ko01000.keg; metacyc_reactions.txt. 
+#' This function should be run when the user goes through the pipeline for the first time and whenever the user updated the "ko01000.keg" and "metacyc_reactions.txt" files. 
+#' Intermediate and resulting files in the format of RData will be stored in the same database directory.
+
+
+ko2metabo(dbDir = "database")
+#' The ko2metabo function generates information on substrates, products and substrate&products (in the format of metabolomic ids) for each KO number. 
+#' Users should provide the path to a database directory, which must contain the cmpd2metabo.txt file and KO2CMPD.lists.RData  file.
+#' This function should be run after the ko2cmpd() function
+#' Resulting files in the format of RData will be stored in the same database directory.
+
+# The MetaG.MetaB.link function allows you to identify MetaG - MetaB module pairs with biological links. 
+# user should provide a metabo.KEGGmodule.match_file
+
+MetaG.MetaB.links <- MetaG.MetaB.link( MetaG.MetaB.NEU_medres, 
+                                       MetaG_module.feature_file =  "database/KEGG_modules.tab", 
+                                       KO2METABO_file = "database/KO2METABO.lists.RData", ## this is an output
+                                       MetaB_module.feature_file = "1_DimReduction/metaB.module_assign.txt",
+                                       MetaB_quantity_file = "source.data/metabolome.txt",
+                                       MetaG_quantity_file = "source.data/metagenome.gct",
+                                       metabo.KEGGmodule.match_file = "database/Metabo.KEGGModule.match.txt",
+                                       output.dir = "3_Biological_Links",
+                                       ACME.p.co = 0.1)
+
+# The  MetaB.HostT.links  function allows you to identify MetaB - HostT module pairs with biological links.  
+# User prepares a  metabo2CIDm file using the perl scripts provided on github.
+
+MetaB.HostT.links <- MetaB.HostT.link(mediation.res = MetaB.HostT.NEU_medres,
+                                      MetaB_quantity_file = "source.data/metabolome.txt",  
+                                      MetaB_module.feature_file = "1_DimReduction/metaB.module_assign.txt", 
+                                      HostT_quantity_file = "source.data/transcriptome.txt", 
+                                      HostT_module.feature_file = "1_DimReduction/hostT.module_assign.txt", 
+                                      METABO2CIDm_file =  "database/metabo2CIDm.txt",  
+                                      CIDm.receptor_file = "database/all_cidm_receptor.txt",  
+                                      output.dir = "3_Biological_Links",
+                                      ACME.p.co = 0.1) 
+# hostT-hostP links ------------
+# The HostT.HostP.link function allows you to identify biological linkes between HostT modules and HostP features.
+# User should provide a protein.gene_file and a Pthway2Gene_file . 
+
+HostT.HostP.links <- HostT.HostP.link(mediation.res = HostT.HostP.NEU_medres,
+                                      HostT_quantity_input = "source.data/transcriptome.txt",
+                                      HostP_quantity_input = HostP.data,
+                                      HostT_module.feature_file = "1_DimReduction/hostT.module_assign.txt",
+                                      HostP_protein.gene_file = "database/protein_info.txt",
+                                      Pthway2Gene_file = "database/pathway.gmt",
+                                      output.dir = "3_Biological_Links",
+                                      ACME.p.co = 0.1)
+```
