@@ -108,7 +108,7 @@ MetaB.Mod.dat <- MetaB.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% 
 MetaB.sigMods <- glm.sigModules(input.ds = MetaB.Mod.dat,
                                 meta.file="source.data/meta.txt", 
                                 glm.family = "binomial",
-                                glm.p = 0.25)
+                                glm.p = 0.1)
 # organize HostT data into a dataframe with rownames being modules and colnames being samples
 HostT.Mod.dat <- fread("1_DimReduction/hostT.module_eigengene.txt",data.table = F)
 #  dplyr::filter(!grepl("#",`#NAME`,fixed=T)) 
@@ -118,12 +118,12 @@ HostT.Mod.dat <- HostT.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% 
 HostT.sigMods <- glm.sigModules(input.ds = HostT.Mod.dat,
                                 meta.file="source.data/meta.txt",
                                 glm.family = "binomial",
-                                glm.p = 0.25)
+                                glm.p = 0.1)
 # identify HostP significant modules -------
 HostP.data <- data.frame(fread("source.data/sputum_cyto.txt"), row.names = 1 )
 HostP.sigFeatures <- glm.sigModules(input.ds = HostP.data,
                                     meta.file="source.data/meta.txt",
                                 glm.family = "binomial",
-                                glm.p = 0.25)
+                                glm.p = 0.1)
 ```
 
