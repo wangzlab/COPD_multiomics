@@ -69,15 +69,61 @@ Dimensionality reduction for metagenome data
 ssGSEA2(input.ds = "source.data/metagenome.gct", 
         gene.set.databases = "source.data/KEGG_modules.gmt",
         output.prefix = "metaG", outputDir = "1_DimReduction",
-        min.overlap = 2, weight = 0, statistic = 'area.under.RES', output.score.type = "NES", nperm = 50,
+        min.overlap = 2, weight = 0, statistic = 'area.under.RES', output.score.type = "NES", nperm = 100,
         export.signat.gct = F, 
         par = T, spare.cores = 5)
 ```
+
+The enrichment scores for all KEGG modules are saved as: 1_DimReduction/metaG-combined.gct 
 
 Dimensionality reduction for host transcriptome and metabolome data
 
 ```R
 wgcna(input.ds = "source.data/transcriptome.txt", output.prefix = "hostT", outputDir = "1_DimReduction")
 wgcna(input.ds = "source.data/metabolome.txt", output.prefix = "metaB", outputDir = "1_DimReduction")
+```
+
+The metabolome module eigengenes are saved as: 1_DimReduction/metaB.module_eigengene.txt
+
+The metabolome module assignment are saved as: 1_DimReduction/metaB.module_assign.txt
+
+The transcriptome module eigengenes are saved as: 1_DimReduction/hostT.module_eigengene.txt
+
+The transcriptome module assignment are saved as: 1_DimReduction/hostT.module_assign.txt
+
+## 3. Module association with COPD
+
+```R
+MetaG.sigMods <- glm.sigModules(input.ds = "1_DimReduction/metaG-combined.gct", 
+                                meta.file="source.data/meta.txt",
+                                glm.family = "binomial",
+                                glm.p = 0.1)
+
+# organize MetaB data into a dataframe with rownames being modules and colnames being samples
+MetaB.Mod.dat <- fread("1_DimReduction/metaB.module_eigengene.txt",data.table = F) 
+#  dplyr::filter(!grepl("#",`#NAME`,fixed=T)) 
+#MetaB.Mod.dat[-1] <- sapply(MetaB.Mod.dat[-1], as.numeric)
+MetaB.Mod.dat <- MetaB.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% data.frame()
+# then identify metaB significant modules ------
+MetaB.sigMods <- glm.sigModules(input.ds = MetaB.Mod.dat,
+                                meta.file="source.data/meta.txt", 
+                                glm.family = "binomial",
+                                glm.p = 0.25)
+# organize HostT data into a dataframe with rownames being modules and colnames being samples
+HostT.Mod.dat <- fread("1_DimReduction/hostT.module_eigengene.txt",data.table = F)
+#  dplyr::filter(!grepl("#",`#NAME`,fixed=T)) 
+#HostT.Mod.dat[-1] <- sapply(HostT.Mod.dat[-1], as.numeric)
+HostT.Mod.dat <- HostT.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% data.frame()
+# then identify HostT significant modules ------
+HostT.sigMods <- glm.sigModules(input.ds = HostT.Mod.dat,
+                                meta.file="source.data/meta.txt",
+                                glm.family = "binomial",
+                                glm.p = 0.25)
+# identify HostP significant modules -------
+HostP.data <- data.frame(fread("source.data/sputum_cyto.txt"), row.names = 1 )
+HostP.sigFeatures <- glm.sigModules(input.ds = HostP.data,
+                                    meta.file="source.data/meta.txt",
+                                glm.family = "binomial",
+                                glm.p = 0.25)
 ```
 
