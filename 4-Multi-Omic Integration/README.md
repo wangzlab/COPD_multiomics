@@ -108,7 +108,7 @@ MetaB.Mod.dat <- MetaB.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% 
 MetaB.sigMods <- glm.sigModules(input.ds = MetaB.Mod.dat,
                                 meta.file="source.data/meta.txt", 
                                 glm.family = "binomial",
-                                glm.p = 0.1)
+                                glm.p = 0.25)
 # organize HostT data into a dataframe with rownames being modules and colnames being samples
 HostT.Mod.dat <- fread("1_DimReduction/hostT.module_eigengene.txt",data.table = F)
 #  dplyr::filter(!grepl("#",`#NAME`,fixed=T)) 
@@ -118,12 +118,60 @@ HostT.Mod.dat <- HostT.Mod.dat %>% tibble::column_to_rownames("V1") %>% t() %>% 
 HostT.sigMods <- glm.sigModules(input.ds = HostT.Mod.dat,
                                 meta.file="source.data/meta.txt",
                                 glm.family = "binomial",
-                                glm.p = 0.1)
+                                glm.p = 0.25)
 # identify HostP significant modules -------
 HostP.data <- data.frame(fread("source.data/sputum_cyto.txt"), row.names = 1 )
 HostP.sigFeatures <- glm.sigModules(input.ds = HostP.data,
                                     meta.file="source.data/meta.txt",
-                                glm.family = "binomial",
-                                glm.p = 0.1)
+                                    glm.family = "binomial",
+                                    glm.p = 0.25)
+```
+
+The significant module/feature IDs are stored in MetaG.sigMods, MetaB.sigMods, HostT.sigMods and HostP.sigFeatures.
+
+## 4. Mediation analysis
+
+Take mediation analysis for COPD neutrophilic inflammation as an example.
+
+```R
+# MetaG modules affects NEU through MetaB modules  -----------
+
+MediationAnalysis_parallel(Treat.omic = "MetaG", Mediator.omic = "MetaB", 
+                           Treat.omic.input = "1_DimReduction/metaG-combined.gct",
+                           Mediator.omic.input = MetaB.Mod.dat,
+                           meta.mediate = "source.data/meta.mediation.txt", Y = "NEU",
+                           Treat.omic.sigModules = MetaG.sigMods,
+                           Mediator.omic.sigModules = MetaB.sigMods,
+                           log.file = "mediation.parallel.log",
+			  			   outputDir = "2_Mediation",
+                           threads = 25)
+MetaG.MetaB.NEU_medres <- fread("2_Mediation/MetaG_affects_NEU_through_MetaB_parallel.txt")
+
+
+# MetaB modules affects NEU through HostT modules -----------
+
+MediationAnalysis_parallel(Treat.omic = "MetaB", Mediator.omic = "HostT", 
+                           Treat.omic.input = MetaB.Mod.dat,
+                           Mediator.omic.input = HostT.Mod.dat,
+                           meta.mediate = "source.data/meta.mediation.txt", Y = "NEU",
+                           Treat.omic.sigModules = MetaB.sigMods,
+                           Mediator.omic.sigModules = HostT.sigMods,
+                           log.file = "mediation.parallel.log",
+			               outputDir = "2_Mediation",
+                           threads = 25)
+MetaB.HostT.NEU_medres <- fread("2_Mediation/MetaB_affects_NEU_through_HostT_parallel.txt")
+
+
+# HostT modules affects NEU through HostP features ----------- 
+
+MediationAnalysis_parallel(Treat.omic = "HostT", Mediator.omic = "HostP", 
+                           Treat.omic.input = HostT.Mod.dat,
+                           Mediator.omic.input = HostP.data,
+                           meta.mediate = "source.data/meta.mediation.NEU.txt", Y = "NEU",
+                           Treat.omic.sigModules = HostT.sigMods,
+                           Mediator.omic.sigModules = HostP.sigFeatures,
+			               outputDir = "2_Mediation",
+                           threads = 25)
+HostT.HostP.NEU_medres <- fread("2_Mediation/HostT_affects_NEU_through_HostP_parallel.txt")
 ```
 
