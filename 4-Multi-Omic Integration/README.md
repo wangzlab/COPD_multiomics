@@ -4,7 +4,7 @@ Install packages, set the working directory, and load functions.
 
 Under the directory there needs to be a "function" directory with all the R function files, a "source.data" directory with all the omic quantification data and a "database" directory which contains all the database-related files.
 
-The omic data file include: metagenome.gct, metabolome.txt, transcriptome.txt, sputum_proteome.txt and serum_proteome.txt
+The processed omic data tables include: metagenome.gct, metabolome.txt, transcriptome.txt, sputum_proteome.txt and serum_proteome.txt
 
 The function and database directories should be directly downloaded from this github.
 
