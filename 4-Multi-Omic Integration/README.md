@@ -189,7 +189,7 @@ ko2cmpd(dbDir = "database")
 
 ko2metabo(dbDir = "database")
 #' The ko2metabo function generates information on substrates, products and substrate&products (in the format of metabolomic ids) for each KO number. 
-#' Users should provide the path to a database directory, which must contain the cmpd2metabo.txt file and KO2CMPD.lists.RData  file.
+#' Users should provide the path to a database directory, which must contain the cmpd2metabo.txt file and KO2CMPD.lists.RData file.
 #' This function should be run after the ko2cmpd() function
 #' Resulting files in the format of RData will be stored in the same database directory.
 
@@ -231,3 +231,5 @@ HostT.HostP.links <- HostT.HostP.link(mediation.res = HostT.HostP.NEU_medres,
                                       output.dir = "3_Biological_Links",
                                       ACME.p.co = 0.1)
 ```
+
+
