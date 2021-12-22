@@ -4,9 +4,11 @@ Install packages, set the working directory, and load functions. Each analytical
 
 Under the directory there needs to be a "function" directory with all the R function files, a "source.data" directory with all the omic quantification data and a "database" directory which contains all the database-related files.
 
-The processed omic data tables include: metagenome.gct, metabolome.txt, transcriptome.txt, sputum_proteome.txt and serum_proteome.txt
+Place these omic data tables into source.data directory: metagenome.gct, metabolome.txt, transcriptome.txt, sputum_proteome.txt and serum_proteome.txt
 
-The function and database directories should be directly downloaded from this github.
+Place the meta.txt (all subjects with Disease and confounder columns), meta.mediation.txt (COPD subjects with dependent variable [NEU or EOS] and confounder columns) into source data directory.
+
+The function and database directories can be directly downloaded from this github.
 
 ```R
 install.packages("pacman")
@@ -300,7 +302,7 @@ The output of the random forest analysis should be saved in 4_RandomForest/predi
 ## 6. Driver taxa analysis
 
 ```R
-# 1) generates KO abundance files for each species excluded
+# 1) generates KO abundance files with each species iteratively excluded
 
 #' The LOSO.ko function allows you to perform LOSO (leave one species out) analysis. 
 #' Users should provide 1) gene quantification data, 2) information about Species annotaion of bins, 3) connection between bins and genes through scaffold ids, and 4) KO annotaion of genes. 
