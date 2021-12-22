@@ -39,8 +39,12 @@ sessionInfo()
 
 The processed metabolome data are uploaded as metabolome.txt
 
+The detailed information for each metabolite, including KEGG/HMDB/METLIN/PubChem/ChEBI IDs, SMILES structure, class and pathway is uploaded as compound_information.txt
+
 ## 2. Sputum and serum proteome
 
 A panel of 280 proteins were measured using custom Quantibody Human Antibody Array (test procedure no. SOP-TF-QAH-001, SOP-TF-QAH-003 microarray) from RayBiotech (https://www.raybiotech.com/inflammation-protein-arrays/).
 
 The processed sputum and serum proteome data are uploaded as sputum_proteome.txt and serum_proteome.txt
+
+The detailed information of the 280 proteins is uploaded as protein_information.txt
