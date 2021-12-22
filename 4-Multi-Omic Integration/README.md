@@ -66,7 +66,7 @@ library(ranger)
 Dimensionality reduction for metagenome data
 
 ```R
-ssGSEA2(input.ds = "source.data/metagenome.gct", 
+ssGSEA2(input.ds = "source.data/metagenome.gct", ## the metagenome.gct is the relative abundance of KOs after arcsin z-score normalization and z-score standardization 
         gene.set.databases = "source.data/KEGG_modules.gmt",
         output.prefix = "metaG", outputDir = "1_DimReduction",
         min.overlap = 2, weight = 0, statistic = 'area.under.RES', output.score.type = "NES", nperm = 100,
