@@ -38,3 +38,9 @@ sessionInfo()
 The metabolite identification was performed using the function metaboliteAnnotation() by searching HMDB (v5.0), METLIN (v3.7.1) and KEGG (v96.0) databases. 
 
 The resultant metabolome data are uploaded as metabolome.txt
+
+## 2. Sputum and serum proteome
+
+A panel of 280 proteins were measured using custom Quantibody Human Antibody Array (test procedure no. SOP-TF-QAH-001, SOP-TF-QAH-003 microarray) from RayBiotech (https://www.raybiotech.com/inflammation-protein-arrays/).
+
+The resultant sputum and serum proteome data are uploaded as sputum_proteome.txt and serum_proteome.txt
