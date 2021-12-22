@@ -1,0 +1,281 @@
+Target	Uniprot	GeneName	GeneID	Description
+2B4	Q9BZW8	CD244 2B4	51744	Natural killer cell receptor 2B4 (NK cell activation-inducing ligand) (NAIL) (NK cell type I receptor protein 2B4) (NKR2B4) (h2B4) (SLAM family member 4) (SLAMF4) (Signaling lymphocytic activation molecule 4) (CD antigen CD244)
+4-1BB	Q07011	TNFRSF9 CD137 ILA	3604	Tumor necrosis factor receptor superfamily member 9 (4-1BB ligand receptor) (CDw137) (T-cell antigen 4-1BB homolog) (T-cell antigen ILA) (CD antigen CD137)
+6Ckine	O00585	CCL21 SCYA21 UNQ784/PRO1600	6366	C-C motif chemokine 21 (6Ckine) (Beta-chemokine exodus-2) (Secondary lymphoid-tissue chemokine) (SLC) (Small-inducible cytokine A21)
+Activin A	P08476	INHBA	3624	Inhibin beta A chain (Activin beta-A chain) (Erythroid differentiation protein) (EDF)
+ADAM9	Q13443	ADAM9 KIAA0021 MCMP MDC9 MLTNG	8754	Disintegrin and metalloproteinase domain-containing protein 9 (ADAM 9) (EC 3.4.24.-) (Cellular disintegrin-related protein) (Meltrin-gamma) (Metalloprotease/disintegrin/cysteine-rich protein 9) (Myeloma cell metalloproteinase)
+Adiponectin	Q15848	ADIPOQ ACDC ACRP30 APM1 GBP28	9370	Adiponectin (30 kDa adipocyte complement-related protein) (Adipocyte complement-related 30 kDa protein) (ACRP30) (Adipocyte, C1q and collagen domain-containing protein) (Adipose most abundant gene transcript 1 protein) (apM-1) (Gelatin-binding protein)
+Adipsin	P00746	CFD DF PFD	1675	Complement factor D (EC 3.4.21.46) (Adipsin) (C3 convertase activator) (Properdin factor D)
+AFP	P02771	AFP HPAFP	174	Alpha-fetoprotein (Alpha-1-fetoprotein) (Alpha-fetoglobulin)
+AgRP	O00253	AGRP AGRT ART	181	Agouti-related protein
+ALCAM	Q13740	ALCAM MEMD	214	CD166 antigen (Activated leukocyte cell adhesion molecule) (CD antigen CD166)
+ANG-1	Q15389	ANGPT1 KIAA0003	284	Angiopoietin-1 (ANG-1)
+ANG-2	O15123	ANGPT2	285	Angiopoietin-2 (ANG-2)
+Angiogenin	P03950	ANG RNASE5	283	Angiogenin (EC 3.1.27.-) (Ribonuclease 5) (RNase 5)
+Angiostatin	P00747	PLG	5340	Plasminogen (EC 3.4.21.7) [Cleaved into: Plasmin heavy chain A; Activation peptide; Angiostatin; Plasmin heavy chain A, short form; Plasmin light chain B]
+ANGPTL4	Q9BY76	ANGPTL4 ARP4 HFARP PGAR PP1158 PSEC0166 UNQ171/PRO197	51129	Angiopoietin-related protein 4 (Angiopoietin-like protein 4) (Hepatic fibrinogen/angiopoietin-related protein) (HFARP)
+APRIL	O75888	TNFSF13 APRIL TALL2 ZTNF2 UNQ383/PRO715	8741	Tumor necrosis factor ligand superfamily member 13 (A proliferation-inducing ligand) (APRIL) (TNF- and APOL-related leukocyte expressed ligand 2) (TALL-2) (TNF-related death ligand 1) (TRDL-1) (CD antigen CD256)
+AR	P15514	AREG AREGB SDGF	374	Amphiregulin (AR) (Colorectum cell-derived growth factor) (CRDGF)
+Axl	P30530	AXL UFO	558	Tyrosine-protein kinase receptor UFO (EC 2.7.10.1) (AXL oncogene)
+B2M	P61769	B2M CDABP0092 HDCMA22P	567	Beta-2-microglobulin [Cleaved into: Beta-2-microglobulin form pI 5.3]
+B7-1	P33681	CD80 CD28LG CD28LG1 LAB7	941	T-lymphocyte activation antigen CD80 (Activation B7-1 antigen) (BB1) (CTLA-4 counter-receptor B7.1) (B7) (CD antigen CD80)
+BCAM	P50895	BCAM LU MSK19	4059	Basal cell adhesion molecule (Auberger B antigen) (B-CAM cell surface glycoprotein) (F8/G253 antigen) (Lutheran antigen) (Lutheran blood group glycoprotein) (CD antigen CD239)
+BCMA	Q02223	TNFRSF17 BCM BCMA	608	Tumor necrosis factor receptor superfamily member 17 (B-cell maturation protein) (CD antigen CD269)
+BDNF	P23560	BDNF	627	Brain-derived neurotrophic factor (BDNF) (Abrineurin)
+bFGF	P09038	FGF2 FGFB	2247	Fibroblast growth factor 2 (FGF-2) (Basic fibroblast growth factor) (bFGF) (Heparin-binding growth factor 2) (HBGF-2)
+BLC	O43927	CXCL13 BCA1 BLC SCYB13	10563	C-X-C motif chemokine 13 (Angie) (B cell-attracting chemokine 1) (BCA-1) (B lymphocyte chemoattractant) (CXC chemokine BLC) (Small-inducible cytokine B13)
+BMP-2	P12643	BMP2 BMP2A	650	Bone morphogenetic protein 2 (BMP-2) (Bone morphogenetic protein 2A) (BMP-2A)
+BMP-4	P12644	BMP4 BMP2B DVR4	652	Bone morphogenetic protein 4 (BMP-4) (Bone morphogenetic protein 2B) (BMP-2B)
+BMP-5	P22003	BMP5	653	Bone morphogenetic protein 5 (BMP-5)
+BMP-7	P18075	BMP7 OP1	655	Bone morphogenetic protein 7 (BMP-7) (Osteogenic protein 1) (OP-1) (Eptotermin alfa)
+BMP-9	Q9UK05	GDF2 BMP9	2658	Growth/differentiation factor 2 (GDF-2) (Bone morphogenetic protein 9) (BMP-9)
+b-NGF	P01138	NGF NGFB	4803	Beta-nerve growth factor (Beta-NGF)
+BTC	P35070	BTC	685	Probetacellulin [Cleaved into: Betacellulin (BTC)]
+C5a	P01031	C5 CPAMD4	727	Complement C5 (C3 and PZP-like alpha-2-macroglobulin domain-containing protein 4) [Cleaved into: Complement C5 beta chain; Complement C5 alpha chain; C5a anaphylatoxin; Complement C5 alpha' chain]
+CA125	Q8WXI7	MUC16 CA125	94025	Mucin-16 (MUC-16) (Ovarian cancer-related tumor marker CA125) (CA-125) (Ovarian carcinoma antigen CA125)
+CA15-3	P15941	MUC1 PUM	4582	Mucin-1 (MUC-1) (Breast carcinoma-associated antigen DF3) (Cancer antigen 15-3) (CA 15-3) (Carcinoma-associated mucin) (Episialin) (H23AG) (Krebs von den Lungen-6) (KL-6) (PEMT) (Peanut-reactive urinary mucin) (PUM) (Polymorphic epithelial mucin) (PEM) (Tumor-associated epithelial membrane antigen) (EMA) (Tumor-associated mucin) (CD antigen CD227) [Cleaved into: Mucin-1 subunit alpha (MUC1-NT) (MUC1-alpha); Mucin-1 subunit beta (MUC1-beta) (MUC1-CT)]
+Cathepsin L	P07711	CTSL CTSL1	1514	Cathepsin L1 (EC 3.4.22.15) (Cathepsin L) (Major excreted protein) (MEP) [Cleaved into: Cathepsin L1 heavy chain; Cathepsin L1 light chain]
+Cathepsin S	P25774	CTSS	1520	Cathepsin S (EC 3.4.22.27)
+CCL28	Q9NRJ3	CCL28 SCYA28	56477	C-C motif chemokine 28 (Mucosae-associated epithelial chemokine) (MEC) (Protein CCK1) (Small-inducible cytokine A28)
+CD14	P08571	CD14	929	Monocyte differentiation antigen CD14 (Myeloid cell-specific leucine-rich glycoprotein) (CD antigen CD14) [Cleaved into: Monocyte differentiation antigen CD14, urinary form; Monocyte differentiation antigen CD14, membrane-bound form]
+CD200	P41217	CD200 MOX1 MOX2 My033	4345	OX-2 membrane glycoprotein (CD antigen CD200)
+CD30	P28908	TNFRSF8 CD30 D1S166E	943	Tumor necrosis factor receptor superfamily member 8 (CD30L receptor) (Ki-1 antigen) (Lymphocyte activation antigen CD30) (CD antigen CD30)
+CD40	P25942	CD40 TNFRSF5	958	Tumor necrosis factor receptor superfamily member 5 (B-cell surface antigen CD40) (Bp50) (CD40L receptor) (CDw40) (CD antigen CD40)
+CD40L	P29965	CD40LG CD40L TNFSF5 TRAP	959	CD40 ligand (CD40-L) (T-cell antigen Gp39) (TNF-related activation protein) (TRAP) (Tumor necrosis factor ligand superfamily member 5) (CD antigen CD154) [Cleaved into: CD40 ligand, membrane form; CD40 ligand, soluble form]
+CD97	P48960	CD97	976	CD97 antigen (Leukocyte antigen CD97) (CD antigen CD97) [Cleaved into: CD97 antigen subunit alpha; CD97 antigen subunit beta]
+CEA	P06731	CEACAM5 CEA	1048	Carcinoembryonic antigen (CEA). In humans, the carcinoembryonic antigen family consists of 29 genes, 18 of which are normally expressed.
+CEACAM-1	P13688	CEACAM1 BGP BGP1	634	Carcinoembryonic antigen-related cell adhesion molecule 1 (Biliary glycoprotein 1) (BGP-1) (CD antigen CD66a)
+Chemerin	Q99969	RARRES2 TIG2	5919	Retinoic acid receptor responder protein 2 (Chemerin) (RAR-responsive protein TIG2) (Tazarotene-induced gene 2 protein)
+Contactin-2	Q02246	CNTN2 AXT TAG1 TAX1	6900	Contactin-2 (Axonal glycoprotein TAG-1) (Axonin-1) (Transient axonal glycoprotein 1) (TAX-1)
+Cripto-1	P13385	TDGF1 CRIPTO	6997	Teratocarcinoma-derived growth factor 1 (Cripto-1 growth factor) (CRGF) (Epidermal growth factor-like cripto protein CR1)
+CRP	P02741	CRP PTX1	1401	C-reactive protein [Cleaved into: C-reactive protein(1-205)]
+CTACK	Q9Y4X3	CCL27 ILC SCYA27	10850	C-C motif chemokine 27 (CC chemokine ILC) (Cutaneous T-cell-attracting chemokine) (CTACK) (ESkine) (IL-11 R-alpha-locus chemokine) (Skinkine) (Small-inducible cytokine A27)
+CXCL16	Q9H2A7	CXCL16 SCYB16 SRPSOX UNQ2759/PRO6714	58191	C-X-C motif chemokine 16 (Scavenger receptor for phosphatidylserine and oxidized low density lipoprotein) (SR-PSOX) (Small-inducible cytokine B16) (Transmembrane chemokine CXCL16)
+DAN	O95453	PARN DAN	5073	Poly(A)-specific ribonuclease PARN (EC 3.1.13.4) (Deadenylating nuclease) (Deadenylation nuclease) (Polyadenylate-specific ribonuclease)
+DcR3	O95407	TNFRSF6B DCR3 TR6 UNQ186/PRO212	8771	Tumor necrosis factor receptor superfamily member 6B (Decoy receptor 3) (DcR3) (Decoy receptor for Fas ligand) (M68)
+DKK-1	O94907	DKK1 UNQ492/PRO1008	22943	Dickkopf-related protein 1 (Dickkopf-1) (Dkk-1) (hDkk-1) (SK)
+DR6	O75509	TNFRSF21 DR6 UNQ437/PRO868	27242	Tumor necrosis factor receptor superfamily member 21 (Death receptor 6) (CD antigen CD358)
+Dtk	Q06418	TYRO3 BYK DTK RSE SKY TIF	7301	Tyrosine-protein kinase receptor TYRO3 (EC 2.7.10.1) (Tyrosine-protein kinase BYK) (Tyrosine-protein kinase DTK) (Tyrosine-protein kinase RSE) (Tyrosine-protein kinase SKY) (Tyrosine-protein kinase TIF)
+E-Cadherin	P12830	CDH1 CDHE UVO	999	Cadherin-1 (CAM 120/80) (Epithelial cadherin) (E-cadherin) (Uvomorulin) (CD antigen CD324) [Cleaved into: E-Cad/CTF1; E-Cad/CTF2; E-Cad/CTF3]
+EGF	P01133	EGF	1950	Pro-epidermal growth factor (EGF) [Cleaved into: Epidermal growth factor (Urogastrone)]
+EGF R	P00533	EGFR ERBB ERBB1 HER1	1956	Epidermal growth factor receptor (EC 2.7.10.1) (Proto-oncogene c-ErbB-1) (Receptor tyrosine-protein kinase erbB-1)
+EG-VEGF	P58294	PROK1 UNQ600/PRO1186	84432	Prokineticin-1 (Endocrine-gland-derived vascular endothelial growth factor) (EG-VEGF) (Mambakine)
+ENA-78	P42830	CXCL5 ENA78 SCYB5	6374	C-X-C motif chemokine 5 (ENA-78(1-78)) (Epithelial-derived neutrophil-activating protein 78) (Neutrophil-activating peptide ENA-78) (Small-inducible cytokine B5) [Cleaved into: ENA-78(8-78); ENA-78(9-78)]
+Endoglin	P17813	ENG END	2022	Endoglin (CD antigen CD105)
+Eotaxin	P51671	CCL11 SCYA11	6356	Eotaxin (C-C motif chemokine 11) (Eosinophil chemotactic protein) (Small-inducible cytokine A11)
+Eotaxin-2	O00175	CCL24 MPIF2 SCYA24	6369	C-C motif chemokine 24 (CK-beta-6) (Eosinophil chemotactic protein 2) (Eotaxin-2) (Myeloid progenitor inhibitory factor 2) (MPIF-2) (Small-inducible cytokine A24)
+Eotaxin-3	Q9Y258	CCL26 SCYA26 UNQ216/PRO242	10344	C-C motif chemokine 26 (CC chemokine IMAC) (Eotaxin-3) (Macrophage inflammatory protein 4-alpha) (MIP-4-alpha) (Small-inducible cytokine A26) (Thymic stroma chemokine-1) (TSC-1)
+EpCAM	P16422	EPCAM GA733-2 M1S2 M4S1 MIC18 TACSTD1 TROP1	4072	Epithelial cell adhesion molecule (Ep-CAM) (Adenocarcinoma-associated antigen) (Cell surface glycoprotein Trop-1) (Epithelial cell surface antigen) (Epithelial glycoprotein) (EGP) (Epithelial glycoprotein 314) (EGP314) (hEGP314) (KS 1/4 antigen) (KSA) (Major gastrointestinal tumor-associated protein GA733-2) (Tumor-associated calcium signal transducer 1) (CD antigen CD326)
+ErbB2	P04626	ERBB2 HER2 MLN19 NEU NGL	2064	Receptor tyrosine-protein kinase erbB-2 (EC 2.7.10.1) (Metastatic lymph node gene 19 protein) (MLN 19) (Proto-oncogene Neu) (Proto-oncogene c-ErbB-2) (Tyrosine kinase-type cell surface receptor HER2) (p185erbB2) (CD antigen CD340)
+ErbB3	P21860	ERBB3 HER3	2065	Receptor tyrosine-protein kinase erbB-3 (EC 2.7.10.1) (Proto-oncogene-like protein c-ErbB-3) (Tyrosine kinase-type cell surface receptor HER3)
+E-Selectin	P16581	SELE ELAM1	6401	E-selectin (CD62 antigen-like family member E) (Endothelial leukocyte adhesion molecule 1) (ELAM-1) (Leukocyte-endothelial cell adhesion molecule 2) (LECAM2) (CD antigen CD62E)
+FABP2	P12104	FABP2 FABPI	2169	Fatty acid-binding protein, intestinal (Fatty acid-binding protein 2) (Intestinal-type fatty acid-binding protein) (I-FABP)
+FAP	Q12884	FAP	2191	Prolyl endopeptidase FAP (EC 3.4.21.26) (170 kDa melanoma membrane-bound gelatinase) (Dipeptidyl peptidase FAP) (EC 3.4.14.5) (Fibroblast activation protein alpha) (FAPalpha) (Gelatine degradation protease FAP) (EC 3.4.21.-) (Integral membrane serine protease) (Post-proline cleaving enzyme) (Serine integral membrane protease) (SIMP) (Surface-expressed protease) (Seprase) [Cleaved into: Antiplasmin-cleaving enzyme FAP, soluble form (APCE) (EC 3.4.14.5) (EC 3.4.21.-) (EC 3.4.21.26)]
+Fas	P25445	FAS APT1 FAS1 TNFRSF6	355	Tumor necrosis factor receptor superfamily member 6 (Apo-1 antigen) (Apoptosis-mediating surface antigen FAS) (FASLG receptor) (CD antigen CD95)
+FAS L	P48023	FASLG APT1LG1 CD95L FASL TNFSF6	356	Tumor necrosis factor ligand superfamily member 6 (Apoptosis antigen ligand) (APTL) (CD95 ligand) (CD95-L) (Fas antigen ligand) (Fas ligand) (FasL) (CD antigen CD178) [Cleaved into: Tumor necrosis factor ligand superfamily member 6, membrane form; Tumor necrosis factor ligand superfamily member 6, soluble form (Receptor-binding FasL ectodomain) (Soluble Fas ligand) (sFasL); ADAM10-processed FasL form (APL); FasL intracellular domain (FasL ICD) (SPPL2A-processed FasL form) (SPA)]
+Fcg RIIBC	P31994/P31995	FCGR2B	2213;9103	Low affinity immunoglobulin gamma Fc region receptor II-b (IgG Fc receptor II-b) (CDw32) (Fc-gamma RII-b) (Fc-gamma-RIIb) (FcRII-b) (CD antigen CD32); Low affinity immunoglobulin gamma Fc region receptor II-c (IgG Fc receptor II-c) (CDw32) (Fc-gamma RII-c) (Fc-gamma-RIIc) (FcRII-c) (CD antigen CD32)
+Ferritin	P02794	FTH1 FTH FTHL6 OK/SW-cl.84 PIG15	2495	Ferritin heavy chain (Ferritin H subunit) (EC 1.16.3.1) (Cell proliferation-inducing gene 15 protein) [Cleaved into: Ferritin heavy chain, N-terminally processed]
+FGF-19	O95750	FGF19 UNQ334/PRO533	9965	Fibroblast growth factor 19 (FGF-19)
+FGF-4	P08620	FGF4 HST HSTF1 KS3	2249	Fibroblast growth factor 4 (FGF-4) (Heparin secretory-transforming protein 1) (HST) (HST-1) (HSTF-1) (Heparin-binding growth factor 4) (HBGF-4) (Transforming protein KS3)
+FGF-7	P21781	FGF7 KGF	2252	Fibroblast growth factor 7 (FGF-7) (Heparin-binding growth factor 7) (HBGF-7) (Keratinocyte growth factor)
+Flt-3L	P49771	FLT3LG	2323	Fms-related tyrosine kinase 3 ligand (Flt3 ligand) (Flt3L) (SL cytokine)
+Follistatin	P19883	FST	10468	Follistatin (FS) (Activin-binding protein)
+FSH	P01215/P01225	CGA/FSHB	1081;2488	Glycoprotein hormones alpha chain (Anterior pituitary glycoprotein hormones common subunit alpha) (Choriogonadotropin alpha chain) (Chorionic gonadotrophin subunit alpha) (CG-alpha) (Follicle-stimulating hormone alpha chain) (FSH-alpha) (Follitropin alpha chain) (Luteinizing hormone alpha chain) (LSH-alpha) (Lutropin alpha chain) (Thyroid-stimulating hormone alpha chain) (TSH-alpha) (Thyrotropin alpha chain); Follitropin subunit beta (Follicle-stimulating hormone beta subunit) (FSH-B) (FSH-beta) (Follitropin beta chain)
+Galectin-3	P17931	LGALS3 MAC2	3958	Galectin-3 (Gal-3) (35 kDa lectin) (Carbohydrate-binding protein 35) (CBP 35) (Galactose-specific lectin 3) (Galactoside-binding protein) (GALBP) (IgE-binding protein) (L-31) (Laminin-binding protein) (Lectin L-29) (Mac-2 antigen)
+Galectin-7	P47929	LGALS7 PIG1; LGALS7B	3963;653499	Galectin-7 (Gal-7) (HKL-14) (PI7) (p53-induced gene 1 protein)
+GCP-2	P80162	CXCL6 GCP2 SCYB6	6372	C-X-C motif chemokine 6 (Chemokine alpha 3) (CKA-3) (Granulocyte chemotactic protein 2) (GCP-2) (Small-inducible cytokine B6) [Cleaved into: Small-inducible cytokine B6, N-processed variant 1; Small-inducible cytokine B6, N-processed variant 2; Small-inducible cytokine B6, N-processed variant 3]
+G-CSF	P09919	CSF3 C17orf33 GCSF	1440	Granulocyte colony-stimulating factor (G-CSF) (Pluripoietin) (Filgrastim) (Lenograstim)
+GDF-15	Q99988	GDF15 MIC1 PDF PLAB PTGFB	9518	Growth/differentiation factor 15 (GDF-15) (Macrophage inhibitory cytokine 1) (MIC-1) (NSAID-activated gene 1 protein) (NAG-1) (NSAID-regulated gene 1 protein) (NRG-1) (Placental TGF-beta) (Placental bone morphogenetic protein) (Prostate differentiation factor)
+GDNF	P39905	GDNF	2668	Glial cell line-derived neurotrophic factor (hGDNF) (Astrocyte-derived trophic factor) (ATF)
+GH	P01241	GH1	2688	Somatotropin (Growth hormone) (GH) (GH-N) (Growth hormone 1) (Pituitary growth hormone)
+GITR	Q9Y5U5	TNFRSF18 AITR GITR UNQ319/PRO364	8784	Tumor necrosis factor receptor superfamily member 18 (Activation-inducible TNFR family receptor) (Glucocorticoid-induced TNFR-related protein) (CD antigen CD357)
+GM-CSF	P04141	CSF2 GMCSF	1437	Granulocyte-macrophage colony-stimulating factor (GM-CSF) (Colony-stimulating factor) (CSF) (Molgramostin) (Sargramostim)
+gp130	P40189	IL6ST	3572	Interleukin-6 receptor subunit beta (IL-6 receptor subunit beta) (IL-6R subunit beta) (IL-6R-beta) (IL-6RB) (CDw130) (Interleukin-6 signal transducer) (Membrane glycoprotein 130) (gp130) (Oncostatin-M receptor subunit alpha) (CD antigen CD130)
+GRO	P09341/P19875/P19876	CXCL1/CXCL2/CXCL3	2919;2920;2921	Growth-regulated alpha protein (C-X-C motif chemokine 1) (GRO-alpha(1-73)) (Melanoma growth stimulatory activity) (MGSA) (Neutrophil-activating protein 3) (NAP-3) [Cleaved into: GRO-alpha(4-73); GRO-alpha(5-73); GRO-alpha(6-73)]; C-X-C motif chemokine 2 (Growth-regulated protein beta) (Gro-beta) (Macrophage inflammatory protein 2-alpha) (MIP2-alpha) [Cleaved into: GRO-beta(5-73) (GRO-beta-T) (Hematopoietic synergistic factor) (HSF) (SB-251353)]; C-X-C motif chemokine 3 (GRO-gamma(1-73)) (Growth-regulated protein gamma) (GRO-gamma) (Macrophage inflammatory protein 2-beta) (MIP2-beta) [Cleaved into: GRO-gamma(5-73)]
+GROa	P09341	CXCL1 GRO GRO1 GROA MGSA SCYB1	2919	Growth-regulated alpha protein (C-X-C motif chemokine 1) (GRO-alpha(1-73)) (Melanoma growth stimulatory activity) (MGSA) (Neutrophil-activating protein 3) (NAP-3) [Cleaved into: GRO-alpha(4-73); GRO-alpha(5-73); GRO-alpha(6-73)]
+HB-EGF	Q99075	HBEGF DTR DTS HEGFL	1839	Proheparin-binding EGF-like growth factor [Cleaved into: Heparin-binding EGF-like growth factor (HB-EGF) (HBEGF) (Diphtheria toxin receptor) (DT-R)]
+HCC-1	Q16627	CCL14 NCC2 SCYA14	6358	C-C motif chemokine 14 (Chemokine CC-1/CC-3) (HCC-1/HCC-3) (HCC-1(1-74)) (NCC-2) (Small-inducible cytokine A14) [Cleaved into: HCC-1(3-74); HCC-1(4-74); HCC-1(9-74)]
+HCC-4	O15467	CCL16 ILINCK NCC4 SCYA16	6360	C-C motif chemokine 16 (Chemokine CC-4) (HCC-4) (Chemokine LEC) (IL-10-inducible chemokine) (LCC-1) (Liver-expressed chemokine) (Lymphocyte and monocyte chemoattractant) (LMC) (Monotactin-1) (MTN-1) (NCC-4) (Small-inducible cytokine A16)
+hCGb	P0DN86/P0DN87	CGB3/CGB7	1082;93659;94115;94027	Choriogonadotropin subunit beta 3 (Choriogonadotropin subunit beta) (CG-beta) (Chorionic gonadotropin chain beta); Choriogonadotropin subunit beta 7
+HGF	P14210	HGF HPTA	3082	Hepatocyte growth factor (Hepatopoietin-A) (Scatter factor) (SF) [Cleaved into: Hepatocyte growth factor alpha chain; Hepatocyte growth factor beta chain]
+HGF R	P08581	MET	4233	Hepatocyte growth factor receptor (HGF receptor) (EC 2.7.10.1) (HGF/SF receptor) (Proto-oncogene c-Met) (Scatter factor receptor) (SF receptor) (Tyrosine-protein kinase Met)
+HVEM	Q92956	TNFRSF14 HVEA HVEM UNQ329/PRO509	8764	Tumor necrosis factor receptor superfamily member 14 (Herpes virus entry mediator A) (Herpesvirus entry mediator A) (HveA) (Tumor necrosis factor receptor-like 2) (TR2) (CD antigen CD270)
+I-309	P22362	CCL1 SCYA1	6346	C-C motif chemokine 1 (Small-inducible cytokine A1) (T lymphocyte-secreted protein I-309)
+ICAM-1	P05362	ICAM1	3383	Intercellular adhesion molecule 1 (ICAM-1) (Major group rhinovirus receptor) (CD antigen CD54)
+ICAM-2	P13598	ICAM2	3384	Intercellular adhesion molecule 2 (ICAM-2) (CD antigen CD102)
+ICAM-3	P32942	ICAM3	3385	Intercellular adhesion molecule 3 (ICAM-3) (CDw50) (ICAM-R) (CD antigen CD50)
+IFNab R2	P48551	IFNAR2 IFNABR IFNARB	3455	Interferon alpha/beta receptor 2 (IFN-R-2) (IFN-alpha binding protein) (IFN-alpha/beta receptor 2) (Interferon alpha binding protein) (Type I interferon receptor 2)
+IFNg	P01579	IFNG	3458	Interferon gamma (IFN-gamma) (Immune interferon)
+IGF-1	P05019	IGF1 IBP1	3479	Insulin-like growth factor I (IGF-I) (Mechano growth factor) (MGF) (Somatomedin-C)
+IGF-1R	P08069	IGF1R	3480	Insulin-like growth factor 1 receptor (EC 2.7.10.1) (Insulin-like growth factor I receptor) (IGF-I receptor) (CD antigen CD221) [Cleaved into: Insulin-like growth factor 1 receptor alpha chain; Insulin-like growth factor 1 receptor beta chain]
+IGF-2	P01344	IGF2 PP1446	3481	Insulin-like growth factor II (IGF-II) (Somatomedin-A) (T3M-11-derived growth factor) [Cleaved into: Insulin-like growth factor II; Insulin-like growth factor II Ala-25 Del; Preptin]
+IGF-2R	P11717	IGF2R MPRI	3482	Cation-independent mannose-6-phosphate receptor (CI Man-6-P receptor) (CI-MPR) (M6PR) (300 kDa mannose 6-phosphate receptor) (MPR 300) (Insulin-like growth factor 2 receptor) (Insulin-like growth factor II receptor) (IGF-II receptor) (M6P/IGF2 receptor) (M6P/IGF2R) (CD antigen CD222)
+IGFBP-1	P08833	IGFBP1 IBP1	3484	Insulin-like growth factor-binding protein 1 (IBP-1) (IGF-binding protein 1) (IGFBP-1) (Placental protein 12) (PP12)
+IGFBP-2	P18065	IGFBP2 BP2 IBP2	3485	Insulin-like growth factor-binding protein 2 (IBP-2) (IGF-binding protein 2) (IGFBP-2)
+IGFBP-3	P17936	IGFBP3 IBP3	3486	Insulin-like growth factor-binding protein 3 (IBP-3) (IGF-binding protein 3) (IGFBP-3)
+IGFBP-4	P22692	IGFBP4 IBP4	3487	Insulin-like growth factor-binding protein 4 (IBP-4) (IGF-binding protein 4) (IGFBP-4)
+IGFBP-6	P24592	IGFBP6 IBP6	3489	Insulin-like growth factor-binding protein 6 (IBP-6) (IGF-binding protein 6) (IGFBP-6)
+IL-1 R4	Q01638	IL1RL1 DER4 ST2 T1	9173	Interleukin-1 receptor-like 1 (Protein ST2)
+IL-1 R6	Q9HB29	IL1RL2 IL1RRP2	8808	Interleukin-1 receptor-like 2 (IL-36 receptor) (IL-36R) (Interleukin-1 receptor-related protein 2) (IL-1Rrp2) (IL1R-rp2)
+IL-1 RI	P14778	IL1R1 IL1R IL1RA IL1RT1	3554	Interleukin-1 receptor type 1 (IL-1R-1) (IL-1RT-1) (IL-1RT1) (CD121 antigen-like family member A) (Interleukin-1 receptor alpha) (IL-1R-alpha) (Interleukin-1 receptor type I) (p80) (CD antigen CD121a) [Cleaved into: Interleukin-1 receptor type 1, membrane form (mIL-1R1) (mIL-1RI); Interleukin-1 receptor type 1, soluble form (sIL-1R1) (sIL-1RI)]
+IL-1 RII	P27930	IL1R2 IL1RB	7850	Interleukin-1 receptor type 2 (IL-1R-2) (IL-1RT-2) (IL-1RT2) (CD121 antigen-like family member B) (CDw121b) (IL-1 type II receptor) (Interleukin-1 receptor beta) (IL-1R-beta) (Interleukin-1 receptor type II) (CD antigen CD121b) [Cleaved into: Interleukin-1 receptor type 2, membrane form (mIL-1R2) (mIL-1RII); Interleukin-1 receptor type 2, soluble form (sIL-1R2) (sIL-1RII)]
+IL-10	P22301	IL10	3586	Interleukin-10 (IL-10) (Cytokine synthesis inhibitory factor) (CSIF)
+IL-10 Rb	Q08334	IL10RB CRFB4 D21S58 D21S66	3588	Interleukin-10 receptor subunit beta (IL-10 receptor subunit beta) (IL-10R subunit beta) (IL-10RB) (Cytokine receptor class-II member 4) (Cytokine receptor family 2 member 4) (CRF2-4) (Interleukin-10 receptor subunit 2) (IL-10R subunit 2) (IL-10R2) (CD antigen CDw210b)
+IL-11	P20809	IL11	3589	Interleukin-11 (IL-11) (Adipogenesis inhibitory factor) (AGIF) (Oprelvekin)
+IL-12p40	P29460	IL12B NKSF2	3593	Interleukin-12 subunit beta (IL-12B) (Cytotoxic lymphocyte maturation factor 40 kDa subunit) (CLMF p40) (IL-12 subunit p40) (NK cell stimulatory factor chain 2) (NKSF2)
+IL-12p70	P29460/P29459	IL12A/IL12B	3593;3592	Interleukin-12 subunit alpha (IL-12A) (Cytotoxic lymphocyte maturation factor 35 kDa subunit) (CLMF p35) (IL-12 subunit p35) (NK cell stimulatory factor chain 1) (NKSF1); Interleukin-12 subunit beta (IL-12B) (Cytotoxic lymphocyte maturation factor 40 kDa subunit) (CLMF p40) (IL-12 subunit p40) (NK cell stimulatory factor chain 2) (NKSF2)
+IL-13	P35225	IL13 NC30	3596	Interleukin-13 (IL-13)
+IL-13 R1	P78552	IL13RA1 IL13R IL13RA	3597	Interleukin-13 receptor subunit alpha-1 (IL-13 receptor subunit alpha-1) (IL-13R subunit alpha-1) (IL-13R-alpha-1) (IL-13RA1) (Cancer/testis antigen 19) (CT19) (CD antigen CD213a1)
+IL-13 R2	Q14627	IL13RA2 IL13R	3598	Interleukin-13 receptor subunit alpha-2 (IL-13 receptor subunit alpha-2) (IL-13R subunit alpha-2) (IL-13R-alpha-2) (IL-13RA2) (Interleukin-13-binding protein) (CD antigen CD213a2)
+IL-15	P40933	IL15	3600	Interleukin-15 (IL-15)
+IL-16	Q14005	IL16	3603	Pro-interleukin-16 [Cleaved into: Interleukin-16 (IL-16) (Lymphocyte chemoattractant factor) (LCF)]
+IL-17	Q16552	IL17A CTLA8 IL17	3605	Interleukin-17A (IL-17) (IL-17A) (Cytotoxic T-lymphocyte-associated antigen 8) (CTLA-8)
+IL-17B	Q9UHF5	IL17B IL20 NIRF ZCYTO7 UNQ516/PRO1031	27190	Interleukin-17B (IL-17B) (Cytokine Zcyto7) (Interleukin-20) (IL-20) (Neuronal interleukin-17-related factor)
+IL-17F	Q96PD4	IL17F	112744	Interleukin-17F (IL-17F) (Cytokine ML-1)
+IL-17R	Q96F46	IL17RA IL17R	23765	Interleukin-17 receptor A (IL-17 receptor A) (IL-17RA) (CDw217) (CD antigen CD217)
+IL-18 BPa	O95998	IL18BP	10068	Interleukin-18-binding protein (IL-18BP) (Tadekinig-alfa)
+IL-18 Rb	O95256	IL18RAP IL1R7	8807	Interleukin-18 receptor accessory protein (IL-18 receptor accessory protein) (IL-18RAcP) (Accessory protein-like) (AcPL) (CD218 antigen-like family member B) (CDw218b) (IL-1R accessory protein-like) (IL-1RAcPL) (Interleukin-1 receptor 7) (IL-1R-7) (IL-1R7) (Interleukin-18 receptor accessory protein-like) (Interleukin-18 receptor beta) (IL-18R-beta) (IL-18Rbeta) (CD antigen CD218b)
+IL-1a	P01583	IL1A IL1F1	3552	Interleukin-1 alpha (IL-1 alpha) (Hematopoietin-1)
+IL-1b	P01584	IL1B IL1F2	3553	Interleukin-1 beta (IL-1 beta) (Catabolin)
+IL-1ra	P18510	IL1RN IL1F3 IL1RA	3557	Interleukin-1 receptor antagonist protein (IL-1RN) (IL-1ra) (IRAP) (ICIL-1RA) (IL1 inhibitor) (Anakinra)
+IL-2	P60568	IL2	3558	Interleukin-2 (IL-2) (T-cell growth factor) (TCGF) (Aldesleukin)
+IL-2 Ra	P01589	IL2RA	3559	Interleukin-2 receptor subunit alpha (IL-2 receptor subunit alpha) (IL-2-RA) (IL-2R subunit alpha) (IL2-RA) (TAC antigen) (p55) (CD antigen CD25)
+IL-2 Rb	P14784	IL2RB	3560	Interleukin-2 receptor subunit beta (IL-2 receptor subunit beta) (IL-2R subunit beta) (IL-2RB) (High affinity IL-2 receptor subunit beta) (p70-75) (p75) (CD antigen CD122)
+IL-2 Rg	P31785	IL2RG	3561	Cytokine receptor common subunit gamma (Interleukin-2 receptor subunit gamma) (IL-2 receptor subunit gamma) (IL-2R subunit gamma) (IL-2RG) (gammaC) (p64) (CD antigen CD132)
+IL-21	Q9HBE4	IL21	59067	Interleukin-21 (IL-21) (Za11)
+IL-21R	Q9HBE5	IL21R NILR UNQ3121/PRO10273	50615	Interleukin-21 receptor (IL-21 receptor) (IL-21R) (Novel interleukin receptor) (CD antigen CD360)
+IL-23	Q9NPF7	IL23A SGRF UNQ2498/PRO5798	51561	Interleukin-23 subunit alpha (IL-23 subunit alpha) (IL-23-A) (Interleukin-23 subunit p19) (IL-23p19)
+IL-24	Q13007	IL24 MDA7 ST16	11009	Interleukin-24 (IL-24) (Melanoma differentiation-associated gene 7 protein) (MDA-7) (Suppression of tumorigenicity 16 protein)
+IL-28A	Q8IZJ0	IFNL2 IL28A ZCYTO20	282616	Interferon lambda-2 (IFN-lambda-2) (Cytokine Zcyto20) (Interleukin-28A) (IL-28A)
+IL-29	Q8IU54	IFNL1 IL29 ZCYTO21	282618	Interferon lambda-1 (IFN-lambda-1) (Cytokine Zcyto21) (Interleukin-29) (IL-29)
+IL-3	P08700	IL3	3562	Interleukin-3 (IL-3) (Hematopoietic growth factor) (Mast cell growth factor) (MCGF) (Multipotential colony-stimulating factor) (P-cell-stimulating factor)
+IL-31	Q6EBC2	IL31	386653	Interleukin-31 (IL-31)
+IL-33	O95760	IL33 C9orf26 IL1F11 NFHEV	90865	Interleukin-33 (IL-33) (Interleukin-1 family member 11) (IL-1F11) (Nuclear factor from high endothelial venules) (NF-HEV) [Cleaved into: Interleukin-33 (95-270); Interleukin-33 (99-270); Interleukin-33 (109-270)]
+IL-4	P05112	IL4	3565	Interleukin-4 (IL-4) (B-cell stimulatory factor 1) (BSF-1) (Binetrakin) (Lymphocyte stimulatory factor 1) (Pitrakinra)
+IL-5	P05113	IL5	3567	Interleukin-5 (IL-5) (B-cell differentiation factor I) (Eosinophil differentiation factor) (T-cell replacing factor) (TRF)
+IL-6	P05231	IL6 IFNB2	3569	Interleukin-6 (IL-6) (B-cell stimulatory factor 2) (BSF-2) (CTL differentiation factor) (CDF) (Hybridoma growth factor) (Interferon beta-2) (IFN-beta-2)
+IL-6R	P08887	IL6R	3570	Interleukin-6 receptor subunit alpha (IL-6 receptor subunit alpha) (IL-6R subunit alpha) (IL-6R-alpha) (IL-6RA) (IL-6R 1) (Membrane glycoprotein 80) (gp80) (CD antigen CD126)
+IL-7	P13232	IL7	3574	Interleukin-7 (IL-7)
+IL-8	P10145	CXCL8 IL8	3576	Interleukin-8 (IL-8) (C-X-C motif chemokine 8) (Chemokine (C-X-C motif) ligand 8) (Emoctakin) (Granulocyte chemotactic protein 1) (GCP-1) (Monocyte-derived neutrophil chemotactic factor) (MDNCF) (Monocyte-derived neutrophil-activating peptide) (MONAP) (Neutrophil-activating protein 1) (NAP-1) (Protein 3-10C) (T-cell chemotactic factor) [Cleaved into: MDNCF-a (GCP/IL-8 protein IV) (IL8/NAP1 form I); Interleukin-8 ((Ala-IL-8)77) (GCP/IL-8 protein II) (IL-8(1-77)) (IL8/NAP1 form II) (MDNCF-b); IL-8(5-77); IL-8(6-77) ((Ser-IL-8)72) (GCP/IL-8 protein I) (IL8/NAP1 form III) (Lymphocyte-derived neutrophil-activating factor) (LYNAP) (MDNCF-c) (Neutrophil-activating factor) (NAF); IL-8(7-77) (GCP/IL-8 protein V) (IL8/NAP1 form IV); IL-8(8-77) (GCP/IL-8 protein VI) (IL8/NAP1 form V); IL-8(9-77) (GCP/IL-8 protein III) (IL8/NAP1 form VI)]
+IL-9	P15248	IL9	3578	Interleukin-9 (IL-9) (Cytokine P40) (T-cell growth factor P40)
+Insulin	P01308	INS	3630	Insulin [Cleaved into: Insulin B chain; Insulin A chain]
+IP-10	P02778	CXCL10 INP10 SCYB10	3627	C-X-C motif chemokine 10 (10 kDa interferon gamma-induced protein) (Gamma-IP10) (IP-10) (Small-inducible cytokine B10) [Cleaved into: CXCL10(1-73)]
+I-TAC	O14625	CXCL11 ITAC SCYB11 SCYB9B	6373	C-X-C motif chemokine 11 (Beta-R1) (H174) (Interferon gamma-inducible protein 9) (IP-9) (Interferon-inducible T-cell alpha chemoattractant) (I-TAC) (Small-inducible cytokine B11)
+Kallikrein 14	Q9P0G3	KLK14 KLKL6	43847	Kallikrein-14 (hK14) (EC 3.4.21.-) (Kallikrein-like protein 6) (KLK-L6)
+LAP(TGFb1)	P01137.2	TGFB1	7040	Human TGF-beta 1 cDNA encodes a 390 amino acid (aa) precursor that contains a 29 aa signal peptide and a 361 aa proprotein, which is further cleaved to an N-terminal 249 aa latency-associated peptide (LAP) and a C-terminal 112 aa mature TGF-beta-1. 
+Legumain	Q99538	LGMN PRSC1	5641	Legumain (EC 3.4.22.34) (Asparaginyl endopeptidase) (Protease, cysteine 1)
+Leptin	P41159	LEP OB OBS	3952	Leptin (Obese protein) (Obesity factor)
+LIF	P15018	LIF HILDA	3976	Leukemia inhibitory factor (LIF) (Differentiation-stimulating factor) (D factor) (Melanoma-derived LPL inhibitor) (MLPLI) (Emfilermin)
+LIGHT	O43557	TNFSF14 HVEML LIGHT UNQ391/PRO726	8740	Tumor necrosis factor ligand superfamily member 14 (Herpes virus entry mediator ligand) (HVEM-L) (Herpesvirus entry mediator ligand) (CD antigen CD258) [Cleaved into: Tumor necrosis factor ligand superfamily member 14, membrane form; Tumor necrosis factor ligand superfamily member 14, soluble form]
+LIMPII	Q14108	SCARB2 CD36L2 LIMP2 LIMPII	950	Lysosome membrane protein 2 (85 kDa lysosomal membrane sialoglycoprotein) (LGP85) (CD36 antigen-like 2) (Lysosome membrane protein II) (LIMP II) (Scavenger receptor class B member 2) (CD antigen CD36)
+Lipocalin-2	P80188	LCN2 HNL NGAL	3934	Neutrophil gelatinase-associated lipocalin (NGAL) (25 kDa alpha-2-microglobulin-related subunit of MMP-9) (Lipocalin-2) (Oncogene 24p3) (Siderocalin LCN2) (p25)
+LOX-1	P78380	OLR1 CLEC8A LOX1	4973	Oxidized low-density lipoprotein receptor 1 (Ox-LDL receptor 1) (C-type lectin domain family 8 member A) (Lectin-like oxidized LDL receptor 1) (LOX-1) (Lectin-like oxLDL receptor 1) (hLOX-1) (Lectin-type oxidized LDL receptor 1) [Cleaved into: Oxidized low-density lipoprotein receptor 1, soluble form]
+L-Selectin	P14151	SELL LNHR LYAM1	6402	L-selectin (CD62 antigen-like family member L) (Leukocyte adhesion molecule 1) (LAM-1) (Leukocyte surface antigen Leu-8) (Leukocyte-endothelial cell adhesion molecule 1) (LECAM1) (Lymph node homing receptor) (TQ1) (gp90-MEL) (CD antigen CD62L)
+Lymphotactin	P47992	XCL1 LTN SCYC1	6375	Lymphotactin (ATAC) (C motif chemokine 1) (Cytokine SCM-1) (Lymphotaxin) (SCM-1-alpha) (Small-inducible cytokine C1) (XC chemokine ligand 1)
+LYVE-1	Q9Y5Y7	LYVE1 CRSBP1 HAR XLKD1 UNQ230/PRO263	10894	Lymphatic vessel endothelial hyaluronic acid receptor 1 (LYVE-1) (Cell surface retention sequence-binding protein 1) (CRSBP-1) (Extracellular link domain-containing protein 1) (Hyaluronic acid receptor)
+MBL	P11226	MBL2 COLEC1 MBL	4153	Mannose-binding protein C (MBP-C) (Collectin-1) (MBP1) (Mannan-binding protein) (Mannose-binding lectin)
+MCP-1	P13500	CCL2 MCP1 SCYA2	6347	C-C motif chemokine 2 (HC11) (Monocyte chemoattractant protein 1) (Monocyte chemotactic and activating factor) (MCAF) (Monocyte chemotactic protein 1) (MCP-1) (Monocyte secretory protein JE) (Small-inducible cytokine A2)
+MCP-2	P80075	CCL8 MCP2 SCYA10 SCYA8	6355	C-C motif chemokine 8 (HC14) (Monocyte chemoattractant protein 2) (Monocyte chemotactic protein 2) (MCP-2) (Small-inducible cytokine A8) [Cleaved into: MCP-2(6-76)]
+MCP-3	P80098	CCL7 MCP3 SCYA6 SCYA7	6354	C-C motif chemokine 7 (Monocyte chemoattractant protein 3) (Monocyte chemotactic protein 3) (MCP-3) (NC28) (Small-inducible cytokine A7)
+MCP-4	Q99616	CCL13 MCP4 NCC1 SCYA13	6357	C-C motif chemokine 13 (CK-beta-10) (Monocyte chemoattractant protein 4) (Monocyte chemotactic protein 4) (MCP-4) (NCC-1) (Small-inducible cytokine A13) [Cleaved into: C-C motif chemokine 13, long chain; C-C motif chemokine 13, medium chain; C-C motif chemokine 13, short chain]
+MCSF	P09603	CSF1	1435	Macrophage colony-stimulating factor 1 (CSF-1) (M-CSF) (MCSF) (Lanimostim) [Cleaved into: Processed macrophage colony-stimulating factor 1]
+MCSF R	P07333	CSF1R FMS	1436	Macrophage colony-stimulating factor 1 receptor (CSF-1 receptor) (CSF-1-R) (CSF-1R) (M-CSF-R) (EC 2.7.10.1) (Proto-oncogene c-Fms) (CD antigen CD115)
+MDC	O00626	CCL22 MDC SCYA22 A-152E5.1	6367	C-C motif chemokine 22 (CC chemokine STCP-1) (MDC(1-69)) (Macrophage-derived chemokine) (Small-inducible cytokine A22) (Stimulated T-cell chemotactic protein 1) [Cleaved into: MDC(3-69); MDC(5-69); MDC(7-69)]
+MICA	Q29983	MICA PERB11.1	100507436	MHC class I polypeptide-related sequence A (MIC-A)
+MICB	Q29980	MICB PERB11.2	4277	MHC class I polypeptide-related sequence B (MIC-B)
+MIF	P14174	MIF GLIF MMIF	4282	Macrophage migration inhibitory factor (MIF) (EC 5.3.2.1) (Glycosylation-inhibiting factor) (GIF) (L-dopachrome isomerase) (L-dopachrome tautomerase) (EC 5.3.3.12) (Phenylpyruvate tautomerase)
+MIG	Q07325	CXCL9 CMK MIG SCYB9	4283	C-X-C motif chemokine 9 (Gamma-interferon-induced monokine) (Monokine induced by interferon-gamma) (HuMIG) (MIG) (Small-inducible cytokine B9)
+MIP-1a	P10147	CCL3 G0S19-1 MIP1A SCYA3	6348	C-C motif chemokine 3 (G0/G1 switch regulatory protein 19-1) (Macrophage inflammatory protein 1-alpha) (MIP-1-alpha) (PAT 464.1) (SIS-beta) (Small-inducible cytokine A3) (Tonsillar lymphocyte LD78 alpha protein) [Cleaved into: MIP-1-alpha(4-69) (LD78-alpha(4-69))]
+MIP-1b	P13236	CCL4 LAG1 MIP1B SCYA4	388372;6351	C-C motif chemokine 4 (G-26 T-lymphocyte-secreted protein) (HC21) (Lymphocyte activation gene 1 protein) (LAG-1) (MIP-1-beta(1-69)) (Macrophage inflammatory protein 1-beta) (MIP-1-beta) (PAT 744) (Protein H400) (SIS-gamma) (Small-inducible cytokine A4) (T-cell activation protein 2) (ACT-2) [Cleaved into: MIP-1-beta(3-69)]
+MIP-1d	Q16663	CCL15 MIP5 NCC3 SCYA15	6359	C-C motif chemokine 15 (Chemokine CC-2) (HCC-2) (Leukotactin-1) (LKN-1) (MIP-1 delta) (Macrophage inflammatory protein 5) (MIP-5) (Mrp-2b) (NCC-3) (Small-inducible cytokine A15) [Cleaved into: CCL15(22-92); CCL15(25-92); CCL15(29-92)]
+MIP-3a	P78556	CCL20 LARC MIP3A SCYA20	6364	C-C motif chemokine 20 (Beta-chemokine exodus-1) (CC chemokine LARC) (Liver and activation-regulated chemokine) (Macrophage inflammatory protein 3 alpha) (MIP-3-alpha) (Small-inducible cytokine A20) [Cleaved into: CCL20(1-67); CCL20(1-64); CCL20(2-70)]
+MIP-3b	Q99731	CCL19 ELC MIP3B SCYA19	6363	C-C motif chemokine 19 (Beta-chemokine exodus-3) (CK beta-11) (Epstein-Barr virus-induced molecule 1 ligand chemokine) (EBI1 ligand chemokine) (ELC) (Macrophage inflammatory protein 3 beta) (MIP-3-beta) (Small-inducible cytokine A19)
+MMP-1	P03956	MMP1 CLG	4312	Interstitial collagenase (EC 3.4.24.7) (Fibroblast collagenase) (Matrix metalloproteinase-1) (MMP-1) [Cleaved into: 22 kDa interstitial collagenase; 27 kDa interstitial collagenase]
+MMP-10	P09238	MMP10 STMY2	4319	Stromelysin-2 (SL-2) (EC 3.4.24.22) (Matrix metalloproteinase-10) (MMP-10) (Transin-2)
+MMP-13	P45452	MMP13	4322	Collagenase 3 (EC 3.4.24.-) (Matrix metalloproteinase-13) (MMP-13)
+MMP-2	P08253	MMP2 CLG4A	4313	72 kDa type IV collagenase (EC 3.4.24.24) (72 kDa gelatinase) (Gelatinase A) (Matrix metalloproteinase-2) (MMP-2) (TBE-1) [Cleaved into: PEX]
+MMP-3	P08254	MMP3 STMY1	4314	Stromelysin-1 (SL-1) (EC 3.4.24.17) (Matrix metalloproteinase-3) (MMP-3) (Transin-1)
+MMP-8	P22894	MMP8 CLG1	4317	Neutrophil collagenase (EC 3.4.24.34) (Matrix metalloproteinase-8) (MMP-8) (PMNL collagenase) (PMNL-CL)
+MMP-9	P14780	MMP9 CLG4B	4318	Matrix metalloproteinase-9 (MMP-9) (EC 3.4.24.35) (92 kDa gelatinase) (92 kDa type IV collagenase) (Gelatinase B) (GELB) [Cleaved into: 67 kDa matrix metalloproteinase-9; 82 kDa matrix metalloproteinase-9]
+MPIF-1	P55773	CCL23 MIP3 MPIF1 SCYA23	6368	Myeloid progenitor inhibitory factor (MPIF-1), also known as CK beta 8 and MIP-3. Alternative splicing of the MPIF-1 gene results in two mRNAs that encode a short (CK beta 8) and a long (CK beta 8-1) isoform of the chemokine. C-C motif chemokine 23 (CK-beta-8) (CKB-8) (Macrophage inflammatory protein 3) (MIP-3) (Myeloid progenitor inhibitory factor 1) (MPIF-1) (Small-inducible cytokine A23) [Cleaved into: CCL23(19-99); CCL23(22-99); CCL23(27-99); CCL23(30-99)]
+MSP	P26927	MST1 D3F15S2 DNF15S2 HGFL	4485	Hepatocyte growth factor-like protein (Macrophage stimulatory protein) (Macrophage-stimulating protein) (MSP) [Cleaved into: Hepatocyte growth factor-like protein alpha chain; Hepatocyte growth factor-like protein beta chain]
+NAP-2	P02775	PPBP CTAP3 CXCL7 SCYB7 TGB1 THBGB1	5473	Platelet basic protein (PBP) (C-X-C motif chemokine 7) (Leukocyte-derived growth factor) (LDGF) (Macrophage-derived growth factor) (MDGF) (Small-inducible cytokine B7) [Cleaved into: Connective tissue-activating peptide III (CTAP-III) (LA-PF4) (Low-affinity platelet factor IV); TC-2; Connective tissue-activating peptide III(1-81) (CTAP-III(1-81)); Beta-thromboglobulin (Beta-TG); Neutrophil-activating peptide 2(74) (NAP-2(74)); Neutrophil-activating peptide 2(73) (NAP-2(73)); Neutrophil-activating peptide 2 (NAP-2); TC-1; Neutrophil-activating peptide 2(1-66) (NAP-2(1-66)); Neutrophil-activating peptide 2(1-63) (NAP-2(1-63))]
+NCAM-1	P13591	NCAM1 NCAM	4684	Neural cell adhesion molecule 1 (N-CAM-1) (NCAM-1) (CD antigen CD56)
+Neprilysin	P08473	MME EPN	4311	Neprilysin (EC 3.4.24.11) (Atriopeptidase) (Common acute lymphocytic leukemia antigen) (CALLA) (Enkephalinase) (Neutral endopeptidase 24.11) (NEP) (Neutral endopeptidase) (Skin fibroblast elastase) (SFE) (CD antigen CD10)
+NGF R	P08138	NGFR TNFRSF16	4804	Tumor necrosis factor receptor superfamily member 16 (Gp80-LNGFR) (Low affinity neurotrophin receptor p75NTR) (Low-affinity nerve growth factor receptor) (NGF receptor) (p75 ICD) (CD antigen CD271)
+Nidogen-1	P14543	NID1 NID	4811	Nidogen-1 (NID-1) (Entactin)
+Notch-1	P46531	NOTCH1 TAN1	4851	Neurogenic locus notch homolog protein 1 (Notch 1) (hN1) (Translocation-associated notch protein TAN-1) [Cleaved into: Notch 1 extracellular truncation (NEXT); Notch 1 intracellular domain (NICD)]
+NOV	P48745	NOV CCN3 IGFBP9 NOVH	4856	Protein NOV homolog (NovH) (CCN family member 3) (Insulin-like growth factor-binding protein 9) (IBP-9) (IGF-binding protein 9) (IGFBP-9) (Nephroblastoma-overexpressed gene protein homolog)
+NrCAM	Q92823	NRCAM KIAA0343	4897	Neuronal cell adhesion molecule (Nr-CAM) (Neuronal surface protein Bravo) (hBravo) (NgCAM-related cell adhesion molecule) (Ng-CAM-related)
+NRG1-b1	AAA58639	NRG1	3084	Pro-neuregulin-1, membrane-bound isoform (Pro-NRG1) [Cleaved into: Neuregulin-1 (Acetylcholine receptor-inducing activity) (ARIA) (Breast cancer cell differentiation factor p45) (Glial growth factor) (Heregulin) (HRG) (Neu differentiation factor) (Sensory and motor neuron-derived factor)]
+NSE	P09104	ENO2	2026	Gamma-enolase (EC 4.2.1.11) (2-phospho-D-glycerate hydro-lyase) (Enolase 2) (Neural enolase) (Neuron-specific enolase) (NSE)
+NT-3	P20783	NTF3	4908	Neurotrophin-3 (NT-3) (HDNF) (Nerve growth factor 2) (NGF-2) (Neurotrophic factor)
+NT-4	P34130	NTF4 NTF5	4909	Neurotrophin-4 (NT-4) (Neurotrophin-5) (NT-5) (Neutrophic factor 4)
+OPG	O00300	TNFRSF11B OCIF OPG	4982	Tumor necrosis factor receptor superfamily member 11B (Osteoclastogenesis inhibitory factor) (Osteoprotegerin)
+OPN	P10451	SPP1 BNSP OPN PSEC0156	6696	Osteopontin (Bone sialoprotein 1) (Nephropontin) (Secreted phosphoprotein 1) (SPP-1) (Urinary stone protein) (Uropontin)
+OSM	P13725	OSM	5008	Oncostatin-M (OSM)
+Osteoactivin	Q14956	GPNMB HGFIN NMB UNQ1725/PRO9925	10457	Transmembrane glycoprotein NMB (Transmembrane glycoprotein HGFIN)
+PAI-1	P05121	SERPINE1 PAI1 PLANH1	5054	Plasminogen activator inhibitor 1 (PAI) (PAI-1) (Endothelial plasminogen activator inhibitor) (Serpin E1)
+PARC	P55774	CCL18 AMAC1 DCCK1 MIP4 PARC SCYA18	6362	C-C motif chemokine 18 (Alternative macrophage activation-associated CC chemokine 1) (AMAC-1) (CC chemokine PARC) (Dendritic cell chemokine 1) (DC-CK1) (Macrophage inflammatory protein 4) (MIP-4) (Pulmonary and activation-regulated chemokine) (Small-inducible cytokine A18) [Cleaved into: CCL18(1-68); CCL18(3-69); CCL18(4-69)]
+PD-1	Q15116	PDCD1 PD1	5133	Programmed cell death protein 1 (Protein PD-1) (hPD-1) (CD antigen CD279)
+PDGF Rb	P09619	PDGFRB PDGFR PDGFR1	5159	Platelet-derived growth factor receptor beta (PDGF-R-beta) (PDGFR-beta) (EC 2.7.10.1) (Beta platelet-derived growth factor receptor) (Beta-type platelet-derived growth factor receptor) (CD140 antigen-like family member B) (Platelet-derived growth factor receptor 1) (PDGFR-1) (CD antigen CD140b)
+PDGF-AA	P04085	PDGFA PDGF1	5154	Platelet-derived growth factor subunit A (PDGF subunit A) (PDGF-1) (Platelet-derived growth factor A chain) (Platelet-derived growth factor alpha polypeptide)
+PDGF-AB	P04085/P01127	PDGFA/PDGFB	5154;5155	Platelet-derived growth factor subunit A (PDGF subunit A) (PDGF-1) (Platelet-derived growth factor A chain) (Platelet-derived growth factor alpha polypeptide); Platelet-derived growth factor subunit B (PDGF subunit B) (PDGF-2) (Platelet-derived growth factor B chain) (Platelet-derived growth factor beta polypeptide) (Proto-oncogene c-Sis) (Becaplermin)
+PDGF-BB	P01127	PDGFB PDGF2 SIS	5155	Platelet-derived growth factor subunit B (PDGF subunit B) (PDGF-2) (Platelet-derived growth factor B chain) (Platelet-derived growth factor beta polypeptide) (Proto-oncogene c-Sis) (Becaplermin)
+PECAM-1	P16284	PECAM1	5175	Platelet endothelial cell adhesion molecule (PECAM-1) (EndoCAM) (GPIIA') (PECA1) (CD antigen CD31)
+PF4	P02776	PF4 CXCL4 SCYB4	5196	Platelet factor 4 (PF-4) (C-X-C motif chemokine 4) (Iroplact) (Oncostatin-A) [Cleaved into: Platelet factor 4, short form]
+PGRP-S	O75594	PGLYRP1 PGLYRP PGRP TNFSF3L SBBI68 UNQ639/PRO1269	8993	Peptidoglycan recognition protein 1 (Peptidoglycan recognition protein short) (PGRP-S)
+PIGF	P49763	PGF PGFL PLGF	5228	Placenta growth factor (PlGF)
+Procalcitonin	P01258	CALCA CALC1	796	Procalcitonin (PCT) is a 116 amino acid precursor of calcitonin (CT). PCT is processed to an N-terminal 57 amino acid peptide (CT [32 amino acids] and a 21 amino acid C-terminal peptide, catacalcin [CCP-1]).
+Prolactin	P01236	PRL	5617	Prolactin (PRL)
+PSA-free	P07288	KLK3 APS	354	Prostate-specific antigen (PSA) (EC 3.4.21.77) (Gamma-seminoprotein) (Seminin) (Kallikrein-3) (P-30 antigen) (Semenogelase); Most PSA in the blood is bound to serum proteins. A small amount is not protein bound and is called 'free PSA'.
+RAGE	Q9UQ07	MOK RAGE RAGE1	5891	MAPK/MAK/MRK overlapping kinase (EC 2.7.11.22) (MOK protein kinase) (Renal tumor antigen 1) (RAGE-1)
+RANTES	P13501	CCL5 D17S136E SCYA5	6352	C-C motif chemokine 5 (EoCP) (Eosinophil chemotactic cytokine) (SIS-delta) (Small-inducible cytokine A5) (T cell-specific protein P228) (TCP228) (T-cell-specific protein RANTES) [Cleaved into: RANTES(3-68); RANTES(4-68)]
+Resistin	Q9HD89	RETN FIZZ3 HXCP1 RSTN UNQ407/PRO1199	56729	Resistin (Adipose tissue-specific secretory factor) (ADSF) (C/EBP-epsilon-regulated myeloid-specific secreted cysteine-rich protein) (Cysteine-rich secreted protein A12-alpha-like 2) (Cysteine-rich secreted protein FIZZ3)
+SCF	P21583	KITLG MGF SCF	4254	Kit ligand (Mast cell growth factor) (MGF) (Stem cell factor) (SCF) (c-Kit ligand) [Cleaved into: Soluble KIT ligand (sKITLG)]
+SCF R	P10721	KIT SCFR	3815	Mast/stem cell growth factor receptor Kit (SCFR) (EC 2.7.10.1) (Piebald trait protein) (PBT) (Proto-oncogene c-Kit) (Tyrosine-protein kinase Kit) (p145 c-kit) (v-kit Hardy-Zuckerman 4 feline sarcoma viral oncogene homolog) (CD antigen CD117)
+SDF-1a	P48061	CXCL12 SDF1 SDF1A SDF1B	6387	Stromal cell-derived factor 1 (SDF-1) (hSDF-1) (C-X-C motif chemokine 12) (Intercrine reduced in hepatomas) (IRH) (hIRH) (Pre-B cell growth-stimulating factor) (PBSF) [Cleaved into: SDF-1-beta(3-72); SDF-1-alpha(3-67)]
+SDF-1b	P48061	CXCL12 SDF1 SDF1A SDF1B	6387	Stromal cell-derived factor 1 (SDF-1) (hSDF-1) (C-X-C motif chemokine 12) (Intercrine reduced in hepatomas) (IRH) (hIRH) (Pre-B cell growth-stimulating factor) (PBSF) [Cleaved into: SDF-1-beta(3-72); SDF-1-alpha(3-67)]; SDF-1 alpha and SDF-1 beta are encoded by a single gene and arise by alternative splicing. The two proteins are identical except for the four amino acid residues that are present in the carboxy-terminus of SDF-1 beta and absent from SDF-1 alpha.
+Serpin A4	P29622	SERPINA4 KST PI4	5267	Kallistatin (Kallikrein inhibitor) (Peptidase inhibitor 4) (PI-4) (Serpin A4)
+sFRP-3	Q92765	FRZB FIZ FRE FRP FRZB1 SFRP3	2487	Secreted frizzled-related protein 3 (sFRP-3) (Frezzled) (Fritz) (Frizzled-related protein 1) (FrzB-1)
+Shh-N	Q15465	SHH	6469	Sonic hedgehog protein (SHH) (HHG-1) [Cleaved into: Sonic hedgehog protein N-product; Sonic hedgehog protein C-product]
+Siglec-5	O15389	SIGLEC5 CD33L2 OBBP2	8778	Sialic acid-binding Ig-like lectin 5 (Siglec-5) (CD33 antigen-like 2) (Obesity-binding protein 2) (OB-BP2) (OB-binding protein 2) (CD antigen CD170)
+Siglec-9	Q9Y336	SIGLEC9 UNQ668/PRO1302	27180	Sialic acid-binding Ig-like lectin 9 (Siglec-9) (CDw329) (Protein FOAP-9) (CD antigen CD329)
+TACE	P78536	ADAM17 CSVP TACE	6868	Disintegrin and metalloproteinase domain-containing protein 17 (ADAM 17) (EC 3.4.24.86) (Snake venom-like protease) (TNF-alpha convertase) (TNF-alpha-converting enzyme) (CD antigen CD156b)
+TARC	Q92583	CCL17 SCYA17 TARC	6361	C-C motif chemokine 17 (CC chemokine TARC) (Small-inducible cytokine A17) (Thymus and activation-regulated chemokine)
+TECK	O15444	CCL25 SCYA25 TECK	6370	C-C motif chemokine 25 (Chemokine TECK) (Small-inducible cytokine A25) (Thymus-expressed chemokine)
+TGFa	P01135	TGFA	7039	Protransforming growth factor alpha [Cleaved into: Transforming growth factor alpha (TGF-alpha) (EGF-like TGF) (ETGF) (TGF type 1)]
+TGFb1	P01137	TGFB1 TGFB	7040	Transforming growth factor beta-1 (TGF-beta-1) [Cleaved into: Latency-associated peptide (LAP)]
+TGFb2	P61812	TGFB2	7042	Transforming growth factor beta-2 (TGF-beta-2) (BSC-1 cell growth inhibitor) (Cetermin) (Glioblastoma-derived T-cell suppressor factor) (G-TSF) (Polyergin) [Cleaved into: Latency-associated peptide (LAP)]
+TGFb3	P10600	TGFB3	7043	Transforming growth factor beta-3 (TGF-beta-3) [Cleaved into: Latency-associated peptide (LAP)]
+Thrombomodulin	P07204	THBD THRM	7056	Thrombomodulin (TM) (Fetomodulin) (CD antigen CD141)
+Thyroglobulin	P01266	TG	7038	Thyroglobulin (Tg)
+Tie-2	Q02763	TEK TIE2 VMCM VMCM1	7010	Angiopoietin-1 receptor (EC 2.7.10.1) (Endothelial tyrosine kinase) (Tunica interna endothelial cell kinase) (Tyrosine kinase with Ig and EGF homology domains-2) (Tyrosine-protein kinase receptor TEK) (Tyrosine-protein kinase receptor TIE-2) (hTIE2) (p140 TEK) (CD antigen CD202b)
+TIM-1	Q96D42	HAVCR1 KIM1 TIM1 TIMD1	26762	Hepatitis A virus cellular receptor 1 (HAVcr-1) (Kidney injury molecule 1) (KIM-1) (T-cell immunoglobulin and mucin domain-containing protein 1) (TIMD-1) (T-cell immunoglobulin mucin receptor 1) (TIM) (TIM-1) (T-cell membrane protein 1)
+TIMP-1	P01033	TIMP1 CLGI TIMP	7076	Metalloproteinase inhibitor 1 (Erythroid-potentiating activity) (EPA) (Fibroblast collagenase inhibitor) (Collagenase inhibitor) (Tissue inhibitor of metalloproteinases 1) (TIMP-1)
+TIMP-2	P16035	TIMP2	7077	Metalloproteinase inhibitor 2 (CSC-21K) (Tissue inhibitor of metalloproteinases 2) (TIMP-2)
+TIMP-4	Q99727	TIMP4	7079	Metalloproteinase inhibitor 4 (Tissue inhibitor of metalloproteinases 4) (TIMP-4)
+TLR2	O60603	TLR2 TIL4	7097	Toll-like receptor 2 (Toll/interleukin-1 receptor-like protein 4) (CD antigen CD282)
+TNF RI	P19438	TNFRSF1A TNFAR TNFR1	7132	Tumor necrosis factor receptor superfamily member 1A (Tumor necrosis factor receptor 1) (TNF-R1) (Tumor necrosis factor receptor type I) (TNF-RI) (TNFR-I) (p55) (p60) (CD antigen CD120a) [Cleaved into: Tumor necrosis factor receptor superfamily member 1A, membrane form; Tumor necrosis factor-binding protein 1 (TBPI)]
+TNF RII	P20333	TNFRSF1B TNFBR TNFR2	7133	Tumor necrosis factor receptor superfamily member 1B (Tumor necrosis factor receptor 2) (TNF-R2) (Tumor necrosis factor receptor type II) (TNF-RII) (TNFR-II) (p75) (p80 TNF-alpha receptor) (CD antigen CD120b) (Etanercept) [Cleaved into: Tumor necrosis factor receptor superfamily member 1b, membrane form; Tumor necrosis factor-binding protein 2 (TBP-2) (TBPII)]
+TNFa	P01375	TNF TNFA TNFSF2	7124	Tumor necrosis factor (Cachectin) (TNF-alpha) (Tumor necrosis factor ligand superfamily member 2) (TNF-a) [Cleaved into: Tumor necrosis factor, membrane form (N-terminal fragment) (NTF); Intracellular domain 1 (ICD1); Intracellular domain 2 (ICD2); C-domain 1; C-domain 2; Tumor necrosis factor, soluble form]
+TNFb	P01374	LTA TNFB TNFSF1	4049	Lymphotoxin-alpha (LT-alpha) (TNF-beta) (Tumor necrosis factor ligand superfamily member 1)
+TPO	P40225	THPO MGDF	7066	Thrombopoietin (C-mpl ligand) (ML) (Megakaryocyte colony-stimulating factor) (Megakaryocyte growth and development factor) (MGDF) (Myeloproliferative leukemia virus oncogene ligand)
+TRAIL R1	O00220	TNFRSF10A APO2 DR4 TRAILR1	8797	Tumor necrosis factor receptor superfamily member 10A (Death receptor 4) (TNF-related apoptosis-inducing ligand receptor 1) (TRAIL receptor 1) (TRAIL-R1) (CD antigen CD261)
+TRAIL R3	O14798	TNFRSF10C DCR1 LIT TRAILR3 TRID UNQ321/PRO366	8794	Tumor necrosis factor receptor superfamily member 10C (Antagonist decoy receptor for TRAIL/Apo-2L) (Decoy TRAIL receptor without death domain) (Decoy receptor 1) (DcR1) (Lymphocyte inhibitor of TRAIL) (TNF-related apoptosis-inducing ligand receptor 3) (TRAIL receptor 3) (TRAIL-R3) (TRAIL receptor without an intracellular domain) (CD antigen CD263)
+TRAIL R4	Q9UBN6	TNFRSF10D DCR2 TRAILR4 TRUNDD UNQ251/PRO288	8793	Tumor necrosis factor receptor superfamily member 10D (Decoy receptor 2) (DcR2) (TNF-related apoptosis-inducing ligand receptor 4) (TRAIL receptor 4) (TRAIL-R4) (TRAIL receptor with a truncated death domain) (CD antigen CD264)
+Transferrin	P02787	TF PRO1400	7018	Serotransferrin (Transferrin) (Beta-1 metal-binding globulin) (Siderophilin)
+Trappin-2	P19957	PI3 WAP3 WFDC14	5266	Elafin (Elastase-specific inhibitor) (ESI) (Peptidase inhibitor 3) (PI-3) (Protease inhibitor WAP3) (Skin-derived antileukoproteinase) (SKALP) (WAP four-disulfide core domain protein 14)
+TREM-1	Q9NP99	TREM1	54210	Triggering receptor expressed on myeloid cells 1 (TREM-1) (Triggering receptor expressed on monocytes 1) (CD antigen CD354)
+TSH	P01222/P01215	TSHB/CGA	7252;1081	Thyrotropin subunit beta (Thyroid-stimulating hormone subunit beta) (TSH-B) (TSH-beta) (Thyrotropin beta chain) (Thyrotropin alfa); Glycoprotein hormones alpha chain (Anterior pituitary glycoprotein hormones common subunit alpha) (Choriogonadotropin alpha chain) (Chorionic gonadotrophin subunit alpha) (CG-alpha) (Follicle-stimulating hormone alpha chain) (FSH-alpha) (Follitropin alpha chain) (Luteinizing hormone alpha chain) (LSH-alpha) (Lutropin alpha chain) (Thyroid-stimulating hormone alpha chain) (TSH-alpha) (Thyrotropin alpha chain)
+TSLP	Q969D9	TSLP	85480	Thymic stromal lymphopoietin
+uPAR	Q03405	PLAUR MO3 UPAR	5329	Urokinase plasminogen activator surface receptor (U-PAR) (uPAR) (Monocyte activation antigen Mo3) (CD antigen CD87)
+VCAM-1	P19320	VCAM1 L1CAM	7412	Vascular cell adhesion protein 1 (V-CAM 1) (VCAM-1) (INCAM-100) (CD antigen CD106)
+VEGF	P15692	VEGFA VEGF	7422	Vascular endothelial growth factor A (VEGF-A) (Vascular permeability factor) (VPF)
+VEGF R1	P17948	FLT1 FLT FRT VEGFR1	2321	Vascular endothelial growth factor receptor 1 (VEGFR-1) (EC 2.7.10.1) (Fms-like tyrosine kinase 1) (FLT-1) (Tyrosine-protein kinase FRT) (Tyrosine-protein kinase receptor FLT) (FLT) (Vascular permeability factor receptor)
+VEGF R2	P35968	KDR FLK1 VEGFR2	3791	Vascular endothelial growth factor receptor 2 (VEGFR-2) (EC 2.7.10.1) (Fetal liver kinase 1) (FLK-1) (Kinase insert domain receptor) (KDR) (Protein-tyrosine kinase receptor flk-1) (CD antigen CD309)
+VEGF R3	P35916	FLT4 VEGFR3	2324	Vascular endothelial growth factor receptor 3 (VEGFR-3) (EC 2.7.10.1) (Fms-like tyrosine kinase 4) (FLT-4) (Tyrosine-protein kinase receptor FLT4)
+VEGF-C	P49767	VEGFC	7424	Vascular endothelial growth factor C (VEGF-C) (Flt4 ligand) (Flt4-L) (Vascular endothelial growth factor-related protein) (VRP)
+VEGF-D	O43915	FIGF VEGFD	2277	Vascular endothelial growth factor D (VEGF-D) (c-Fos-induced growth factor) (FIGF)
+WIF-1	Q9Y5W5	WIF1 UNQ191/PRO217	11197	Wnt inhibitory factor 1 (WIF-1)
+XEDAR	Q9HAV5	EDA2R TNFRSF27 XEDAR UNQ2448/PRO5727/PRO34080	60401	Tumor necrosis factor receptor superfamily member 27 (X-linked ectodysplasin-A2 receptor) (EDA-A2 receptor)
