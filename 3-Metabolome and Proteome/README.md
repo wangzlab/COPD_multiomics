@@ -1,8 +1,10 @@
 ## 1. Metabolome
 
-The raw data from mass spectrometer was imported into commercial software Progenesis QI (version 2.2, hereinafter referred to as QI) for peak picking (https://www.nonlinear.com/progenesis/qi/), to obtain information of metabolites such as mass over charge, retention time and ion area. The QI workflow consists of the following steps: peak alignment, peak picking, and peak identification. 
+The raw data from mass spectrometer was imported into commercial software Progenesis QI (version 2.2, hereinafter referred to as QI) for peak picking (https://www.nonlinear.com/progenesis/qi/), to obtain information of metabolites such as mass over charge, retention time and ion area. The QI workflow consists of the following steps: peak alignment, peak picking, and peak identification.
 
-Pre-processing of raw peak data was performed using metaX (https://www.bioconductor.org/packages/3.2/bioc/html/metaX.html), the steps include: 
+The metabolite identification was performed by Progenesis QI by searching against HMDB (v5.0), METLIN (v3.7.1) and KEGG (v96.0) databases. 
+
+Pre-processing of peak data was performed using metaX (https://www.bioconductor.org/packages/3.2/bioc/html/metaX.html), the steps include: 
 
 - Filtering out low quality ions (first removed ions in QC sample that contain over 50% missing value, then removed ions in actual samples that contain over 80% missing value)
 - Using k-nearest neighbor (KNN) method for filling the missing values
@@ -10,14 +12,14 @@ Pre-processing of raw peak data was performed using metaX (https://www.bioconduc
 - Using QC-RSC (Quality control-based robust LOESS signal correction) method to alleviate the effects of peak area attenuation
 - Filtering out ions in all QC samples which are RSD > 30% (the ions with RSD > 30% are fluctuate greatly in the experiment and will not be included in downstream statistical analysis)
 
-Taken the analysis of positive ion mode for example:
+Taken the analysis of positive ion mode as example:
 
 ```R
 library(metaX)
 para <- new("metaXpara")
-pfile <- "m_pos.csv" ## Output from QI
-sfile <- "s_pos.list" ## Output from QI
-idres <- "i_pos.csv" ## Output from QI
+pfile <- "m_pos.csv" ## Output from QI, raw peak file with metabolite information
+sfile <- "s_pos.list" ## Output from QI, sample list file
+idres <- "i_pos.csv" ## Output from QI, ion intensity file
 para@outdir <- "metaX_result_pos"
 para@prefix <- "pos"
 para@sampleListFile <- sfile
@@ -35,12 +37,10 @@ save(p, file="pos.rda")
 sessionInfo()
 ```
 
-The metabolite identification was performed using the function metaboliteAnnotation() by searching HMDB (v5.0), METLIN (v3.7.1) and KEGG (v96.0) databases. 
-
-The resultant metabolome data are uploaded as metabolome.txt
+The processed metabolome data are uploaded as metabolome.txt
 
 ## 2. Sputum and serum proteome
 
 A panel of 280 proteins were measured using custom Quantibody Human Antibody Array (test procedure no. SOP-TF-QAH-001, SOP-TF-QAH-003 microarray) from RayBiotech (https://www.raybiotech.com/inflammation-protein-arrays/).
 
-The resultant sputum and serum proteome data are uploaded as sputum_proteome.txt and serum_proteome.txt
+The processed sputum and serum proteome data are uploaded as sputum_proteome.txt and serum_proteome.txt
