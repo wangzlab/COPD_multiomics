@@ -60,7 +60,7 @@ do
 done
 ```
 
-## **4. Sequence alignment and **gene expression calculation
+## 4. Sequence alignment and gene expression calculation
 
 **Install RSEM:**
 
