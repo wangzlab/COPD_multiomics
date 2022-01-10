@@ -96,10 +96,14 @@ The transcriptome module assignment are saved as: 1_DimReduction/hostT.module_as
 ## 3. Module association with COPD
 
 ```R
-MetaG.sigMods <- glm.sigModules(input.ds = "1_DimReduction/metaG-combined.gct", 
-                                meta.file="source.data/meta.txt",
-                                glm.family = "binomial",
-                                glm.p = 0.1)
+# For MetaG modules, run 'MetaG.Module.affectDisease' function, to 1) get effect size of each KOs in association with disease in a linear model, 2) rank the features by this effect size, and 3) compare the ranks of features within or outside each module in a Wilcoxon rank-sum test
+MetaG.mod.onDiseaseState <- MetaG.Module.affectDisease(input.ds = "source.data/metagenome.gct", 
+                                                       meta.file = "source.data/meta.txt",
+                                                       disease.state = "Disease",
+                                                       gene.set.databases = "source.data/KEGG_modules.gmt")
+
+MetaG.pval<-MetaG.mod.onDiseaseState$Module.pvalue
+MetaG.sigMods <-  MetaG.pval$module[MetaG.pval$Wilcox.p < 0.1,]
 
 # organize MetaB data into a dataframe with rownames being modules and colnames being samples
 MetaB.Mod.dat <- fread("1_DimReduction/metaB.module_eigengene.txt",data.table = F) 
