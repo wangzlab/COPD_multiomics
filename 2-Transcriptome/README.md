@@ -1,3 +1,5 @@
+
+
 ## 1. Software and database required
 
 **Software:**
@@ -101,5 +103,19 @@ do
 	/bigdata/gaojy/biosoft/rsem/database/grch38/grch38 \
 	03_rsem/$k
 done
+```
+
+The count and FPKM data of all genes in each sample should be present in [SampleID].genes.results
+
+Concatenate the results of each sample to generate the file count.txt
+
+## 5. Variance stabilizing transformation of count data
+
+```R
+data<-read.table("count.txt",row.names=1,sep="\t",header=T)
+group<-read.table("group.txt",sep="\t",header=T) ## optional metadata
+dds <- DESeqDataSetFromMatrix(countData = data, colData = group, design= ~ Group)
+vst<-assay(varianceStabilizingTransformation(dds))
+write.table(vst,"transcriptome.txt",append=FALSE,sep="\t",quote=FALSE)
 ```
 
