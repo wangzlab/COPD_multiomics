@@ -96,7 +96,10 @@ The transcriptome module assignment are saved as: 1_DimReduction/hostT.module_as
 ## 3. Module association with COPD
 
 ```R
-# For MetaG modules, run 'MetaG.Module.affectDisease' function, to 1) get effect size of each KOs in association with disease in a linear model, 2) rank the features by this effect size, and 3) compare the ranks of features within or outside each module in a Wilcoxon rank-sum test
+# For MetaG modules, run 'MetaG.Module.affectDisease' function, to 
+# 1) get effect size of each KOs in association with disease in a linear model, 
+# 2) rank the features by this effect size, and 
+# 3) compare the ranks of features within or outside each module in a Wilcoxon rank-sum test
 MetaG.mod.onDiseaseState <- MetaG.Module.affectDisease(input.ds = "source.data/metagenome.gct", 
                                                        meta.file = "source.data/meta.txt",
                                                        disease.state = "Disease",
