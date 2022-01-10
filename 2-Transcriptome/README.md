@@ -70,8 +70,8 @@ done
 wget https://github.com/deweylab/RSEM/archive/v1.3.3.tar.gz
 tar -zxvf v1.3.3.tar.gz
 cd rsem
-make install prefix=/bigdata/gaojy/biosoft/rsem/ 
-echo 'PATH=$PATH:/bigdata/gaojy/biosoft/rsem/bin/' >> ~/.bashrc
+make install prefix=/software/biosoft/rsem/ 
+echo 'PATH=$PATH:/software/biosoft/rsem/bin/' >> ~/.bashrc
 source ~/.bashrc
 ```
 
@@ -100,7 +100,7 @@ do
 	--hisat2-hca \
 	02_cutadapt/$i \
 	02_cutadapt/$j \
-	/bigdata/gaojy/biosoft/rsem/database/grch38/grch38 \
+	/software/biosoft/rsem/database/grch38/grch38 \
 	03_rsem/$k
 done
 ```
