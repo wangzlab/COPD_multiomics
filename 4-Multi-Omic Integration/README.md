@@ -45,7 +45,7 @@ Script: Rscript 2.significant.metaG.modules.r
 Output: 2_significant_metaG_modules.RData (a R data file containing the list of metagenomic modules associated with COPD)
 ```
 
-Differential metaB, hostT and hostP modules/features were obtained by associating the modules/features with COPD in a general linear model adjusting demographic confounders.
+Differential MetaB, HostT and HostP modules/features were obtained by associating the modules/features with COPD in a general linear model adjusting demographic confounders.
 
 ```
 Input: 1_metaB.module_eigengene.txt (module-level metabolome profile output from step 1)
@@ -73,7 +73,7 @@ Output: 2_significant_hostP_modules.RData (a R data file containing the list of 
 
 ## 3. Mediation analysis
 
-Mediation analysis was performed sequentially from metaG-metaB, metaB-hostT, hostT-hostP with sputum neutrophil or eosinophil percentage, respectively. Take the analysis for neutrophil as an example:
+Mediation analysis was performed sequentially from MetaG-MetaB, MetaB-HostT, HostT-HostP with sputum neutrophil or eosinophil percentage, respectively. Take the analysis for neutrophil as an example:
 
 ```
 Input: 1_metaG-combined.gct (module-level metagenome profile output from step 1), 1_metaB.module_eigengene.txt, meta.mediation.NEU.txt (containing metadata for the endpoint for the mediation analysis [NEU] and demographic confounders), 2_significant_metaG_modules.RData and 2_significant_metaB_modules.RData (significant metaG and metaB modules output from step 2)
@@ -157,7 +157,7 @@ Output: 4_HostT.module_HostP.protein.linked.txt (linked MetaB-HostT modules and 
 
 Leave-one-species-out analysis was performed to identify driver taxa for the MetaG-MetaB associations by recalculating module-level associations with each species (using bin-based or gene-based taxonomy) iteratively excluded one at a time.
 
-- Calculate contribution of each species to MetaG-MetaB correlation:
+- Calculate contribution of each species to MetaG-MetaB correlation.
 
 Prepare LOSO data by 1) aggragating gene-level metagenomic profile to KO-level with genes from each species removed one at a time, 2) repeating step 1 dimensionality reduction for the KO-level profile, and 3) generate files of speciesX-combined.gct for the dimensionality reduced MetaG profile with speciesX left out.
 
@@ -169,7 +169,7 @@ Script: Rscript 6.LOSO.delta.r
 Output: 5_LOSO_delta.spearman.r.txt (which contains the delta spearman's r and the z-score for the MetaG-MetaB pair when each species was iteratively removed)
 ```
 
-- Calculate contribution of each species to the turnover of KOs between COPD and control:
+- Calculate contribution of each species to the turnover of KOs between COPD and control.
 
 ```
 Input: 1) geneDepth.txt (gene-level abundance file with the first column being gene IDs), 2) ko.txt (KO-gene mapping file), 3) bin_membership.txt (gene-bin mapping file), 2) bin_species (species-bin mapping file)
