@@ -181,12 +181,12 @@ Output: 5_LOSO_ko.abund (directory containing all ko.abund_rm.speciesX.gct files
 
 ## 6. Random forest analysis
 
-Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage.
+Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage. Take neutrophil as an example:
 
 ```
 Input: 1) 4_MetaG.MetaB.modules.linked.txt, 2) 4_MetaB.HostT.modules.linked.txt, 3) meta.mediation.NEU.txt, 4) 1_metaG-combined.gct, 5) 1_metaB.module_eigengene.txt, 6) 1_hostT.module_eigengene.txt
 
 Script: Rscript 6.random_forest.r
 
-Output: 6_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE information for each linked MetaG-MetaB-HostT set).
+Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE information for each linked MetaG-MetaB-HostT set).
 ```
