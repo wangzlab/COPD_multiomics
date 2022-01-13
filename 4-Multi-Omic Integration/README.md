@@ -71,7 +71,7 @@ Dimensionality reduction for metagenome data
 ssGSEA2(input.ds = "source.data/metagenome.gct", ## the metagenome.gct is the relative abundance of KOs after arcsin z-score normalization and z-score standardization 
         gene.set.databases = "source.data/KEGG_modules.gmt",
         output.prefix = "metaG", outputDir = "1_DimReduction",
-        min.overlap = 2, weight = 0, statistic = 'area.under.RES', output.score.type = "NES", nperm = 1000,
+        min.overlap = 2, weight = 0, statistic = 'area.under.RES', output.score.type = "NES", nperm = 100,
         export.signat.gct = F, 
         par = T, spare.cores = 5)
 ```
@@ -96,10 +96,10 @@ The transcriptome module assignment are saved as: 1_DimReduction/hostT.module_as
 ## 3. Module association with COPD
 
 ```R
-# For MetaG modules, run 'MetaG.Module.affectDisease' function, to 
-# 1) get effect size of each KOs in association with disease in a linear model, 
-# 2) rank the features by this effect size, and 
-# 3) compare the ranks of features within or outside each module in a Wilcoxon rank-sum test
+# For MetaG modules, run 'MetaG.Module.affectDisease' function, which 
+# 1) gets effect size of each KOs in association with disease in a linear model, 
+# 2) ranks the features by this effect size, and 
+# 3) compares the ranks of features within or outside each module in a Wilcoxon rank-sum test
 MetaG.mod.onDiseaseState <- MetaG.Module.affectDisease(input.ds = "source.data/metagenome.gct", 
                                                        meta.file = "source.data/meta.txt",
                                                        disease.state = "Disease",
