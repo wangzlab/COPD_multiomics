@@ -164,7 +164,7 @@ Prepare LOSO data by 1) aggragating gene-level metagenomic profile to KO-level w
 ```
 Input: 1) 3_MetaG.MetaB.modules.linked.txt, 2) 1_metaG-combined.gct, 3) 1_metaB.module_eigengene.txt, 4) LOSO_metaG_DR containing all dimensionality reduced MetaG profiles named as speciesX-combined.gct, one for each species excluded
 
-Script: Rscript 6.LOSO.delta.r
+Script: Rscript 5.LOSO.delta.r
 
 Output: 5_LOSO_delta.spearman.r.txt (which contains the delta spearman's r and the z-score for the MetaG-MetaB pair when each species was iteratively removed)
 ```
