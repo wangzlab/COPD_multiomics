@@ -1,6 +1,6 @@
 ## 1. Dimensionality reduction
 
-Dimensionality reduction for metagenomic data was performed using ssGSEA program. Two options are:
+Dimensionality reduction for metagenomic data was performed using ssGSEA algorithm. Two options are:
 
 - Online platform (https://cloud.genepattern.org/gp/pages/index.jsf)
 - local R package (https://github.com/broadinstitute/ssGSEA2.0/)
@@ -188,5 +188,5 @@ Input: 1) 4_MetaG.MetaB.modules.linked.txt, 2) 4_MetaB.HostT.modules.linked.txt,
 
 Script: Rscript 6.random_forest.r
 
-Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE information for each linked MetaG-MetaB-HostT set).
+Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set).
 ```
