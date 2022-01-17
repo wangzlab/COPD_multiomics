@@ -136,9 +136,9 @@ Output:
 ```
 Input: 
 1_hostT.module_eigengene.txt
-sputum_proteome.txt
 2_significant_hostT_modules.RData (significant hostT modules output from step 2)
 2_significant_hostP_modules.RData (significant hostP modules output from step 2)
+sputum_proteome.txt
 meta.mediation.NEU.txt
 
 Script: 
