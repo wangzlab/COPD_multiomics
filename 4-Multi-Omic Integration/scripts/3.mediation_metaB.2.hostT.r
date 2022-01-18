@@ -117,8 +117,8 @@ for(md1 in Treat.omic.sigModules){
     
     
     
-    vec = c(id, ACME.p, ADE.p, prop.mediated, spearman.r)
-    names(vec) <- c("Treat_Mediator_Y", "ACME.p", "ADE.p", "prop.mediated", "spearman.r")
+    vec = c(id, ACME.p, prop.mediated, spearman.r)
+    names(vec) <- c("Treat_Mediator_Y", "ACME.p", "prop.mediated", "spearman.r")
     
     Mediation.results <- bind_rows(Mediation.results, vec)
     
