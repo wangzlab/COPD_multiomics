@@ -200,5 +200,5 @@ Input: 1) 4_MetaG.MetaB.modules.linked.txt, 2) 4_MetaB.HostT.modules.linked.txt,
 
 Script: Rscript 6.random_forest.r
 
-Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set).
+Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set)
 ```
