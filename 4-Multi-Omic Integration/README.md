@@ -35,24 +35,24 @@ Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 
 ## 2. Obtain COPD-associated modules
 
-Differential metagenomic modules were obtained by: 1) obtaining effect size of each KOs in association with disease in a general linear model adjusting demographic confounders, 2) ranking the features by their effect sizes, and 3) comparing the ranks of features within or outside each module in a Wilcoxon rank-sum test.
+Differential metagenomic modules were obtained by: 1) obtaining effect size of each KOs in association with disease in a general linear model adjusting demographic confounders, 2) ranking the features by their effect sizes, and 3) comparing the ranks of features within or outside each module in a Wilcoxon rank-sum test. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
 
 ```
 Input: metagenome.gct, KEGG_modules.gmt, metadata.txt (containing a column named SampleID and variables of confounders and a column indicating disease state)
 
 Script: Rscript 2.significant.metaG.modules.r
 
-Output: 2_significant_metaG_modules.RData (a R data file containing the list of metagenomic modules associated with COPD)
+Output: 2_significant_metaG_modules.RData (a R data file containing the lists of metagenomic modules associated with COPD and specifically correlated with NEU or EOS)
 ```
 
-Differential MetaB, HostT and HostP modules/features were obtained by associating the modules/features with COPD in a general linear model adjusting demographic confounders.
+Differential MetaB, HostT and HostP modules/features were obtained by associating the modules/features with COPD in a general linear model adjusting demographic confounders. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
 
 ```
 Input: 1_metaB.module_eigengene.txt (module-level metabolome profile output from step 1)
 
 Script: Rscript 2.significant.metaB.modules.r
 
-Output: 2_significant_metaB_modules.RData (a R data file containing the list of metabolomic modules associated with COPD)
+Output: 2_significant_metaB_modules.RData (a R data file containing the list of metabolomic modules associated with COPD and specifically correlated with NEU or EOS)
 ```
 
 ```
@@ -60,7 +60,7 @@ Input: 1_hostT.module_eigengene.txt (module-level metabolome profile output from
 
 Script: Rscript 2.significant.hostT.modules.r
 
-Output: 2_significant_hostT_modules.RData (a R data file containing the list of metabolomic modules associated with COPD)
+Output: 2_significant_hostT_modules.RData (a R data file containing the list of metabolomic modules associated with COPD and specifically correlated with NEU or EOS)
 ```
 
 ```
@@ -68,7 +68,7 @@ Input: sputum_proteome.txt (feature-level proteome profile)
 
 Script: Rscript 2.significant.hostP.modules.r
 
-Output: 2_significant_hostP_modules.RData (a R data file containing the list of protein features associated with COPD)
+Output: 2_significant_hostP_modules.RData (a R data file containing the list of protein features associated with COPD and specifically correlated with NEU or EOS)
 ```
 
 ## 3. Mediation analysis
@@ -171,12 +171,24 @@ Output: 5_LOSO_NEU.delta.spearman.r.txt (which contains the delta spearman's r a
 
 - Calculate contribution of each species to the turnover of KOs between COPD and control.
 
+  Generate metagenomic KO-level profiles with each species removed one at a time.
+
 ```
 Input: 1) geneDepth.txt (gene-level abundance file with the first column being gene IDs), 2) ko.txt (KO-gene mapping file), 3) bin_membership.txt (gene-bin mapping file), 2) bin_species (species-bin mapping file)
 
 Script: Rscript 5.LOSO.KO.r
 
 Output: 5_LOSO_ko.abund (directory containing all ko.abund_rm.speciesX.gct files, one for each species removed
+```
+
+   Calculate z-score for the contribution of each species to the turnover of each KO in COPD versus control.
+
+```
+Input: 1) 5_LOSO_ko.abund (output in last step), 2) metagenome.gct (null KO-level profile), 3) metadata.txt (metadata.txt)
+
+Script: Rscript 5.KOSO.KO.zscore.r
+
+Output: 5_LOSO.KO.zscore.txt (the KO by species matrix table with z-scores)
 ```
 
 ## 6. Random forest analysis
