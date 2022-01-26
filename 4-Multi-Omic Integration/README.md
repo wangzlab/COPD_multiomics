@@ -38,7 +38,7 @@ Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 Differential metagenomic modules were obtained by: 1) obtaining effect size of each KOs in association with disease in a general linear model adjusting demographic confounders, 2) ranking the features by their effect sizes, and 3) comparing the ranks of features within or outside each module in a Wilcoxon rank-sum test. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
 
 ```
-Input: metagenome.gct, KEGG_modules.gmt, metadata.txt (containing a column named SampleID and variables of confounders and a column indicating disease state)
+Input: metagenome.gct, KEGG_modules.gmt, metadata.txt (containing a column named SampleID, variables of confounders, and a column indicating disease state), meta.mediation.NEU.txt, meta.mediation.EOS.txt (containing a column named SampleID and a column indicating NEU or EOS)
 
 Script: Rscript 2.significant.metaG.modules.r
 
@@ -48,7 +48,7 @@ Output: 2_significant_metaG_modules.RData (a R data file containing the lists of
 Differential MetaB, HostT and HostP modules/features were obtained by associating the modules/features with COPD in a general linear model adjusting demographic confounders. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
 
 ```
-Input: 1_metaB.module_eigengene.txt (module-level metabolome profile output from step 1)
+Input: 1_metaB.module_eigengene.txt (module-level metabolome profile output from step 1), metadata.txt (containing a column named SampleID, variables of confounders, and a column indicating disease state), meta.mediation.NEU.txt, meta.mediation.EOS.txt (containing a column named SampleID and a column indicating NEU or EOS)
 
 Script: Rscript 2.significant.metaB.modules.r
 
@@ -56,7 +56,7 @@ Output: 2_significant_metaB_modules.RData (a R data file containing the list of 
 ```
 
 ```
-Input: 1_hostT.module_eigengene.txt (module-level metabolome profile output from step 1)
+Input: 1_hostT.module_eigengene.txt (module-level metabolome profile output from step 1), metadata.txt (containing a column named SampleID, variables of confounders, and a column indicating disease state), meta.mediation.NEU.txt, meta.mediation.EOS.txt (containing a column named SampleID and a column indicating NEU or EOS)
 
 Script: Rscript 2.significant.hostT.modules.r
 
@@ -64,7 +64,7 @@ Output: 2_significant_hostT_modules.RData (a R data file containing the list of 
 ```
 
 ```
-Input: sputum_proteome.txt (feature-level proteome profile)
+Input: sputum_proteome.txt (feature-level proteome profile), metadata.txt (containing a column named SampleID, variables of confounders, and a column indicating disease state), meta.mediation.NEU.txt, meta.mediation.EOS.txt (containing a column named SampleID and a column indicating NEU or EOS)
 
 Script: Rscript 2.significant.hostP.modules.r
 
@@ -200,5 +200,5 @@ Input: 1) 4_MetaG.MetaB.modules.linked.txt, 2) 4_MetaB.HostT.modules.linked.txt,
 
 Script: Rscript 6.random_forest.r
 
-Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set)
+Output: 6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set).
 ```
