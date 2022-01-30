@@ -60,7 +60,7 @@ tmp <- linn[numElements == 10]
 subdf4 <- unname(sapply(tmp,function(x) strsplit(x,"\t")[[1]] )) %>% t() %>% data.frame(stringsAsFactors = F)
 colnames(subdf4) <- c("CIDm","ENSP","geneName","description", "linkType","X1","X2","X3","X4","score") 
 
-CIDm.receptor.score.co = 700
+CIDm.receptor.score.co = 800
 CIDm.receptor <- bind_rows(subdf1, subdf2, subdf3, subdf4) %>% filter(score >= CIDm.receptor.score.co)
 
 
