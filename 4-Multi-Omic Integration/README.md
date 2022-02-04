@@ -159,7 +159,7 @@ Leave-one-species-out analysis was performed to identify driver taxa for the Met
 
 - Calculate contribution of each species to MetaG-MetaB correlation.
 
-Prepare LOSO data by 1) aggragating gene-level metagenomic profile to KO-level with genes from each species removed one at a time, 2) repeating step 1 dimensionality reduction for the KO-level profile, and 3) generate files of speciesX-combined.gct for the dimensionality reduced MetaG profile with speciesX left out.
+Prepare LOSO data by 1) aggragating gene-level metagenomic profile to KO-level with genes from each species removed one at a time, 2) repeating step 1 dimensionality reduction for the KO-level profile, and 3) generating files of speciesX-combined.gct for the dimensionality reduced MetaG profile with speciesX left out.
 
 ```
 Input: 1) 4_MetaG.MetaB.modules.NEU.linked.txt, 2) 1_metaG-combined.gct, 3) 1_metaB.module_eigengene.txt, 4) LOSO_metaG_DR containing all dimensionality reduced MetaG profiles named as speciesX-combined.gct, one for each species excluded
