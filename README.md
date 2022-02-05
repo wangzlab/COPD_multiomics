@@ -1,6 +1,6 @@
 # Multi-omic Landscape of Airway Microbe-Host Interaction in Chronic Obstructive Pulmonary Disease
 
-This repository contains computer codes for main analyses of the manuscript (Yan et al. 2021, Multi-omic Landscape of Airway Microbe-Host Interaction in Chronic Obstructive Pulmonary Disease).
+This repository contains data and computer codes for main bioinformatic analyses of the manuscript (Yan et al. 2021, Multi-omic Landscape of Airway Microbe-Host Interaction in Chronic Obstructive Pulmonary Disease).
 
 - 1-Metagenome, which contains the commands and scripts to process metagenomic data to generate taxonomic and functional profiles for this study. 
 - 2-Transcriptome, which contains the commands and scripts to process host transcriptomic to generate gene expression table for this study.
