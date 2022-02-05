@@ -9,7 +9,7 @@
 #
 
 # output:
-# "4_MetaG.MetaB.modules.linked.txt" stored in the "Output" directory
+# "4_MetaG.MetaB.modules.linked.txt"
 
 
 
