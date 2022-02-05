@@ -8,7 +8,7 @@
 # 7) "all_CIDm_targets.txt" link file between CIDm ID and host targets
 
 # output:
-# "MetaB.HostT.modules.linked.txt" stored in the "Output" directory
+# "MetaB.HostT.modules.linked.txt"
 
 
 
