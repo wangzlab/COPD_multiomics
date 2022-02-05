@@ -142,7 +142,7 @@ Output: 4_MetaG.MetaB.modules.NEU.linked.txt (linked MetaG-MetaB modules and the
 MetaB-HostT: Biological links were identified if metabolites in the metaB modules interact with host genes in the hostT modules (activation/inhibition/binding), based on STITCH database.
 
 ```
-Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database)
+Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database, available at doi:10.6084/m9.figshare.19126814)
 
 Script: 4.MetaB.HostT.link.r
 
