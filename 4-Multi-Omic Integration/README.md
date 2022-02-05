@@ -307,8 +307,8 @@ Perform random forest analysis using each linked MetaG-MetaB-HostT set to predic
 
 ```
 Input: 
-	4_MetaG.MetaB.modules.linked.txt
-	4_MetaB.HostT.modules.linked.txt
+	4_MetaG.MetaB.modules.NEU.linked.txt
+	4_MetaB.HostT.modules.NEU.linked.txt
 	meta.mediation.NEU.txt
 	1_metaG-combined.gct
 	1_metaB.module_eigengene.txt
@@ -320,3 +320,4 @@ Script:
 Output: 
 	6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set)
 ```
+
