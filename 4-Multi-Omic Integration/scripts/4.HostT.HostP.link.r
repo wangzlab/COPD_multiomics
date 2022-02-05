@@ -7,7 +7,7 @@
 # 6) "human_pathway.gmt"  Human pathway information file (.gmt file) 
 
 # output:
-# "4_HostT.module_HostP.protein.linked.txt" stored in the "Output" directory
+# "4_HostT.module_HostP.protein.linked.txt"
 
 
 output.dir = "Output"
