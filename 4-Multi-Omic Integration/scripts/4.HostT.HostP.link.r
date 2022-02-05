@@ -89,7 +89,7 @@ HostT.HostP.dat <- merge(HostT.dat, HostP.dat, by=0)
 cat("Performing link analysis : \n", file=log.file, append=T)
 # identify HostT-HostP module pairs 
 # HostT.HostP.modPairs <- strsplit((mediation.res %>% dplyr::filter(ACME.p <= ACME.p.co))$Treat_Mediator_Y,"_",fixed = T)
-ACME.p.co = 0.25
+ACME.p.co = 0.10
 HostT.HostP.modPairs <-(mediation.res %>% dplyr::filter(ACME.p <= ACME.p.co))$Treat_Mediator_Y
 
 # identify links
