@@ -3,7 +3,7 @@
 # 2) "transcriptome.txt" transcriptomic abundance table on the feature level
 # 3) "sputum_proteome.txt" proteomic abundance table on the feature level
 # 4) "1_hostT.module_assign.txt" module assignment file of the transcriptomic featrues, generated from script "1.WGCNA_transcriptomics.r"
-# 5) "protein_info.txt" protein names and corresponding gene names, sourced from  ????????????????
+# 5) "protein_info.txt" protein names and corresponding gene names
 # 6) "human_pathway.gmt"  Human pathway information file (.gmt file) 
 
 # output:
