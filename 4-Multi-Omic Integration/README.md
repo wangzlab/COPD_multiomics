@@ -7,7 +7,7 @@ Dimensionality reduction for metagenomic data was performed using ssGSEA algorit
 
 ```
 Input: 
-	metagenome.gct (a z-score normalized abundance table in gctx format with KEGG KO ids in rows and samples in columns), 	
+	metagenome.gct (a z-score normalized abundance table in gctx format with KEGG KO ids in rows and samples in columns)
 	KEGG_modules.gmt (KEGG gene-module mapping file in gmt format)
 
 Script: 
