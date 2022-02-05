@@ -151,7 +151,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     next
   }  
   
-  # scenario 3: if features in metaG has a substrate/product that linked to features in metaB by presenting in the same KEGG module
+  # scenario 3: if features in metaG have substrates/products that are linked to features in metaB by presenting in the same KEGG module
   
   for(gf1 in metag.ftr){
     # gf = metag.ftr[1]
