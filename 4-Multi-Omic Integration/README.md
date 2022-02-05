@@ -111,6 +111,8 @@ Output:
 
 Mediation analysis was performed sequentially from MetaG-MetaB, MetaB-HostT, HostT-HostP with sputum neutrophil or eosinophil percentage, respectively. Take the analysis for neutrophil as an example:
 
+- MetaG-MetaB:
+
 ```
 Input: 
 	1_metaG-combined.gct (module-level metagenome profile output from step 1)
@@ -126,6 +128,8 @@ Output:
 	3_MetaG_affects_NEU_through_MetaB.txt (metaG-metaB-NEU mediation analysis results, including P-value and proportion of mediation effects)
 ```
 
+- MetaB-HostT:
+
 ```
 Input: 
 	1_metaB.module_eigengene.txt
@@ -140,6 +144,8 @@ Script:
 Output: 
 	3_MetaB_affects_NEU_through_HostT.txt (metaB-hostT-NEU mediation analysis results, including P-value and proportion of mediation effects)
 ```
+
+- HostT-HostP:
 
 ```
 Input: 
@@ -320,4 +326,3 @@ Script:
 Output: 
 	6_NEU_prediction.performance_byLinks.rf.txt (containing RMSE, RSQ and MAE scores for each linked MetaG-MetaB-HostT set)
 ```
-
