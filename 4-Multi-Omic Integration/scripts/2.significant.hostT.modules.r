@@ -66,7 +66,7 @@ meta.EOS <- fread("meta.mediation.EOS.txt")
 
 # merge data and calculate correlation between module and inflammatory feature ------------------------
 meta <- merge(meta.NEU, meta.EOS, by="SampleID",all = T) %>% select(SampleID, NEU, EOS)
-# sampleID 不匹配，meta数据里面sampleID加上X
+# add 'X' for sampleID in metadata starting with numerics
 meta$SampleID[grepl("^\\d", meta$SampleID)] <- paste("X",meta$SampleID[grepl("^\\d", meta$SampleID)],sep = "")
 
 HostT.Mod.dat <- m
