@@ -29,13 +29,13 @@ library(data.table)
 library(dplyr)
 
 
-MetaG_module.feature <- fread("database/KEGG_modules.tab", data.table = F, header = F, col.names = c("Module","Description","Features")) 
+MetaG_module.feature <- fread("KEGG_modules.tab", data.table = F, header = F, col.names = c("Module","Description","Features")) 
 
-load("database/KO2METABO.lists.RData")
+load("KO2METABO.lists.RData")
 
 MetaB_module.feature <- fread("1_metaB.module_assign.txt", data.table = F,col.names =c("Feature","Module"))
 
-metabo.KEGGmodule.match <- fread("database/Metabo.KEGGModule.match.txt",data.table = F)
+metabo.KEGGmodule.match <- fread("Metabo.KEGGModule.match.txt",data.table = F)
 
 
 
@@ -71,10 +71,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   metab.ftr = MetaB_module.feature$Feature[MetaB_module.feature$Module == metab.md]
   
   # scenario1: if any metaG feature (KO number) has a product/substrate compound which belong to the metaB module  ------------
-  
-  #cat("Performing scenario 1 analysis.\n", file=log.file, append=T)
-  
-  # writeLines("performing scenario 1 analysis.\n")
+ 
   for(gf in metag.ftr){
     #  gf = metag.ftr[1]
     
@@ -97,9 +94,9 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     ftr_connections <- append(ftr_connections, link)
     remove(link)
     
-  }# scenario 1： loop through metaG features 
+  }# scenario 1： if features in metaG and metaB are directly linked 
   
-  
+ 
   if(ConfirmedLink){
     # store as data frame 
     link.vec <- c(paste(parts[1],parts[2],sep = "_"), paste(ftr_connections,collapse = ";"))
@@ -109,11 +106,8 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   } 
   
   if(F){
-    # scenario2: if any metaB feature (C number) is directly connected to the metaG module through the metabo.KEGGmodule.match file ---------------
-    
-    #cat("Performing scenario 2 analysis.\n", file=log.file, append=T)
-    
-    # writeLines("performing scenario 2 analysis.\n")
+    # scenario2: if any features in metaB are present in the metaG module (through the metabo.KEGGmodule.match file)
+   
     for(bf in metab.ftr){
       #bf = metab.ftr[1]
       gms <- metabo.KEGGmodule.match$KEGGmodule[which(metabo.KEGGmodule.match$metabo == bf)]
@@ -128,16 +122,6 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     } #scenario2： loop through metab features
     
   }
-  
-  
-  # scenario2-extended: suppose the metaG module (Gm1) contains a feature (gf1), which does not linke to any features in the metaB module (Bm1) ------------------------
-  #                     however, the gf1 could be assigned to multiple KEGG modules (gm.extend1, gm.extend2, ...),
-  #                     if any feature (e.g. bf1) in Bm1 is found to be connected to any gm.extend in the metabo.KEGGmodule.match table,
-  #                     we consider  consider Gm1 and Bm1 biologically linked  ---------------------------------------
-  
-  #cat("Performing scenario 2-extended analysis.\n", file=log.file, append=T)
-  
-  #writeLines("performing scenario 2-extended analysis.\n")
   
   for(gf in metag.ftr){
     #gf = metag.ftr[1]
@@ -157,7 +141,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
       
     } # loop through metab.ftr
     
-  }  # scenario 2-extended: loop through metag.ftr
+  }
   
   if(ConfirmedLink){
     # store as data frame 
@@ -167,14 +151,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     next
   }  
   
-  # scenario 3: suppose this metaG module(Gm1) contains a metaG feature (gf1) which has a substrate/product (bf1),  --------------------------
-  #             bf1 is not a member of this metaB moduel (Bm1), 
-  #             however, bf1 together with another metab feature (bf2 which belong to Bm1) are connected by co-existing in another KEGG module (Gm2), 
-  #             we consider Gm1 and Bm1 biologically linked ------------------------
-  
-  #cat("Performing scenario 3 analysis.\n", file=log.file, append=T)
-  
-  #writeLines("performing scenario 3 analysis.\n")
+  # scenario 3: if features in metaG has a substrate/product that linked to features in metaB by presenting in the same KEGG module
   
   for(gf1 in metag.ftr){
     # gf = metag.ftr[1]
@@ -209,14 +186,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     }# loop through bf1：substrates and products by gf1
   }# scenario3: loop through gf1: metag.ftr
   
-  # scenario 4: suppose this metaB module (Bm1) contains a metabo feature (bf1) which is a substrate/product of a metaG feature (gf1), ----------------
-  #             gf1 is not a member of this metaG module (Gm1),
-  #             however, if gf1, together with another metaG feature (gf2 which belongs to Gm1) co-exist in another metaG module (Gm2),
-  #             we consider Bm1 and Gm1 biologically linked ----------------
-  
-  #cat("Performing scenario 4 analysis.\n", file=log.file, append=T)
-  
-  # writeLines("performing scenario 4 analysis.\n")
+  # scenario 4: if features in metaB are substrates/products for genes that are linked to features in metaG by presenting in the same KEGG module
   
   for(bf1 in metab.ftr){
     # bf1 = metab.ftr[1]
