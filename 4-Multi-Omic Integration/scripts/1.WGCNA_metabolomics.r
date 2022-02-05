@@ -12,7 +12,7 @@ allowWGCNAThreads()
 enableWGCNAThreads()
 
 
-min.ModuleSize = 10
+min.ModuleSize = 5
 cut.Height = 0.1
 output.prefix = "1_metaB"
 outputDir = "Output"
