@@ -70,7 +70,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   metag.ftr = strsplit(MetaG_module.feature$Features[which(MetaG_module.feature$Module == metag.md)], ";", fixed = T)[[1]]
   metab.ftr = MetaB_module.feature$Feature[MetaB_module.feature$Module == metab.md]
   
-  # scenario1: if any metaG feature has a product/substrate that belongs to the metaB module 
+  # scenario 1: if any metaG feature has a product/substrate that belongs to the metaB module 
  
   for(gf in metag.ftr){
     #  gf = metag.ftr[1]
@@ -106,7 +106,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   } 
   
   if(F){
-    # scenario2: if any features in metaB are present in the metaG module (through the metabo.KEGGmodule.match file)
+    # scenario 2: if any features in metaB are present in the metaG module (through the metabo.KEGGmodule.match file)
    
     for(bf in metab.ftr){
       #bf = metab.ftr[1]
@@ -119,7 +119,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
         remove(link)
         
       }
-    } #scenario2： loop through metaB features
+    } #scenario 2： loop through metaB features
     
   }
   
