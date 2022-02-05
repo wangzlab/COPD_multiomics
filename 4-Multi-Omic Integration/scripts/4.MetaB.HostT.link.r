@@ -32,10 +32,10 @@ MetaB.dat <- data.frame(fread("metabolome.txt"), row.names = 1) %>% t() %>% as.d
 MetaB_module.feature <- fread("1_metaB.module_assign.txt", data.table = F, col.names =c("Feature","Module"))
 HostT.dat <- data.frame(fread("transcriptome.txt"), row.names = 1) %>% t() %>% as.data.frame()
 HostT_module.feature <- fread("1_hostT.module_assign.txt", data.table = F, col.names =c("Feature","Module"))
-metabo2CIDm <- fread("database/metabo2CIDm.txt", data.table = F, header = F, col.names = c("Metabo","CIDm"))
+metabo2CIDm <- fread("metabo2CIDm.txt", data.table = F, header = F, col.names = c("Metabo","CIDm"))
 
 # load and organize CIDm.receptor data 
-conn <- file("database/all_cidm_receptor.txt", open="r")
+conn <- file("all_CIDm_targets.txt", open="r")
 linn <-readLines(conn)
 close(conn)
 
@@ -70,13 +70,13 @@ MetaB.HostT.dat <- merge(MetaB.dat, HostT.dat, by=0)
 
 ## ###############################################
 ##
-##  perform linke analysis 
+##  perform link analysis 
 ##
 ## ###############################################
 cat("Performing link analysis : \n", file=log.file, append=T)
 # identify MetaB-HostT module pairs 
 #MetaB.HostT.modPairs <- strsplit((mediation.res %>% dplyr::filter(ACME.p <= ACME.p.co))$Treat_Mediator_Y,"_",fixed = T)
-ACME.p.co = 0.25
+ACME.p.co = 0.10
 MetaB.HostT.modPairs <- (mediation.res %>% dplyr::filter(ACME.p <= ACME.p.co))$Treat_Mediator_Y
 
 
