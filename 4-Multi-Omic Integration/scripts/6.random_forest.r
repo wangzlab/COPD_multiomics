@@ -45,7 +45,7 @@ grep("^\\d",colnames(HostT.Mod.dat))
 rownames(HostT.Mod.dat) <- sub("HostT_","",rownames(HostT.Mod.dat))
 
 
-# first identify the MetaG-MetaB-HostT  links ---------
+# first identify the MetaG-MetaB-HostT links ---------
 
 if(T){
   MetaG.MetaB.links <- 
@@ -318,6 +318,3 @@ for(i in c(1:nrow(link.df))){ # nrow(link.df)
 }
 
 write.table(Performance, file = "Output/6_NEU_prediction.performance_byLinks.rf.txt", sep = "\t", quote = F, row.names = F)
-
-
-
