@@ -50,7 +50,7 @@ metabo.KEGGmodule.match <- fread("Metabo.KEGGModule.match.txt",data.table = F)
 
 cat("Performing link analysis : \n", file=log.file, append=T)
 
-
+ACME.p.co = 0.10
 MetaG.MetaB.modPairs <- (mediation.res %>% dplyr::filter(ACME.p <= ACME.p.co))$Treat_Mediator_Y
 
 links_df <- NULL # a data frame to store links
