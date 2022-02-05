@@ -283,7 +283,7 @@ Input:
 	geneDepth.txt (gene-level abundance file with the first column being gene IDs)
 	ko.txt (KO-gene mapping file)
 	bin_membership.txt (gene-bin mapping file)
-	bin_species (species-bin mapping file)
+	bin_species.txt (species-bin mapping file)
 
 Script: 
 	Rscript 5.LOSO.KO.r
