@@ -57,7 +57,7 @@ Input:
 	metagenome.gct
 	KEGG_modules.gmt
 	metadata.txt (containing a column named SampleID, variables of confounders, and a column indicating disease state) 
-	meta.mediation.NEU.txt or meta.mediation.EOS.txt (containing a column named SampleID and a column indicating NEU or EOS)
+	meta.mediation.NEU.txt or meta.mediation.EOS.txt (containing a column named SampleID, variables of confounders, a column indicating NEU or EOS)
 
 Script: 
 	Rscript 2.significant.metaG.modules.r
