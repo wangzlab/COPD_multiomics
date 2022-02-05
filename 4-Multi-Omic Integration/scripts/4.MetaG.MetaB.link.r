@@ -70,7 +70,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   metag.ftr = strsplit(MetaG_module.feature$Features[which(MetaG_module.feature$Module == metag.md)], ";", fixed = T)[[1]]
   metab.ftr = MetaB_module.feature$Feature[MetaB_module.feature$Module == metab.md]
   
-  # scenario1: if any metaG feature (KO number) has a product/substrate compound which belong to the metaB module  ------------
+  # scenario1: if any metaG feature has a product/substrate that belongs to the metaB module 
  
   for(gf in metag.ftr){
     #  gf = metag.ftr[1]
@@ -94,7 +94,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
     ftr_connections <- append(ftr_connections, link)
     remove(link)
     
-  }# scenario 1： if features in metaG and metaB are directly linked 
+  }# scenario 1： loop through metaG features
   
  
   if(ConfirmedLink){
@@ -119,7 +119,7 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
         remove(link)
         
       }
-    } #scenario2： loop through metab features
+    } #scenario2： loop through metaB features
     
   }
   
@@ -179,11 +179,9 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
           ConfirmedLink <- T
           remove(link)
           
-        } # if link exist
-        
-      }# loop through bf2： metab.ftr 
-      
-    }# loop through bf1：substrates and products by gf1
+        } # if link exist       
+      }# loop through bf2    
+    }# loop through bf1
   }# scenario3: loop through gf1: metag.ftr
   
   # scenario 4: if features in metaB are substrates/products for genes that are linked to features in metaG by presenting in the same KEGG module
@@ -213,12 +211,10 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
           ConfirmedLink <- T
           remove(link)
           
-        } # if link exists
-        
+        } # if link exists  
       }# loop through gf2
-    }# loop through gf1 (gfs connected to bf1 by products/substrate relationship)
+    }# loop through gf1
   }# scenario 4: loop through bf1 (metab.ftr)
-  
   
   if(ConfirmedLink){
     # store as data frame 
