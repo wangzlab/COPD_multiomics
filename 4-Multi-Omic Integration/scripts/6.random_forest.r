@@ -47,8 +47,6 @@ rownames(HostT.Mod.dat) <- sub("HostT_","",rownames(HostT.Mod.dat))
 
 # first identify the MetaG-MetaB-HostT  links ---------
 
-
-# version2,跟v1的输出格式不同
 if(T){
   MetaG.MetaB.links <- 
     fread("3_Biological_Links/final/4_MetaG.MetaB.modules.NEU.linked.txt", data.table = F )%>%
