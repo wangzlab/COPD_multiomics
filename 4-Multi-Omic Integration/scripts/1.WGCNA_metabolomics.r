@@ -103,7 +103,7 @@ geneTree = flashClust (as.dist (dissTOM), method = "complete")
 # minModuleSize = 10;
 
 # try both pamRespectsDendro=F and T, see which one is better #
-moduleLabels1 = cutreeDynamic (dendro = geneTree, distM = dissTOM, method = "hybrid", deepSplit = 2, pamRespectsDendro = F, minClusterSize = 5)
+moduleLabels1 = cutreeDynamic (dendro = geneTree, distM = dissTOM, method = "hybrid", deepSplit = 2, pamRespectsDendro = F, minClusterSize = min.ModuleSize)
 moduleLabels1 = labels2colors (moduleLabels1)
 table(moduleLabels1)
 
