@@ -7,4 +7,4 @@ This repository contains data and computer codes for main bioinformatic analyses
 - 3-Metabolome and Proteome, which describes the processes to generate metabolomic data and sputum and serum proteomic data for this study.
 - 4-Multi-omic Integration, which contains the original scripts and datasets for downstream multi-omic data analyses for this study.
 - 5-Datasets, which contains clinical metadata table and the processed (original and dimensionality reduced) multi-omic data tables.
-- 6-Figure scripts, which contains the scripts and datasets to reproduce the main and supplementary figures for this study.
+- 6-Figure scripts, which contains the scripts and datasets for the main and supplementary figures for this study.
