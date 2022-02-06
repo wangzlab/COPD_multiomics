@@ -1,6 +1,6 @@
 ## 1. Datasets and scripts
 
-- All required datasets are under 'datasets' or '5-Datasets' directories. For large datasets that cannot be uploaded to GitHub, they are under FigShare doi:10.6084/m9.figshare.19126814.
+- All required datasets are under 'datasets' or '5-Datasets' directories. For large data files that cannot be uploaded to GitHub, they are under FigShare doi:10.6084/m9.figshare.19126814.
 
 - All scripts are under 'scripts' directory.
 
