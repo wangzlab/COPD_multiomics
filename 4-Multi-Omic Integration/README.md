@@ -38,7 +38,7 @@ Script: 1.WGCNA_transcriptomics.r
 Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 ```
 
-## 3. Obtain COPD-associated modules
+## 3. Obtain neutrophil or eosinophil-associated modules
 
 Differential metagenomic modules were obtained by: 1) obtaining effect size of each KOs in association with disease in a general linear model adjusting demographic confounders, 2) ranking the features by their effect sizes, and 3) comparing the ranks of features within or outside each module in a Wilcoxon rank-sum test. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
 
