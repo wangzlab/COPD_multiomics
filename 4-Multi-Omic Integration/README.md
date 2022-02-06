@@ -1,7 +1,29 @@
 ## 1. Datasets and scripts
 
 - All required datasets are under 'datasets' or '5-Datasets' directories. For large datasets that cannot be uploaded to GitHub, they are under FigShare doi:10.6084/m9.figshare.19126814.
+
 - All scripts are under 'scripts' directory.
+
+- Install required R packages:
+
+  ```
+  install.packages("pacman")
+  install.packages("gtools")
+  install.packages("verification")
+  install.packages("doParallel")
+  install.packages("foreach")
+  install.packages("magrittr")
+  install.packages("tibble")
+  install.packages("data.table")
+  install.packages("dplyr")
+  install.packages("reshape2")
+  install.packages("WGCNA")
+  install.packages("mediation")
+  install.packages("tidyverse")
+  install.packages("ranger")
+  ```
+
+  
 
 ## 2. Dimensionality reduction
 
