@@ -1,3 +1,7 @@
+- All scripts are under 'scripts' directory.
+
+- All required datasets are under 'datasets' or '5-Datasets' directories. For large datasets that cannot be uploaded to GitHub, they are under FigShare doi:10.6084/m9.figshare.19126814
+
 ## 1. Dimensionality reduction
 
 Dimensionality reduction for metagenomic data was performed using ssGSEA algorithm. Two options are:
