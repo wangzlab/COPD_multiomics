@@ -225,6 +225,9 @@ for(i_mdp in c(1:length(MetaG.MetaB.modPairs))){  # MetaG.MetaB.modPairs
   
 }  # loop through MetaG.MetaB.modPairs
 
+# remove redundant module pairs
+links_df <- links_df %>% unique() %>% group_by(module_pair) %>% summarise(feature_connections = paste(feature_connections,collapse = ";"))
+
 #save results
 if(!dir.exists(output.dir)) dir.create(output.dir)
 # save as table
