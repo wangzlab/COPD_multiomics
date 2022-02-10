@@ -141,7 +141,7 @@ Output: 3_HostT_affects_NEU_through_HostP.txt (hostT-hostP-NEU mediation analysi
 MetaG-MetaB: Biological links were identified if genes in the MetaG module were involved in metabolic reaction for the metabolites in the MetaB module, or if the metabolites in the MetaB module were present in the MetaG module, based on KEGG and MetaCyc databases.
 
 - Generate link information between KEGG gene ortholog (KO) IDs and MetaCyc compound IDs. 
-- Before running this, we should download the MetaCyc database (https://metacyc.org/), which should include a file named 'reactions.dat' containing detailed metabolic reaction information (i.e. substrate, product, enzyme etc). We can convert this file to a tab delimited one for future use (metacyc_reactions.txt).  
+- Before running this, we downloaded the MetaCyc database (https://metacyc.org/), which includes a file named 'reactions.dat' containing detailed metabolic reaction information (i.e. substrate, product, enzyme etc). We converted this file to a tab delimited one for future use (metacyc_reactions.txt).  
 - Then we run this step, which first links KO to EC based on ko01000.keg from KEGG database, and then links EC/KO to metabolites, based on metabolic reaction information derived from MetaCyc database (that a compound is a substrate or a product of a metabolic reaction catalyzed by the protein with the corresponding EC/KO).
 
 ```
@@ -153,7 +153,7 @@ Output: KO2EC.list.RData (R data file linking KO IDs and EC), EC2CMPD.lists.RDat
 ```
 
 - Generate link information between KOs and the metabolite IDs in the metabolome.txt file. 
-- Before running this, we should first create a file matching the IDs from metabolome data and MetaCyc compounds, this was done through 1) ID conversion (i.e. use the Compound ID Conversion utility in metaboanalyst https://www.metaboanalyst.ca/), and 2) using 100% compound structure match by open babel (https://openbabel.org/wiki/Main_Page). Then we can run this step to link KO IDs to the metabolite IDs in the metabolomic data.
+- Before running this, we first created a file matching the IDs from metabolome data and MetaCyc compounds, this was done through 1) ID conversion (i.e. use the Compound ID Conversion utility in metaboanalyst https://www.metaboanalyst.ca/), and 2) using 100% compound structure match by open babel (https://openbabel.org/wiki/Main_Page). Then we run this step to link KO IDs to the metabolite IDs in the metabolomic data.
 
 ```
 Input: cmpd2metabo.txt (curated matching information between metabolite IDs and MetaCyc compound IDs), KO2CMPD.lists.RData (generated from above step)
@@ -164,7 +164,7 @@ Output: KO2METABO.lists.RData (R data file linking KO IDs to metabolite IDs)
 ```
 
 - Generate MetaG-MetaB links. 
-- Before running this, we manually curated a file called 'Metabo.KEGGModule.match.txt' which stores information for the modules to which the KEGG compounds (C number) belong to. This step then considers two main situations to link MetaG and MetaB modules: 1) the KO from MetaG and metabolite from MetaB are directly linked based on the above linkage data; 2) the KO and the metabolite belong to the same KEGG module (based on the 'Metabo.KEGGModule.match.txt' file).
+- Before running this, we curated a file called 'Metabo.KEGGModule.match.txt' which stores information for the modules to which the KEGG compounds (C number) belong to. Then we run this step, which considers two main situations to link MetaG and MetaB modules: 1) the KO from MetaG and metabolite from MetaB are directly linked based on the above linkage data; 2) the KO and the metabolite belong to the same KEGG module (based on the 'Metabo.KEGGModule.match.txt' file).
 
 ```
 Input: 3_MetaG_affects_NEU_through_MetaB.txt (significant MetaG-MetaB links obtained in step 3), KEGG_modules.tab (KEGG Module-KO mapping file), KO2METABO.lists.RData (R data file linking KO IDs to metabolite IDs generated from above step), 1_metaB_module_assign.txt, metabolome.txt, metagenome.gct, Metabo.KEGGModule.match.txt (file storing KEGG compound ID-module mapping information)
@@ -175,7 +175,7 @@ Output: 4_MetaG.MetaB.modules.NEU.linked.txt (linked MetaG-MetaB modules and the
 ```
 
 - MetaB-HostT: Biological links were identified if metabolites in the metaB modules interact with host genes in the hostT modules (activation/inhibition/binding), based on STITCH database. 
-- Before running this, we should first download the files in STITCH database (http://stitch.embl.de/cgi/download.pl?UserId=LXoSgRCY5mtL&sessionId=zCuovnNcZ0QK). We look for three files (choose organism human): 
+- Before running this, we first downloaded the STITCH database (http://stitch.embl.de/cgi/download.pl?UserId=LXoSgRCY5mtL&sessionId=zCuovnNcZ0QK). We mainly looked for three files (choose organism human): 
   - 9606.protein_chemical.links.detailed.v5.0.tsv which contains interactions between compounds (CIDm, CIDs initial) and human genes (Ensembl ID) and interaction scores;
   - 9606.actions.v5.0.tsv which contains modes of interaction (activate, inhibit, binding, catalysis, reaction);
   - chemical.sources.v5.0.tsv which contains compound ID mapping rules (# ChEBI, ChEMBL, KEGG, PC (PubChem Compound) and PS (PubChem Substance)).
