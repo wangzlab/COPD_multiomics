@@ -2,7 +2,7 @@
 
 - All required datasets are under 'datasets' or '5-Datasets' directories. For large data files that cannot be uploaded to GitHub, they are under FigShare doi:10.6084/m9.figshare.19126814.
 
-- All scripts are under 'scripts' directory. For each step, follow the corresponding R script (see below).
+- All scripts are under 'scripts' directory. For each step, follow the corresponding R (or perl) script (see below).
 
 - Install required R packages:
 
