@@ -261,7 +261,7 @@ Output: 5_LOSO.KO.zscore.txt (the KO by species matrix table with z-scores)
 Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage. Take neutrophil as an example:
 
 - This step first aggregates MetaG-MetaB and MetaB-HostT links to the full-path of MetaG-MetaB-HostT, by linking up 'KO-metabolite-host gene' feature-level information.
-- Then it performs a random forest analysis for each linked set of MetaG-MetaB-HostT modules in predicting NEU or EOS, and output model performance scores.
+- Then it performs a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and outputs model performance scores.
 
 ```
 Input: 4_MetaG.MetaB.modules.NEU.linked.txt, 4_MetaB.HostT.modules.NEU.linked.txt, meta.mediation.NEU.txt or meta.mediation.EOS.txt, 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt
