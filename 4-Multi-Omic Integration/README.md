@@ -154,6 +154,19 @@ Output: KO2EC.list.RData (R data file linking KO IDs and EC), EC2CMPD.lists.RDat
 
 - Generate link information between KOs and the metabolite IDs in the metabolome.txt file. 
 - Before running this, we first created a file matching the IDs from metabolome data and MetaCyc compounds, this was done through 1) ID conversion (i.e. use the Compound ID Conversion utility in metaboanalyst https://www.metaboanalyst.ca/), and 2) using 100% compound structure match by open babel (https://openbabel.org/wiki/Main_Page). Then we run this step to link KO IDs to the metabolite IDs in the metabolomic data.
+- The MetaCyc file of interest in this step was 'compounds.dat' which we similarly converted to a tab delimited file. Then we extracted IDs (PubChem, ChEBI, KEGG, HMDB) for each compound and mapped against the metabolite IDs in metabolomic data. We used a perl script to do these which was uploaded as '5_cmpd2metabo.pl'.
+- For the remaining metabolites in the metabolomic data that cannot be mapped to MetaCyc by ID mapping, we extracted their SMILE structure and searched against the compounds in MetaCyc (100% structural match), to maximize the mapping information between metabolites and MetaCyc compounds.
+
+```
+1. Generate metabolite sdf file from SMILES string list for MetaCyc compounds:
+   obabel metacyc.smi –O metacyc.sdf --gen3D
+2. Generate fastsearch index for the metacyc.sdf file:
+   obabel metacyc.sdf -ofs 
+3. For each metabolite in metabolomic data generate its own sdf file:
+   obabel metabo_$i.smi -O metabo_$i.sdf --gen3D
+4. Search metabolites against metacyc.fs index to get top 10 hits:
+   obabel metacyc.fs –otxt –s metabo_$i.sdf –at 10 –aa > metabo_$i.results
+```
 
 ```
 Input: cmpd2metabo.txt (curated matching information between metabolite IDs and MetaCyc compound IDs), KO2CMPD.lists.RData (generated from above step)
@@ -182,7 +195,7 @@ Output: 4_MetaG.MetaB.modules.NEU.linked.txt (linked MetaG-MetaB modules and the
   - Note: In STITCH, CIDm IDs are the merged compound IDs for different CIDs, so only CIDm needs to be considered when mapping to host targets.
 - Then we mapped metabolite IDs from metabolomic data to CIDm IDs based on above mapping rules, which generated a file named 'metabo2CIDm.txt'.
 - Then we extracted compound-target interaction information from '9606.protein_chemical.links.detailed.v5.0.tsv' and '9606.actions.v5.0.tsv' and stored it in 'all_CIDm_targets.txt' (available at doi:10.6084/m9.figshare.19126814).
-- We used a perl script to perform above procedure which was uploaded to utility scripts folder as '5_metabolome2stitch.pl'.
+- We used a perl script to do these which was uploaded as '5_metabolome2stitch.pl'.
 
 ```
 Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database)
