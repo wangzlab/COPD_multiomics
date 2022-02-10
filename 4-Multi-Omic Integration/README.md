@@ -60,6 +60,8 @@ Script: 1.WGCNA_transcriptomics.r
 Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 ```
 
+This step generates dimensionality reduced multi-omic data profiles (1_metagenome-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt) to be used for downstream analyses.
+
 ## 3. Obtain neutrophil or eosinophil-associated modules
 
 Differential metagenomic modules were obtained by: 1) obtaining effect size of each KOs in association with disease in a general linear model adjusting demographic confounders, 2) ranking the features by their effect sizes, and 3) comparing the ranks of features within or outside each module in a Wilcoxon rank-sum test. The differential modules were then associated with sputum neutrophil or eosinophil percentages, and assigned as 'NEU' or 'EOS' if specifically significantly correlated with sputum neutrophil or eosinophil percentages.
@@ -98,11 +100,13 @@ Script: 2.significant.hostP.modules.r
 Output: 2_significant_hostP_modules.RData (a R data file containing the list of protein features associated with COPD and specifically correlated with NEU or EOS)
 ```
 
+This step generates MetaG, MetaB, HostT modules and HostP features differentially abundant between COPD and healthy controls, and specifically associated with sputum neutrophilic or eosinophilic inflammation. 
+
 ## 4. Mediation analysis
 
 Mediation analysis was performed sequentially from MetaG-MetaB, MetaB-HostT, HostT-HostP with sputum neutrophil or eosinophil percentage, respectively. Take the analysis for neutrophil as an example:
 
-- MetaG-MetaB:
+- MetaG-MetaB-NEU: This step identifies MetaG-MetaB module pairs in which MetaG affects NEU through the mediation of MetaB.
 
 ```
 Input: 1_metaG-combined.gct (module-level metagenome profile output from step 1), 1_metaB.module_eigengene.txt, meta.mediation.NEU.txt, 2_significant_metaG_modules.RData (significant metaG modules output from step 2), 2_significant_metaB_modules.RData (significant metaB modules output from step 2)
@@ -112,7 +116,7 @@ Script: 3.mediation_metaG.2.metaB.r
 Output: 3_MetaG_affects_NEU_through_MetaB.txt (metaG-metaB-NEU mediation analysis results, including P-value and proportion of mediation effects)
 ```
 
-- MetaB-HostT:
+- MetaB-HostT-NEU: This step identifies MetaB-HostT module pairs in which MetaB affects NEU through the mediation of HostT.
 
 ```
 Input: 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt, meta.mediation.NEU.txt, 2_significant_metaB_modules.RData (significant metaB modules output from step 2), 2_significant_hostT_modules.RData (significant hostT modules output from step 2)
@@ -122,7 +126,7 @@ Script: 3.mediation_metaB.2.hostT.r
 Output: 3_MetaB_affects_NEU_through_HostT.txt (metaB-hostT-NEU mediation analysis results, including P-value and proportion of mediation effects)
 ```
 
-- HostT-HostP:
+- HostT-HostP-NEU: This step identifies HostT-HostP module/feature pairs in which HostT affects NEU through the mediation of HostP.
 
 ```
 Input: 1_hostT.module_eigengene.txt, sputum_proteome.txt, meta.mediation.NEU.txt, 2_significant_hostT_modules.RData (significant hostT modules output from step 2), 2_significant_hostP_features.RData (significant hostP features output from step 2)
@@ -134,9 +138,11 @@ Output: 3_HostT_affects_NEU_through_HostP.txt (hostT-hostP-NEU mediation analysi
 
 ## 5. Biological links identification
 
-MetaG-MetaB: Biological links were identified if genes in the metaG module were involved in metabolic reaction for the metabolites in the metaB module, or if the metabolites in the metaB module were present in the metaG module, based on KEGG and MetaCyc databases.
+MetaG-MetaB: Biological links were identified if genes in the MetaG module were involved in metabolic reaction for the metabolites in the MetaB module, or if the metabolites in the MetaB module were present in the MetaG module, based on KEGG and MetaCyc databases.
 
-- Generate link information between KEGG gene ortholog (KO) IDs and MetaCyc compound IDs.
+- Generate link information between KEGG gene ortholog (KO) IDs and MetaCyc compound IDs. 
+- Before running this, we should download the MetaCyc database (https://metacyc.org/), which should include a file named 'reactions.dat' containing detailed metabolic reaction information (i.e. substrate, product, enzyme etc). We can convert this file to a tab delimited one for future use (metacyc_reactions.txt).  
+- Then we run this step, which first links KO to EC based on ko01000.keg from KEGG database, and then links EC/KO to metabolites, based on metabolic reaction information derived from MetaCyc database (that a compound is a substrate or a product of a metabolic reaction catalyzed by the protein with the corresponding EC/KO).
 
 ```
 Input: ko01000.keg (downloaded from KEGG), metacyc_reactions.txt (downloaded and reformatted from MetaCyc)
@@ -146,7 +152,8 @@ Script: 4.KO2cmpd.r
 Output: KO2EC.list.RData (R data file linking KO IDs and EC), EC2CMPD.lists.RData (R data file linking EC IDs and compounds), KO2CMPD.lists.RData (R data file linking KO IDs and compounds)
 ```
 
-- Generate link information between KOs and the metabolite IDs in the metabolome.txt file.
+- Generate link information between KOs and the metabolite IDs in the metabolome.txt file. 
+- Before running this, we should first create a file matching the IDs from metabolome data and MetaCyc compounds, this was done through 1) ID conversion (i.e. use the Compound ID Conversion utility in metaboanalyst https://www.metaboanalyst.ca/), and 2) using 100% compound structure match by open babel (https://openbabel.org/wiki/Main_Page). Then we can run this step to link KO IDs to the metabolite IDs in the metabolomic data.
 
 ```
 Input: cmpd2metabo.txt (curated matching information between metabolite IDs and MetaCyc compound IDs), KO2CMPD.lists.RData (generated from above step)
@@ -156,7 +163,8 @@ Script: 4.KO2metabo.r
 Output: KO2METABO.lists.RData (R data file linking KO IDs to metabolite IDs)
 ```
 
-- Generate MetaG-MetaB links.
+- Generate MetaG-MetaB links. 
+- Before running this, we manually curated a file called 'Metabo.KEGGModule.match.txt' which stores information for the modules to which the KEGG compounds (C number) belong to. This step then considers two main situations to link MetaG and MetaB modules: 1) the KO from MetaG and metabolite from MetaB are directly linked based on the above linkage data; 2) the KO and the metabolite belong to the same KEGG module (based on the 'Metabo.KEGGModule.match.txt' file).
 
 ```
 Input: 3_MetaG_affects_NEU_through_MetaB.txt (significant MetaG-MetaB links obtained in step 3), KEGG_modules.tab (KEGG Module-KO mapping file), KO2METABO.lists.RData (R data file linking KO IDs to metabolite IDs generated from above step), 1_metaB_module_assign.txt, metabolome.txt, metagenome.gct, Metabo.KEGGModule.match.txt (file storing KEGG compound ID-module mapping information)
@@ -166,17 +174,25 @@ Script: 4.MetaG.MetaB.link.r
 Output: 4_MetaG.MetaB.modules.NEU.linked.txt (linked MetaG-MetaB modules and the MetaG and MetaB features that link the two modules)
 ```
 
-MetaB-HostT: Biological links were identified if metabolites in the metaB modules interact with host genes in the hostT modules (activation/inhibition/binding), based on STITCH database.
+- MetaB-HostT: Biological links were identified if metabolites in the metaB modules interact with host genes in the hostT modules (activation/inhibition/binding), based on STITCH database. 
+- Before running this, we should first download the files in STITCH database (http://stitch.embl.de/cgi/download.pl?UserId=LXoSgRCY5mtL&sessionId=zCuovnNcZ0QK). We look for three files (choose organism human): 
+  - 9606.protein_chemical.links.detailed.v5.0.tsv which contains interactions between compounds (CIDm, CIDs initial) and human genes (Ensembl ID) and interaction scores;
+  - 9606.actions.v5.0.tsv which contains modes of interaction (activate, inhibit, binding, catalysis, reaction);
+  - chemical.sources.v5.0.tsv which contains compound ID mapping rules (# ChEBI, ChEMBL, KEGG, PC (PubChem Compound) and PS (PubChem Substance)).
+  - Note: In STITCH, CIDm IDs are the merged compound IDs for different CIDs, so only CIDm needs to be considered when mapping to host targets.
+- Then we mapped metabolite IDs from metabolomic data to CIDm IDs based on above mapping rules, which generated a file named 'metabo2CIDm.txt'.
+- Then we extracted compound-target interaction information from '9606.protein_chemical.links.detailed.v5.0.tsv' and '9606.actions.v5.0.tsv' and stored in all_CIDm_targets.txt (available at doi:10.6084/m9.figshare.19126814).
 
 ```
-Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database, available at doi:10.6084/m9.figshare.19126814)
+Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database)
 
 Script: 4.MetaB.HostT.link.r
 
 Output: 4_MetaB.HostT.modules.NEU.linked.txt (linked MetaB-HostT modules and the MetaB and HostT features that link the two modules)
 ```
 
-HostT-HostP: Biological links were identified if the genes coding for the proteins in HostP were present in the hostT modules or its most enriched pathways, based on human pathway databases (i.e. KEGG, Reactome, MetaBase).
+- HostT-HostP: Biological links were identified if the genes coding for the proteins in HostP were present in the hostT modules or its most enriched pathways, based on human pathway databases (i.e. KEGG, Reactome, MetaBase).
+- Protein-Gene ID match information are stored in 'protein_info.txt'. Gene-Pathway match information are stored in 'human_pathways.gmt'.
 
 ```
 Input: 3_HostT_affects_NEU_through_HostP.txt (significant HostT-HostP links obtained in step 3), transcriptome.txt, sputum_proteome.txt, 1_hostT.module_assign.txt, protein_info.txt, human_pathway.gmt (KEGG/MetaBase pathway-gene ID mapping file)
