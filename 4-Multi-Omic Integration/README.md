@@ -199,7 +199,7 @@ Input: 4_MetaG.MetaB.modules.NEU.linked.txt (the linked MetaG-MetaB modules obta
 
 Script: 5.LOSO.delta.r
 
-Output: 5_LOSO_NEU.delta.spearman.r.txt (which contains the delta spearman's r and the z-score for the MetaG-MetaB pair when each species was iteratively removed)
+Output: 5_LOSO_NEU.delta.spearman.r.txt (the delta spearman's r and the z-score for the MetaG-MetaB pair when each species was iteratively removed)
 ```
 
 - Calculate contribution of each species to the turnover of KOs between COPD and control.
