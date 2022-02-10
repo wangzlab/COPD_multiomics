@@ -181,7 +181,8 @@ Output: 4_MetaG.MetaB.modules.NEU.linked.txt (linked MetaG-MetaB modules and the
   - chemical.sources.v5.0.tsv which contains compound ID mapping rules (# ChEBI, ChEMBL, KEGG, PC (PubChem Compound) and PS (PubChem Substance)).
   - Note: In STITCH, CIDm IDs are the merged compound IDs for different CIDs, so only CIDm needs to be considered when mapping to host targets.
 - Then we mapped metabolite IDs from metabolomic data to CIDm IDs based on above mapping rules, which generated a file named 'metabo2CIDm.txt'.
-- Then we extracted compound-target interaction information from '9606.protein_chemical.links.detailed.v5.0.tsv' and '9606.actions.v5.0.tsv' and stored in all_CIDm_targets.txt (available at doi:10.6084/m9.figshare.19126814).
+- Then we extracted compound-target interaction information from '9606.protein_chemical.links.detailed.v5.0.tsv' and '9606.actions.v5.0.tsv' and stored it in 'all_CIDm_targets.txt' (available at doi:10.6084/m9.figshare.19126814).
+- We used a perl script to perform above procedure which was uploaded to utility scripts folder as '5_metabolome2stitch.pl'.
 
 ```
 Input: 3_MetaB_affects_NEU_through_HostT.txt (significant MetaB-HostT links obtained in step 3), metabolome.txt, 1_metaB.module_assign.txt, transcriptome.txt, 1_hostT.module_assign.txt, metabo2CIDm.txt (compound-CIDm ID mapping file manually curated based on STITCH database), all_CIDm_targets.txt (CIDm ID-host target gene mapping file manually curated based on STITCH database)
@@ -206,31 +207,33 @@ Output: 4_HostT.module_HostP.protein.NEU.linked.txt (linked MetaB-HostT modules 
 
 Leave-one-species-out analysis was performed to identify driver taxa for the MetaG-MetaB associations by recalculating module-level associations with each species (using bin-based or gene-based taxonomy) iteratively excluded one at a time.
 
-- Calculate contribution of each species to MetaG-MetaB correlation.
+- Prepare LOSO data by 
+  - aggragating gene-level metagenomic profiles to KO-level with genes from each species removed one at a time,
+  - repeating step 1 dimensionality reduction for the KO-level profiles, and,
+  - generating files of speciesX-combined.gct for the dimensionality reduced MetaG profiles with speciesX left out.
 
-Prepare LOSO data by 1) aggragating gene-level metagenomic profile to KO-level with genes from each species removed one at a time, 2) repeating step 1 dimensionality reduction for the KO-level profile, and 3) generating files of speciesX-combined.gct for the dimensionality reduced MetaG profile with speciesX left out.
-
-```
-Input: 4_MetaG.MetaB.modules.NEU.linked.txt (the linked MetaG-MetaB modules obtained in step 4), 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, LOSO_metaG_DR (containing all dimensionality reduced MetaG profiles named as speciesX-combined.gct, one for each species excluded)
-
-Script: 5.LOSO.delta.r
-
-Output: 5_LOSO_NEU.delta.spearman.r.txt (the delta spearman's r and the z-score for the MetaG-MetaB pair when each species was iteratively removed)
-```
-
-- Calculate contribution of each species to the turnover of KOs between COPD and control.
-
-  Generate metagenomic KO-level profiles with each species removed one at a time.
+- Generate metagenomic KO-level profiles with each species removed one at a time.
 
 ```
 Input: geneDepth.txt (gene-level abundance file with the first column being gene IDs), ko.txt (KO-gene mapping file), bin_membership.txt (gene-bin mapping file), bin_species.txt (species-bin mapping file)
 
 Script: 5.LOSO.KO.r
 
-Output: 5_LOSO_ko.abund (directory containing all ko.abund_rm.speciesX.gct files, one for each species removed
+Output: 5_LOSO_ko.abund (directory containing all ko.abund_rm.speciesX.gct files, one for each species removed)
 ```
 
-   Calculate z-score for the contribution of each species to the turnover of each KO in COPD versus control.
+- Calculate contribution of each species (△Spearman's rho by excluding that species) to the MetaG-MetaB correlation of interest.
+
+```
+Input: 4_MetaG.MetaB.modules.NEU.linked.txt (the linked MetaG-MetaB modules obtained in step 4), 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, LOSO_metaG_DR (containing all dimensionality reduced MetaG profiles named as speciesX-combined.gct, one for each species excluded)
+
+Script: 5.LOSO.delta.r
+
+Output: 5_LOSO_NEU.delta.spearman.r.txt (containing the delta spearman's rho when each species was iteratively removed)
+```
+
+- Calculate z-score for the contribution of each species to the turnover of each KO in COPD versus control.
+- The z-score was calculated as the deviation of the fold-change of that KO in COPD versus controls from its original fold-change when a species was excluded, normalized by standard deviation of the fold-changes of that KO when all species were iteratively excluded.
 
 ```
 Input: 5_LOSO_ko.abund (output in last step), metagenome.gct (null KO-level profile), metadata.txt
@@ -243,6 +246,9 @@ Output: 5_LOSO.KO.zscore.txt (the KO by species matrix table with z-scores)
 ## 7. Random forest analysis
 
 Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage. Take neutrophil as an example:
+
+- This step first aggregates MetaG-MetaB and MetaB-HostT links to the full-path of MetaG-MetaB-HostT, by linking up 'KO-metabolite-host gene' feature-level information.
+- Then it performs a random forest analysis for each linked set of MetaG-MetaB-HostT modules in predicting NEU or EOS, and output model performance scores.
 
 ```
 Input: 4_MetaG.MetaB.modules.NEU.linked.txt, 4_MetaB.HostT.modules.NEU.linked.txt, meta.mediation.NEU.txt or meta.mediation.EOS.txt, 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt
