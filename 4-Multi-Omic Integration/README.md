@@ -40,8 +40,6 @@ Script: Rscript ssgsea-cli.R -i metagenome.gct -o 1_metagenome -d KEGG_modules.g
 Output: 1_metagenome-combined.gct, 1_metagenome-fdr-pvalues.gct, 1_metagenome-parameters.gct, 1_metagenome-scores.gct (Both 1_metagenome-scores.gct and 1_metagenome-combined.gct contain the module-level metagenome profile)
 ```
 
-The 6,678 KOs were aggregated to 461 KEGG modules.
-
 Dimensionality reduction for metabolomic data was performed using WGCNA. 
 
 ```
@@ -51,8 +49,6 @@ Script: 1.WGCNA_metabolomics.r
 
 Output: 1_metaB.module_assign.txt, 1_metaB.module_eigengene.txt
 ```
-
-128 co-abundance modules were generated (n>=5 per module).
 
 Dimensionality reduction for host transcriptomic data was performed using WGCNA.
 
@@ -64,9 +60,17 @@ Script: 1.WGCNA_transcriptomics.r
 Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 ```
 
-497 co-abundance modules were generated (n>=10 per module).
-
 The dimensionality reduced multi-omic data profiles (1_metagenome-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt) was generated to be used for downstream analyses.
+
+The number of modules generated:
+
+|       | Features | Modules     |
+| ----- | -------- | ----------- |
+| MetaG | 6678     | 461         |
+| MetaB | 1671     | 128 (n>=5)  |
+| HostT | 19142    | 497 (n>=10) |
+
+
 
 ## 3. Obtain neutrophil or eosinophil-associated modules
 
@@ -110,12 +114,12 @@ This step generates MetaG, MetaB, HostT modules and HostP features differentiall
 
 The number of modules/features retained:
 
-| Module/Feature | NEU  | EOS  |
-| :------------: | ---- | ---- |
-|     MetaG      | 50   | 19   |
-|     MetaB      | 38   | 16   |
-|     HostT      | 97   | 29   |
-|     HostP      | 21   | 23   |
+| Module/Feature | NEU                 | EOS  |
+| :------------: | ------------------- | ---- |
+|     MetaG      | 50 (24 with P<0.01) | 19   |
+|     MetaB      | 38                  | 16   |
+|     HostT      | 97                  | 29   |
+|     HostP      | 22                  | 4    |
 
 
 
@@ -152,6 +156,14 @@ Script: 3.mediation_hostT.2.hostP.r
 
 Output: 3_HostT_affects_NEU_through_HostP.txt (hostT-hostP-NEU mediation analysis results, including P-value and proportion of mediation effects)
 ```
+
+The number of links generated:
+
+| Links       | NEU  | EOS  |
+| ----------- | ---- | ---- |
+| MetaG-MetaB | 428  | 304  |
+| MetaB-HostT | 3396 | 464  |
+| HostT-HostP | 1243 | 116  |
 
 ## 5. Biological links identification
 
@@ -233,6 +245,14 @@ Script: 4.HostT.HostP.link.r
 Output: 4_HostT.module_HostP.protein.NEU.linked.txt (linked MetaB-HostT modules and the gene/protein ID that links the two modules)
 ```
 
+The number of links that were biologically associated:
+
+| Links       | NEU  | EOS  |
+| ----------- | ---- | ---- |
+| MetaG-MetaB | 109  | 26   |
+| MetaB-HostT | 335  | 58   |
+| HostT-HostP | 142  | 8    |
+
 ## 6. Leave-one-species-out analysis
 
 Leave-one-species-out analysis was performed to identify driver taxa for the MetaG-MetaB associations by recalculating module-level associations with each species (using bin-based or gene-based taxonomy) iteratively excluded one at a time.
@@ -278,6 +298,16 @@ Output: 5_LOSO.KO.zscore.txt (the KO by species matrix table with z-scores)
 Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage. Take neutrophil as an example:
 
 - This step first aggregates MetaG-MetaB and MetaB-HostT links to the full-path of MetaG-MetaB-HostT, by linking up 'KO-metabolite-host gene' feature-level information.
+
+The number of links constituting the full paths:
+
+|      | MetaG-MetaB | MetaB-HostT | MetaG-MetaB-HostT |
+| ---- | ----------- | ----------- | ----------------- |
+| NEU  | 66          | 136         | 620               |
+| EOS  | 17          | 38          | 134               |
+
+
+
 - Then it performs a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and outputs model performance scores.
 
 ```
