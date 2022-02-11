@@ -308,7 +308,7 @@ The number of links constituting the full paths:
 
 
 
-- Then we performed a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and outputs model performance scores.
+- Then we performed a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and ranked the module sets by model performance scores.
 
 ```
 Input: 4_MetaG.MetaB.modules.NEU.linked.txt, 4_MetaB.HostT.modules.NEU.linked.txt, meta.mediation.NEU.txt or meta.mediation.EOS.txt, 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt
