@@ -40,6 +40,8 @@ Script: Rscript ssgsea-cli.R -i metagenome.gct -o 1_metagenome -d KEGG_modules.g
 Output: 1_metagenome-combined.gct, 1_metagenome-fdr-pvalues.gct, 1_metagenome-parameters.gct, 1_metagenome-scores.gct (Both 1_metagenome-scores.gct and 1_metagenome-combined.gct contain the module-level metagenome profile)
 ```
 
+The 6,678 KOs were aggregated to 461 KEGG modules.
+
 Dimensionality reduction for metabolomic data was performed using WGCNA. 
 
 ```
@@ -49,6 +51,8 @@ Script: 1.WGCNA_metabolomics.r
 
 Output: 1_metaB.module_assign.txt, 1_metaB.module_eigengene.txt
 ```
+
+128 co-abundance modules were generated (n>=5 per module).
 
 Dimensionality reduction for host transcriptomic data was performed using WGCNA.
 
@@ -60,7 +64,9 @@ Script: 1.WGCNA_transcriptomics.r
 Output: 1_hostT.module_assign.txt, 1_hostT.module_eigengene.txt
 ```
 
-This step generates dimensionality reduced multi-omic data profiles (1_metagenome-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt) to be used for downstream analyses.
+497 co-abundance modules were generated (n>=10 per module).
+
+The dimensionality reduced multi-omic data profiles (1_metagenome-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt) was generated to be used for downstream analyses.
 
 ## 3. Obtain neutrophil or eosinophil-associated modules
 
@@ -101,6 +107,17 @@ Output: 2_significant_hostP_modules.RData (a R data file containing the list of 
 ```
 
 This step generates MetaG, MetaB, HostT modules and HostP features differentially abundant between COPD and healthy controls, and specifically associated with sputum neutrophilic or eosinophilic inflammation. 
+
+The number of modules/features retained:
+
+| Module/Feature | NEU  | EOS  |
+| :------------: | ---- | ---- |
+|     MetaG      | 50   | 19   |
+|     MetaB      | 38   | 16   |
+|     HostT      | 97   | 29   |
+|     HostP      | 21   | 23   |
+
+
 
 ## 4. Mediation analysis
 
