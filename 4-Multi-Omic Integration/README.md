@@ -258,7 +258,7 @@ The number of links that were biologically associated:
 Leave-one-species-out analysis was performed to identify driver taxa for the MetaG-MetaB associations by recalculating module-level associations with each species (using bin-based or gene-based taxonomy) iteratively excluded one at a time.
 
 - Prepare LOSO data by 
-  - aggragating gene-level metagenomic profiles to KO-level with genes from each species removed one at a time,
+  - aggragating gene-level metagenomic profiles to KO-level with genes from each species (a total of 68 species based on binning results) removed one at a time,
   - repeating step 1 dimensionality reduction for the KO-level profiles, and,
   - generating files of speciesX-combined.gct for the dimensionality reduced MetaG profiles with speciesX left out.
 
@@ -297,7 +297,7 @@ Output: 5_LOSO.KO.zscore.txt (the KO by species matrix table with z-scores)
 
 Perform random forest analysis using each linked MetaG-MetaB-HostT set to predict sputum neutrophil or eosinophil percentage. Take neutrophil as an example:
 
-- This step first aggregates MetaG-MetaB and MetaB-HostT links to the full-path of MetaG-MetaB-HostT, by linking up 'KO-metabolite-host gene' feature-level information.
+- We first aggregated MetaG-MetaB and MetaB-HostT links to the full-path of MetaG-MetaB-HostT, by linking up 'KO-metabolite-host gene' feature-level information.
 
 The number of links constituting the full paths:
 
@@ -308,7 +308,7 @@ The number of links constituting the full paths:
 
 
 
-- Then it performs a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and outputs model performance scores.
+- Then we performed a random forest regression between each linked set of MetaG-MetaB-HostT modules and NEU or EOS, and outputs model performance scores.
 
 ```
 Input: 4_MetaG.MetaB.modules.NEU.linked.txt, 4_MetaB.HostT.modules.NEU.linked.txt, meta.mediation.NEU.txt or meta.mediation.EOS.txt, 1_metaG-combined.gct, 1_metaB.module_eigengene.txt, 1_hostT.module_eigengene.txt
