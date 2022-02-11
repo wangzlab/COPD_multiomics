@@ -119,7 +119,7 @@ The number of modules/features retained:
 |     MetaG      | 50 (24 with P<0.01) | 19   |
 |     MetaB      | 38                  | 16   |
 |     HostT      | 97                  | 29   |
-|     HostP      | 22                  | 4    |
+|     HostP      | 21                  | 23   |
 
 
 
@@ -163,7 +163,7 @@ The number of links generated:
 | ----------- | ---- | ---- |
 | MetaG-MetaB | 428  | 304  |
 | MetaB-HostT | 3396 | 464  |
-| HostT-HostP | 1243 | 116  |
+| HostT-HostP | 1148 | 155  |
 
 ## 5. Biological links identification
 
@@ -251,7 +251,7 @@ The number of links that were biologically associated:
 | ----------- | ---- | ---- |
 | MetaG-MetaB | 109  | 26   |
 | MetaB-HostT | 335  | 58   |
-| HostT-HostP | 142  | 8    |
+| HostT-HostP | 135  | 22   |
 
 ## 6. Leave-one-species-out analysis
 
