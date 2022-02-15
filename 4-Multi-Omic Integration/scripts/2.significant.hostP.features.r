@@ -1,14 +1,14 @@
 # the required input file: 
-# 1) Proteomic feature abundance (sputum_cyto.txt):An abundance table with proteins in rows and samples in columns.
+# 1) Proteomic feature abundance (sputum_cyto.txt): An abundance table with proteins in rows and samples in columns.
 # 2) Meta data prepared in txt file (meta.txt), containing a column named SampleID and a column indicating disease state.
 
 # output files generated:
-# "3_significant_HostP_features.RData" 
+# "2_significant_HostP_features.RData" 
 
 library(data.table)
 library(dplyr)
 
-HostP.data <- data.frame(fread("sputum_proteome.txt"), row.names = 1 )
+HostP.data <- data.frame(fread("sputum_cyto.txt"), row.names = 1 )
 
 m = HostP.data
 feature.abb_df <- cbind.data.frame(feature = rownames(m),
@@ -19,7 +19,7 @@ m <- t(m) %>% as.data.frame(stringsAsFactors=F)
 
 
 diseaseState = 'COPD'
-meta_df <- fread("metadata.txt",data.table = F)
+meta_df <- fread("meta.txt",data.table = F)
 colnames(meta_df)[colnames(meta_df) == diseaseState ] <- "Y"
 
 
@@ -52,12 +52,12 @@ HostP.sigFeatures <- sig.modules
 
 
 # load meta data --------------------------------------
-meta.NEU <- fread("meta.mediation.NEU.txt")
-meta.EOS <- fread("meta.mediation.EOS.txt")
+meta.NEU <- fread("source.data/meta.mediation.NEU.txt")
+meta.EOS <- fread("source.data/meta.mediation.EOS.txt")
 
 # merge data and calculate correlation between module and inflammatory feature ------------------------
 meta <- merge(meta.NEU, meta.EOS, by="SampleID",all = T) %>% select(SampleID, NEU, EOS)
-# add 'X' for sampleID in metadata starting with numerics
+# sampleID 不匹配，meta数据里面sampleID加上X
 meta$SampleID[grepl("^\\d", meta$SampleID)] <- paste("X",meta$SampleID[grepl("^\\d", meta$SampleID)],sep = "")
 
 HostP.data <- m 
@@ -90,12 +90,18 @@ for(df.name in c("HostP.data")){
 }# loop through omic data
 
 HostP.sigFeatures.NEU <- 
-  (rp.res %>% filter(grepl("HostP", Omic)) %>% filter(ClinicVar == "NEU") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>% 
+     filter(grepl("HostP", Omic)) %>% filter(ClinicVar == "NEU") %>%
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 HostP.sigFeatures.NEU <- intersect(HostP.sigFeatures.NEU, HostP.sigFeatures)
 
 HostP.sigFeatures.EOS <- 
-  (rp.res %>% filter(grepl("HostP", Omic)) %>% filter(ClinicVar == "EOS") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>% 
+     filter(grepl("HostP", Omic)) %>% filter(ClinicVar == "EOS") %>%
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 HostP.sigFeatures.EOS <- intersect(HostP.sigFeatures.EOS, HostP.sigFeatures)
 
 
-save(HostP.sigFeatures.NEU, HostP.sigFeatures.EOS, file = "3_significant_HostP_features.RData" )
+save(HostP.sigFeatures.NEU, HostP.sigFeatures.EOS, file = "2_significant_HostP_features.RData")
