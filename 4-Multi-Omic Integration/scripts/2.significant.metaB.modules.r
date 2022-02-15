@@ -12,7 +12,7 @@ library(dplyr)
 
 # load MetaB module abundance  ----------------------------
 
-MetaB.Mod.dat <- fread("1_metaB.module_eigengene.txt",data.table = F) 
+MetaB.Mod.dat <- fread("1_DimReduction/metaB.module_eigengene.txt",data.table = F) 
 MetaB.Mod.dat[-1] <- sapply(MetaB.Mod.dat[-1], as.numeric)
 MetaB.Mod.dat <- MetaB.Mod.dat %>% tibble::column_to_rownames("V1")
 
@@ -25,7 +25,7 @@ m <- t(m) %>% as.data.frame(stringsAsFactors=F)
 
 
 diseaseState = 'COPD'
-meta_df <- fread("metadata.txt",data.table = F)
+meta_df <- fread("meta.txt",data.table = F)
 colnames(meta_df)[colnames(meta_df) == diseaseState ] <- "Y"
 #meta_df$Y <- as.factor(meta_df$Y)
 
@@ -61,12 +61,12 @@ MetaB.sigMods <- sig.modules
 
 
 # load meta data --------------------------------------
-meta.NEU <- fread("meta.mediation.NEU.txt")
-meta.EOS <- fread("meta.mediation.EOS.txt")
+meta.NEU <- fread("source.data/meta.mediation.NEU.txt")
+meta.EOS <- fread("source.data/meta.mediation.EOS.txt")
 
 # merge data and calculate correlation between module and inflammatory feature ------------------------
 meta <- merge(meta.NEU, meta.EOS, by="SampleID",all = T) %>% select(SampleID, NEU, EOS)
-# add 'X' for sampleID in metadata starting with numerics
+# sampleID 不匹配，meta数据里面sampleID加上X
 meta$SampleID[grepl("^\\d", meta$SampleID)] <- paste("X",meta$SampleID[grepl("^\\d", meta$SampleID)],sep = "")
 
 MetaB.Mod.dat <- m
@@ -101,11 +101,17 @@ for(df.name in c("MetaB.Mod.dat")){
 
 
 MetaB.sigMods.NEU <- 
-  (rp.res %>% filter(grepl("MetaB", Omic)) %>% filter(ClinicVar == "NEU") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>%
+     filter(grepl("MetaB", Omic)) %>% filter(ClinicVar == "NEU") %>%
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 MetaB.sigMods.NEU <- intersect(MetaB.sigMods.NEU, MetaB.sigMods)
 
 MetaB.sigMods.EOS <- 
-  (rp.res %>% filter(grepl("MetaB", Omic)) %>% filter(ClinicVar == "EOS") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>% 
+     filter(grepl("MetaB", Omic)) %>% filter(ClinicVar == "EOS") %>% 
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 MetaB.sigMods.EOS <- intersect(MetaB.sigMods.EOS, MetaB.sigMods)
 
 
