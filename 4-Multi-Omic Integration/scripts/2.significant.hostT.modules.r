@@ -5,7 +5,7 @@
 # 4) "meta.mediation.EOS.txt": meta data containing EOS
 
 # output files generated:
-# "3_significant_HostT_modules.RData" 
+# "2_significant_HostT_modules.RData" 
 
 
 library(data.table)
@@ -14,7 +14,7 @@ library(dplyr)
 
 # load HostT module abundance  ----------------------------
 
-HostT.Mod.dat <- fread("1_hostT.module_eigengene.txt",data.table = F)
+HostT.Mod.dat <- fread("1_DimReduction/hostT.module_eigengene.txt",data.table = F)
 HostT.Mod.dat[-1] <- sapply(HostT.Mod.dat[-1], as.numeric)
 HostT.Mod.dat <- HostT.Mod.dat %>% tibble::column_to_rownames("V1")
 
@@ -27,7 +27,7 @@ m <- t(m) %>% as.data.frame(stringsAsFactors=F)
 
 
 diseaseState = 'COPD'
-meta_df <- fread("metadata.txt",data.table = F)
+meta_df <- fread("meta.txt",data.table = F)
 colnames(meta_df)[colnames(meta_df) == diseaseState ] <- "Y"
 
 
@@ -61,12 +61,12 @@ HostT.sigMods <- sig.modules
 
 
 # load meta data --------------------------------------
-meta.NEU <- fread("meta.mediation.NEU.txt")
-meta.EOS <- fread("meta.mediation.EOS.txt")
+meta.NEU <- fread("source.data/meta.mediation.NEU.txt")
+meta.EOS <- fread("source.data/meta.mediation.EOS.txt")
 
 # merge data and calculate correlation between module and inflammatory feature ------------------------
 meta <- merge(meta.NEU, meta.EOS, by="SampleID",all = T) %>% select(SampleID, NEU, EOS)
-# add 'X' for sampleID in metadata starting with numerics
+# sampleID 不匹配，meta数据里面sampleID加上X
 meta$SampleID[grepl("^\\d", meta$SampleID)] <- paste("X",meta$SampleID[grepl("^\\d", meta$SampleID)],sep = "")
 
 HostT.Mod.dat <- m
@@ -101,11 +101,17 @@ for(df.name in c("HostT.Mod.dat")){
 
 
 HostT.sigMods.NEU <- 
-  (rp.res %>% filter(grepl("HostT", Omic)) %>% filter(ClinicVar == "NEU") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>% 
+     filter(grepl("HostT", Omic)) %>% filter(ClinicVar == "NEU") %>% 
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 HostT.sigMods.NEU <- intersect(HostT.sigMods.NEU, HostT.sigMods)
 
 HostT.sigMods.EOS <- 
-  (rp.res %>% filter(grepl("HostT", Omic)) %>% filter(ClinicVar == "EOS") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>% 
+     filter(grepl("HostT", Omic)) %>% filter(ClinicVar == "EOS") %>% 
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 HostT.sigMods.EOS <- intersect(HostT.sigMods.EOS, HostT.sigMods)
 
 
