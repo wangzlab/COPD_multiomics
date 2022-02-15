@@ -116,4 +116,4 @@ MetaB.sigMods.EOS <- intersect(MetaB.sigMods.EOS, MetaB.sigMods)
 
 
 
-save(MetaB.sigMods.NEU, MetaB.sigMods.EOS, file = "3_significant_MetaB_modules.RData")
+save(MetaB.sigMods.NEU, MetaB.sigMods.EOS, file = "2_significant_MetaB_modules.RData")
