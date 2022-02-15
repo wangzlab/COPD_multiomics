@@ -5,7 +5,7 @@
 # 3) "meta.mediation.EOS.txt": meta data containing EOS
 
 # output files generated:
-# "3_significant_MetaB_modules.RData" 
+# "2_significant_MetaB_modules.RData" 
 
 library(data.table)
 library(dplyr)
