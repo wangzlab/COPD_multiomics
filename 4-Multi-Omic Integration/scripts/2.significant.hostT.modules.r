@@ -115,4 +115,4 @@ HostT.sigMods.EOS <-
 HostT.sigMods.EOS <- intersect(HostT.sigMods.EOS, HostT.sigMods)
 
 
-save(HostT.sigMods.EOS, HostT.sigMods.NEU, file = "3_significant_HostT_modules.RData")
+save(HostT.sigMods.EOS, HostT.sigMods.NEU, file = "2_significant_HostT_modules.RData")
