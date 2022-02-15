@@ -16,7 +16,7 @@ source("functions/io.R")
 
 
 writeLines("1.Loading MetaG data")
-MetaG.feature.dat <- parse.gctx(fname="metagenome.gct")@mat %>% as.data.frame()
+MetaG.feature.dat <- parse.gctx(fname="metagenome_rel_asinsqrt_zscore.gct")@mat %>% as.data.frame()
 m = MetaG.feature.dat
 feature.abb_df <- cbind.data.frame(feature = rownames(m),
                                    abb = paste("feature",seq(1,nrow(m),1),sep = ""),
@@ -24,7 +24,7 @@ feature.abb_df <- cbind.data.frame(feature = rownames(m),
 rownames(m) <- sapply(rownames(m), function(x) feature.abb_df$abb[which(feature.abb_df$feature == x)])
 m <- t(m) %>% as.data.frame(stringsAsFactors=F)
 
-meta_df <- fread("source.data/metadata.txt",data.table = F)
+meta_df <- fread("source.data/meta.txt",data.table = F)
 disease.state = "COPD"
 
 writeLines("2.Calculating residuals of glm models by MetaG features and co-founders")
@@ -133,6 +133,7 @@ for(i in c(1:length(gs))){
   Module_pvalue <- bind_rows(Module_pvalue, vec_c)
 }
 
+Module_pvalue$Wilcox.p <- p.adjust(as.numeric(Module_pvalue$Wilcox.p))
 MetaG.sigMods <-  Module_pvalue$module[Module_pvalue$Wilcox.p < 0.1,]
 
 ## ################################################################################################
@@ -208,13 +209,13 @@ MetaG.Mod.dat <- m %>% t() %>% as.data.frame()
 
 
 # load meta data --------------------------------------
-meta.NEU <- fread("meta.mediation.NEU.txt")
-meta.EOS <- fread("meta.mediation.EOS.txt")
+meta.NEU <- fread("source.data/meta.mediation.NEU.txt")
+meta.EOS <- fread("source.data/meta.mediation.EOS.txt")
 
 
 # merge data and calculate correlation between module and inflammatory feature ------------------------
 meta <- merge(meta.NEU, meta.EOS, by="SampleID",all = T) %>% select(SampleID, NEU, EOS)
-# add 'X' for sampleID in metadata starting with numerics
+# sampleID 不匹配，meta数据里面sampleID加上X
 meta$SampleID[grepl("^\\d", meta$SampleID)] <- paste("X",meta$SampleID[grepl("^\\d", meta$SampleID)],sep = "")
 
 rp.res <- NULL
@@ -242,16 +243,24 @@ for(df.name in c("MetaG.Mod.dat")){
       
       rp.res <- bind_rows(rp.res, vec)
     }# loop through Modules
+    
+    
   }# loop through NEU and EOS
 }# loop through omic data
 
 
 MetaG.sigMods.NEU <- 
-  (rp.res %>% filter(grepl("MetaG", Omic)) %>% filter(ClinicVar == "NEU") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>%
+     filter(grepl("MetaG", Omic)) %>% filter(ClinicVar == "NEU") %>% 
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 MetaG.sigMods.NEU <- intersect(MetaG.sigMods.NEU, MetaG.sigMods)
 
 MetaG.sigMods.EOS <- 
-  (rp.res %>% filter(grepl("MetaG", Omic)) %>% filter(ClinicVar == "EOS") %>% filter(p <= 0.1))$ModuleName
+  (rp.res %>%
+     filter(grepl("MetaG", Omic)) %>% filter(ClinicVar == "EOS") %>% 
+     mutate(padj=p.adjust(p)) %>%
+     filter(padj <= 0.1))$ModuleName
 MetaG.sigMods.EOS <- intersect(MetaG.sigMods.EOS, MetaG.sigMods)
 
 
