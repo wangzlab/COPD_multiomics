@@ -126,7 +126,7 @@ for(f in ko.files){
   FC.dat <-dat %>% tibble::rownames_to_column("SampleID") %>%
     reshape2::melt(id.vars=c("SampleID","Y"), variable.name = "KO") %>%
     group_by(KO) %>%
-    summarise(log2FC = log2(mean(value[Y==Disease.state], na.rm=T)/mean(value[Y==Healthy.state], na.rm=T) ) )
+    summarise(log2FC = abs(log2(mean(value[Y==Disease.state], na.rm=T)/mean(value[Y==Healthy.state], na.rm=T))))
   
   #FC.dat$FC[is.na(FC.dat$FC)] <- 0 
   colnames(FC.dat)[colnames(FC.dat) == "log2FC"] <- paste( "log2FC.", sub("\\.gct", "", basename(f)),sep = "")
@@ -239,7 +239,7 @@ dat <- merge(ko.dat.orig.rel, meta %>% select(SampleID, Y), by.x=0, by.y="Sample
 FCnull.dat <- dat %>% tibble::rownames_to_column("SampleID") %>%
   reshape2::melt(id.vars=c("SampleID","Y"), variable.name = "KO") %>%
   group_by(KO) %>%
-  summarise(log2FC.null = log2(mean(value[Y==Disease.state], na.rm=T)/mean(value[Y==Healthy.state], na.rm=T) ) )
+  summarise(log2FC.null = abs(log2(mean(value[Y==Disease.state], na.rm=T)/mean(value[Y==Healthy.state], na.rm=T))))
 
 # calculate zscore for each ko --------------------
 combined_FC.res.t <- t(combined_FC.res) %>% as.data.frame()
@@ -264,7 +264,7 @@ for(ko in all.kos){  # all.kos
     # si = colnames(combined_FC.res)[1]
     FCsi = combined_FC.res[ko, si]
     
-    Zsi = abs(FCnull - FCsi)/denominator
+    Zsi = (FCnull - FCsi)/denominator
     
     Zscore_ko[si] <- Zsi
   }
