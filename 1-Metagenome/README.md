@@ -192,7 +192,7 @@ for i in `cat assemblelist`
 	do 
 	j = ${i/_1./_2.}
 	k = ${i%%_*}
-	megahit -l 04_decontam/$i 04_decontam/$j -o 06_assembly/${k} -t 20
+	megahit -l 04_decontam/$i -2 04_decontam/$j -o 06_assembly/${k} -t 20
 	done
 ```
 
